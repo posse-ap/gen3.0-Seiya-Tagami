@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>トップページ</title>
-    <link rel="stylesheet" href="recet.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../css/recet.css" />
+    <link rel="stylesheet" href="../css/topPage.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet"/>
   </head>
@@ -18,18 +18,18 @@
       </h1>
       <nav>
         <ul id="p_header_ul">
-          <li><a href="" id="nav01">POSSEとは</a></li>
-          <li><a href="">クイズ</a></li>
+          <li><a href="../html/topPage.html">POSSEとは</a></li>
+          <li><a href="../html/quizPage.html">クイズ</a></li>
           <li class="p_header_li">
             <a
               href="https://twitter.com/posse_program?s=20&t=sqo8kspkGI9dyjdnpYjAOQ" class="p_header_item"
-              ><img src="./img/icon/icon-twitter.svg" alt=""
+              ><img src="../img/icon/icon-twitter.svg" alt=""
             /></a>
           </li>
           <li class="p_header_li">
             <a
               href="https://www.instagram.com/posse_programming/?igshid=YmMyMTA2M2Y="
-              class="p_header_item"><img src="./img/icon/icon-instagram.svg" alt=""
+              class="p_header_item"><img src="../img/icon/icon-instagram.svg" alt=""
             /></a>
           </li>
         </ul>
@@ -37,13 +37,14 @@
     </header>
 
     <main>
-      <section id="section_alt">
+      <article>
+      <section id="p_section_alt">
         <div id="p_mainvisual">
-          <img src="./img/img-hero.jpg" alt="" />
+          <img src="../img/img-hero.jpg" alt="" />
           <div class="p_mainvisualInner">
-            <h1 id="p_mainvisualInner_a">
+            <h2 id="p_mainvisualInner_a">
               学生プログラミングコミュニティ POSSE(ポッセ)
-            </h1>
+            </h2>
             <p id="p_mainvisualInner_b">自分史上最高<br />を仲間と。</p>
           </div>
         </div>
@@ -54,38 +55,29 @@
 
       <section>
         <div class="p_whatposse">
-          <p id="p_whatposse_a">POSSEとは</p>
-          <p id="p_whatposse_b">About POSSE</p>
+          <p>POSSEとは</p>
+          <p id="p_whatposse_p">About POSSE</p>
         </div>
-        <div class="aboutWrapper">
-          <p class="clearfix">
+        <div class="p_whatposse_aboutWrapper">
+          <img
+              src="../img/img-about.jpg"
+              
+              alt=""
+            />
+          <p class="p_whatposse_aboutWrapper_content">
             学生プログラミングコミュニティ「POSSE(ポッセ)」は、人格とプログラミング、二つの面での成長をスローガンに活動しており、大学生だけが集まって学びを深めるコミュニティです。<br />
             プログラミングだけではありません。オフラインでのイベントや、旅行など様々な企画を行っています！<br />
             それらを通じて、夏休みの大半をPOSSEで出来た仲間と過ごす人もたくさんいるほどメンバーとの仲が深まります。
           </p>
-          <div class="img">
-            <img
-              src="./img/img-about.jpg"
-              width="472px"
-              height="312px"
-              alt=""
-            />
           </div>
         </div>
       </section>
 
-      <section id="p_linesec">
+      <section>
         <div class="p_line">
           <div class="p_lineInner">
             <h2>
-              <div id="p_line_icon">
-                <img
-                  src="./img/icon/icon-line.svg"
-                  alt=""
-                  width="40px"
-                  height="40px"
-                />
-              </div>
+              <div  id="p_line_icon"><img src="../img/icon/icon-line.svg" alt=""/></div>
               POSSE 公式LINE
             </h2>
             <p>
@@ -94,39 +86,29 @@
             </p>
             <a
               href="https://line.me/R/ti/p/@651htnqp?from=page#~"
-              id="p_line_ad"
               ><p>LINE 追加</p>
               <img
-                src="./img/icon/icon-link-dark.svg"
-                alt=""
-                width="12.25px"
-                height="12.25px"
+                src="../img/icon/icon-link-dark.svg"
+                alt="" id="p_line_ad_img"
+                
             /></a>
           </div>
         </div>
       </section>
+    </article>
     </main>
 
     <footer>
       <div class="p_footter">
-        <h2>
-          <img src="./img/logo.svg" alt="" width="202px" height="39.22px" />
-        </h2>
-
+          <img src="../img/logo.svg" alt="" id ="p_footter_logo"/>
         <a href="https://posse-ap.com/" class="p_footterInner"
-          ><p>POSSE公式サイト</p>
-          <img src="./img/icon/icon-link-gray-dark.svg" alt=""
-        /></a>
-
-        <div class="p_footterInner-img">
-          <a
-            href="https://twitter.com/posse_program?s=20&t=sqo8kspkGI9dyjdnpYjAOQ" class="p_footerInner_img_item"
-            ><img src="./img/icon/icon-twitter.svg" alt=""
-          /></a>
-          <a
-            href="https://www.instagram.com/posse_programming/?igshid=YmMyMTA2M2Y=" class="p_footerInner_img_item"
-            ><img src="./img/icon/icon-instagram.svg" alt=""
-          /></a>
+          >POSSE公式サイト
+          <img src="../img/icon/icon-link-gray-dark.svg" alt=""/></a>
+        <div class="p_footterInner_sns">
+          <a href="https://twitter.com/posse_program?s=20&t=sqo8kspkGI9dyjdnpYjAOQ" class="p_footerInner_sns_item">
+            <img src="../img/icon/icon-twitter.svg" alt=""/></a>
+          <a href="https://www.instagram.com/posse_programming/?igshid=YmMyMTA2M2Y=" class="p_footerInner_sns_item">
+            <img src="../img/icon/icon-instagram.svg" alt=""/></a>
         </div>
       </div>
 
@@ -137,11 +119,11 @@
           class="p_footter_line"
         >
           <div id="p_footter_line_icon">
-            <img src="./img/icon/icon-line.svg" alt="" />
+            <img src="../img/icon/icon-line.svg" alt="" />
           </div>
           <p>POSSE公式LINEで<br />最新情報をGET！</p>
           <img
-            src="./img/icon/icon-link-light.svg"
+            src="../img/icon/icon-link-light.svg"
             alt=""
             id="p_footter_line_link"
           />
