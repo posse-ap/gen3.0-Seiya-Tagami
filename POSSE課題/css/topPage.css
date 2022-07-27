@@ -171,7 +171,8 @@ nav {
 
 
 .p_line {
-  margin: 140px auto;
+  margin: 0 auto;
+  margin-top: 140px;
   height: 357px;
   width: 984px;
   border-radius: 48px;
@@ -260,15 +261,11 @@ nav {
 
 
 
-footer {
-  width: 1440px;
-  margin: 0 auto;
-  height: 355px;
-}
-
 .p_footter {
   height: 274.22px;
+  margin-top: 136px;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
 }
@@ -323,10 +320,9 @@ footer {
   height: 55%;
 }
 
-.p_footterInner-small {
+.p_footterInner_small {
   height: 80px;
-  border: solid;
-  border-color: #eeeeee;
+  border: solid #eeeeee;
   border-left: transparent;
   border-right: transparent;
   border-bottom: transparent;
@@ -335,7 +331,7 @@ footer {
   align-items: center;
 }
 
-.p_footterInner-small small {
+.p_footterInner_small small {
   font-weight: 400;
   color: #666666;
 }

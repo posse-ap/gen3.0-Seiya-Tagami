@@ -59,8 +59,235 @@ nav {
   height: 50px;
 }
 
+#p_sec {
+  margin-top: 80px;
+}
+
+.p_quizvisual {
+  width: auto;
+  height: 320px;
+  background-image: url(../img/quiz/bg-hero.jpg);
+  background-size: cover;
+}
+
+.p_quizvisual_text {
+  padding-top: 110px;
+  padding-left: 220px;
+}
+
+.p_quizvisual_text h1 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 180%;
+  color: #eff2f5;
+}
+
+.p_quizvisual_text h2 {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 150%;
+  color: #ffffff;
+  margin: 0;
+  padding-top: 10px;
+}
+
+.p_quiz_a {
+  color: #ffffff;
+  width: 85px;
+  height: 70px;
+  background: #0071bc;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 120px 0 0 243px;
+}
+
+.p_quiz_b {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.p_quiz_a h2 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 150%;
+}
+
+.p_quiz_b p {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 150%;
+  color: #333333;
+}
+
+.p_quiz_b img {
+  width: 718px;
+  height: 357px;
+  margin-top: 64px;
+}
+
+.p_quiz_ans_a {
+  margin: 64px 0 0 243px;
+  width: 58px;
+  height: 70px;
+  background: #e34e70;
+  border-radius: 8px;
+}
+
+.p_quiz_ans_a p {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 150%;
+  color: #ffffff;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.p_quiz_box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.p_quiz_optbox{
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  gap: 33px;
+}
+/* 
+.p_quiz_optbox > li{
+  width: 312px;
+  height: 80px;
+  background: #FFFFFF;
+  border: 5px solid #EEEEEE;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0px 12px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 180%;
+  cursor: pointer;
+} */
+
+.p_quiz_optbox_list{
+  width: 278px;
+  height: 80px;
+  background: #FFFFFF;
+  border: 5px solid #EEEEEE;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0px 12px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 180%;
+  cursor: pointer;
+}
+
+
+.p_quiz_optbox_list_min{
+  background-image: url(../img/icon/icon-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: 270px center;
+}
+
+.p_quiz_optbox > li.color{
+  color: #0071bc;
+  border: 5px solid #0071bc;
+}
+
+.p_quiz_answer{
+  display: none;
+  width: 1002px;
+  height: 143px;
+  background: #FFF2F5;
+  border-radius: 8px;
+}
+
+.p_quiz_answer_true{
+  display: block;
+}
+
+.p_quiz_answer_f{
+  display: none;
+  width: 1002px;
+  height: 143px;
+  background: #FFF2F5;
+  border-radius: 8px;
+  background: #EFF2F5;;
+}
+
+.p_quiz_answer_false{
+  display: block;
+}
+
+.p_quiz_answer h2{
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  color: #E34E70;
+  margin: 24px 0 0 40px;
+}
+
+
+.p_quiz_answer_f h2{
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  color: #0071BC;
+  margin: 24px 0 0 40px;
+}
+
+.p_quiz_answer_sp_a{
+  display: inline-block;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 180%;
+  color: #333333;
+  margin: 16px 0 0 40px;
+}
+
+.p_quiz_answer_sp_b{
+  font-size: 18px;
+  margin-left: 16px;
+}
+
+.p_quiz_art{
+  display: inline-block;
+  width: 1002px;
+  height: 80px;
+  background: #F6F6F6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 180%;
+  color: #333333;
+
+}
+
+.p_quiz_art img{
+  padding-left: 24px;
+}
+
+#p_quiz_b_sp{
+  transform: translateX(-68%);
+}
+
 .p_line {
-  margin: 140px auto;
+  margin: 0 auto;
+  margin-top: 140px;
   height: 357px;
   width: 984px;
   border-radius: 48px;
@@ -147,18 +374,12 @@ nav {
   margin-top: 15px;
 }
 
-
-
-footer {
-  width: 1440px;
-  margin: 0 auto;
-  height: 355px;
-}
-
 .p_footter {
   height: 274.22px;
+  margin-top: 136px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -210,4 +431,20 @@ footer {
 .p_footerInner_sns_item img{
   width: 55%;
   height: 55%;
+}
+
+.p_footterInner_small {
+  height: 80px;
+  border: solid #EEEEEE;
+  border-left: transparent;
+  border-right: transparent;
+  border-bottom: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.p_footterInner_small small {
+  font-weight: 400;
+  color: #666666;
 }
