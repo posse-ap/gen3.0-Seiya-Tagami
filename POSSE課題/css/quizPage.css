@@ -87,7 +87,7 @@ nav {
   padding-top: 10px;
 }
 
-.p_quiz_QN {
+.p_quiz_qnum {
   color: #ffffff;
   background: #0071bc;
   border-radius: 8px;
@@ -99,14 +99,14 @@ nav {
   padding: 8px 12px;
 }
 
-.p_quiz_Q {
+.p_quiz_q {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 24px;
 }
 
-.p_quiz_Q_txt{
+.p_quiz_qtxt {
   width: 68%;
   font-weight: 700;
   font-size: 36px;
@@ -114,13 +114,13 @@ nav {
   color: #333333;
 }
 
-.p_quiz_Q_img {
+.p_quiz_qimg {
   width: 718px;
   height: 357px;
   margin-top: 64px;
 }
 
-.p_quiz_A {
+.p_quiz_a {
   margin: 64px 0 0 243px;
   width: 58px;
   height: 70px;
