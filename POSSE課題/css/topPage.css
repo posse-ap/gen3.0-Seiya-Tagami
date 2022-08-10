@@ -1,9 +1,10 @@
 body {
   background-color: #ffffff;
+  font-family: "Noto Sans JP", sans-serif;
   z-index: 1;
 }
 
-#p_section_alt{
+#p_section_alt {
   margin-top: 80px;
 }
 
@@ -31,7 +32,7 @@ a {
   color: #666;
 }
 
-#p_header_ul {
+.p_header_ul {
   list-style: none;
   margin: 0;
   height: 50px;
@@ -50,13 +51,13 @@ nav {
 }
 
 .p_header_item{
+  width: 50px;
+  height: 50px;
   border: #eee solid;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
-  height: 50px;
 }
 
 .p_mainvisual {
@@ -66,43 +67,39 @@ nav {
 
 .p_mainvisual img {
   width: 976px;
-  height: 680px;
+  height: auto;
   border-radius: 80px 0px 0px 80px;
 }
 
 .p_mainvisualInner {
-  width: 500px;
-  height: 281px;
   background-color: #eff2f5;
   border-radius: 24px;
   position: absolute;
   top: 198px;
   left: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 62px;
 }
 
-#p_mainvisualInner_txt01{
+.p_mainvisualInner_title{
   color: #0071bc;
   font-size: 16px;
   font-weight: 700;
   line-height: 28.8px;
+  font-style: normal;
 }
 
-#p_mainvisualInner_txt02{
-  color: #333333;
+.p_mainvisualInner_catchcopy{
+  display: inline-block;
   font-size: 60px;
   font-weight: 700;
   letter-spacing: 0.05em;
-  line-height: 80px;
+  line-height: 1.3333;
+  margin-top: 10px;
 }
 
 .p_mainvisual_sd{
   display: block;
   color: black;
-  font-family: Plus Jakarta Sans;
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
@@ -126,7 +123,7 @@ nav {
   flex-direction: column;
   align-items: center;
   font-size: 36px;
-  margin: 96px 0 8px 0;
+  margin-top: 96px;
 }
 
 .p_whatposse h2{
@@ -144,27 +141,26 @@ nav {
   margin: 0 auto;
   margin-top: 43px;
   display: flex;
+  align-items: center;
 }
 
-.p_whatposse_aboutWrapper_content {
+.p_whatposse_aboutWrapper span {
+  padding-left: 40px;
   font-size: 14px;
   font-weight: 400;
-  margin: 0;
-  margin-top: 70px;
-  margin-left: 40px;
 }
 
 .p_whatposse_aboutWrapper img {
   border-radius: 24px;
   width:472px;
-  height:312px;
+  height:auto;
 }
 
 .p_line {
+  width: 984px;
+  height: 357px;
   margin: 0 auto;
   margin-top: 140px;
-  height: 357px;
-  width: 984px;
   border-radius: 48px;
   background-image: url(../img/bg-line.jpg);
   background-size: cover;
@@ -256,6 +252,7 @@ nav {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  border-top: #eeeeee solid 2px;
 }
 
 #p_footter_logo{
@@ -310,10 +307,7 @@ nav {
 
 .p_footterInner_small {
   height: 80px;
-  border: solid #eeeeee;
-  border-left: transparent;
-  border-right: transparent;
-  border-bottom: transparent;
+  border-top: solid #eeeeee 2px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -323,9 +317,6 @@ nav {
   font-weight: 400;
   color: #666666;
 }
-
-
-
 
 
 .p_footter_line {
@@ -372,5 +363,97 @@ nav {
 #p_footter_line_link {
   width: 16.43px;
   height: 16.43px;
-  margin-left: 22px;
+}
+
+@media screen and (max-width:520px){
+  header{
+    width: 100%;
+    padding-left: 16px;
+  }
+
+  header h1 img{
+    width: 120px;
+    height: 24px;
+  }
+
+  .p_header_ul{
+    display: none;
+  }
+
+  .p_mainvisual img{
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .p_mainvisualInner {
+    padding: 20px 11px 20px 24px;
+    top: 87%;
+    left: 4%;
+  }
+
+  .p_mainvisualInner_title{
+    font-size: 12px;
+  }
+
+  .p_mainvisualInner_catchcopy{
+    margin-top: 0;
+    font-size: 28px;
+    letter-spacing: 0;
+  }
+
+  .p_mainvisualInner_catchcopy br{
+    display: none;
+  }
+
+  .p_mainvisual_sd{
+    display: none;
+  }
+
+  .p_whatposse{
+    margin-top: 150px;
+  }
+
+  .p_whatposse h2{
+    font-size: 24px;
+  }
+
+  .p_whatposse p{
+    font-size: 14px;
+  }
+
+  .p_whatposse_aboutWrapper{
+    flex-direction: column;
+  }
+
+  .p_whatposse_aboutWrapper img{
+    width: 343px;
+  }
+
+  .p_whatposse_aboutWrapper span{
+    padding: 16px;
+  }
+
+  .p_line{
+    width: 94%;
+  }
+
+  .p_lineInner{
+    width: 100%;
+  }
+  
+  .p_footter_line{
+    width: 100%;
+    height: 48px;
+    border-radius: 0;
+    bottom:0;
+    right: 0;
+  }
+
+  .p_footter_line br{
+    display: none;
+  }
+
+  .p_footterInner_small{
+    margin-bottom: 48px;
+  }
 }

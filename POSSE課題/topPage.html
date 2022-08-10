@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="./css/recet.css" />
     <link rel="stylesheet" href="./css/topPage.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet"/>
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   </head>
-
+  
   <body>
     <header>
       <h1>
         <a href="./topPage.html"><img src="./img/logo.svg" alt="" /></a>
       </h1>
       <nav>
-        <ul id="p_header_ul">
+        <ul class="p_header_ul">
           <li><a href="./topPage.html">POSSEとは</a></li>
           <li><a href="./quizPage.html">クイズ</a></li>
           <li class="p_header_li">
@@ -41,10 +41,10 @@
         <div class="p_mainvisual">
           <img src="./img/img-hero.jpg" alt="" />
           <div class="p_mainvisualInner">
-            <h2 id="p_mainvisualInner_txt01">
+            <h1 class="p_mainvisualInner_title">
               学生プログラミングコミュニティ POSSE(ポッセ)
-            </h2>
-            <p id="p_mainvisualInner_txt02">自分史上最高<br />を仲間と。</p>
+            </h1>
+            <span class="p_mainvisualInner_catchcopy">自分史上最高<br>を仲間と。</span>
           </div>
           <span class="p_mainvisual_sd">Scroll Down</span>
         </div>
@@ -60,7 +60,7 @@
               
               alt=""
             />
-          <span class="p_whatposse_aboutWrapper_content">
+          <span class="p_whatposse_aboutWrapper_txt">
             学生プログラミングコミュニティ「POSSE(ポッセ)」は、人格とプログラミング、二つの面での成長をスローガンに活動しており、大学生だけが集まって学びを深めるコミュニティです。<br>
             プログラミングだけではありません。オフラインでのイベントや、旅行など様々な企画を行っています！<br>
             それらを通じて、夏休みの大半をPOSSEで出来た仲間と過ごす人もたくさんいるほどメンバーとの仲が深まります。
@@ -112,7 +112,8 @@
           <div id="p_footter_line_icon">
             <img src="./img/icon/icon-line.svg" alt="" />
           </div>
-          <p>POSSE公式LINEで<br />最新情報をGET！</p>
+          <p>
+          <span id="span_disappear">POSSE</span><span>公式LINEで<br>最新情報をGET！</span></p>
           <img
             src="./img/icon/icon-link-light.svg"
             alt=""
