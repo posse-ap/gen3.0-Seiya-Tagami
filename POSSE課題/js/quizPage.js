@@ -37,21 +37,21 @@
       article.before(createSection);
       createSection.classList.add('quizFrame'); //sectionを生成
 
-      const createQN = document.createElement('div');
-      createQN.textContent = `Q${currentNum + 1}`;
+      const createQnum = document.createElement('div');
+      createQnum.textContent = `Q${currentNum + 1}`;
       const Section = document.getElementsByClassName('quizFrame');
-      Section[currentNum].appendChild(createQN);
-      createQN.classList.add('p_quiz_qnum') //設問ナンバーを生成 
+      Section[currentNum].appendChild(createQnum);
+      createQnum.classList.add('p_quiz_qnum') //設問ナンバーを生成 
 
       const createQ = document.createElement('div');
       Section[currentNum].appendChild(createQ);
       createQ.classList.add('p_quiz_q') //設問の大枠を生成
 
       const makeQuiz = document.getElementsByClassName('p_quiz_q');
-      const createTxt = document.createElement('span');
-      createTxt.textContent = quizSet[currentNum].q;
-      makeQuiz[currentNum].appendChild(createTxt);
-      createTxt.classList.add('p_quiz_qtxt');//設問を生成
+      const createQuiztxt = document.createElement('span');
+      createQuiztxt.textContent = quizSet[currentNum].q;
+      makeQuiz[currentNum].appendChild(createQuiztxt);
+      createQuiztxt.classList.add('p_quiz_qtxt');//設問を生成
       
       const createImg = document.createElement('img');
       createImg.src = quizSet[currentNum].h;
@@ -80,39 +80,39 @@
       createli.classList.add('p_quiz_option','p_quiz_option_disappear')
       });//選択肢生成
 
-      const createQuizTrue = document.createElement('div');
-      quizBox[currentNum].appendChild(createQuizTrue);
-      createQuizTrue.classList.add('p_quiz_answer_t');
+      const createTruebox = document.createElement('div');
+      quizBox[currentNum].appendChild(createTruebox);
+      createTruebox.classList.add('p_quiz_answer_t');
 
-      const creatQuizFalse = document.createElement('div');
-      quizBox[currentNum].appendChild(creatQuizFalse);
-      creatQuizFalse.classList.add('p_quiz_answer_f'); //正解不正解の生成
+      const creatFalsebox = document.createElement('div');
+      quizBox[currentNum].appendChild(creatFalsebox);
+      creatFalsebox.classList.add('p_quiz_answer_f'); //正解不正解の生成
 
-      const createSeikai = document.createElement('h2');
-      const spanA = document.createElement('span');
-      const spanB = document.createElement('span');
+      const createTrue = document.createElement('h2');
+      const createSpan01 = document.createElement('span');
+      const createspan02 = document.createElement('span');
       const showTrue = document.getElementsByClassName('p_quiz_answer_t');
-      createSeikai.textContent = '正解！'
-      spanA.textContent = 'A';
-      spanB.textContent = `${quizSet[currentNum].o[0]}`;
-      showTrue[currentNum].appendChild(createSeikai);
-      showTrue[currentNum].appendChild(spanA);
-      showTrue[currentNum].appendChild(spanB);
-      spanA.classList.add('p_quiz_answer_txt_01');
-      spanB.classList.add('p_quiz_answer_txt_02'); 
+      createTrue.textContent = '正解！'
+      createSpan01.textContent = 'A';
+      createspan02.textContent = `${quizSet[currentNum].o[0]}`;
+      showTrue[currentNum].appendChild(createTrue);
+      showTrue[currentNum].appendChild(createSpan01);
+      showTrue[currentNum].appendChild(createspan02);
+      createSpan01.classList.add('p_quiz_answer_txt_01');
+      createspan02.classList.add('p_quiz_answer_txt_02'); 
 
-      const createHuseikai = document.createElement('h2');
-      const spanC = document.createElement('span');
-      const spanD = document.createElement('span');
+      const createFalse = document.createElement('h2');
+      const createSpan03 = document.createElement('span');
+      const createSpan04 = document.createElement('span');
       const showFalse = document.getElementsByClassName('p_quiz_answer_f');
-      createHuseikai.textContent = '不正解...';
-      spanC.textContent = 'A';
-      spanD.textContent = `${quizSet[currentNum].o[0]}`;
-      showFalse[currentNum].appendChild(createHuseikai);
-      showFalse[currentNum].appendChild(spanC);
-      showFalse[currentNum].appendChild(spanD);
-      spanC.classList.add('p_quiz_answer_txt_01');
-      spanD.classList.add('p_quiz_answer_txt_02'); //正解不正解の内容を生成 
+      createFalse.textContent = '不正解...';
+      createSpan03.textContent = 'A';
+      createSpan04.textContent = `${quizSet[currentNum].o[0]}`;
+      showFalse[currentNum].appendChild(createFalse);
+      showFalse[currentNum].appendChild(createSpan03);
+      showFalse[currentNum].appendChild(createSpan04);
+      createSpan03.classList.add('p_quiz_answer_txt_01');
+      createSpan04.classList.add('p_quiz_answer_txt_02'); //正解不正解の内容を生成 
       
       if(quizSet[currentNum].d === ''){
         return;
@@ -123,12 +123,12 @@
           createDetail.classList.add('p_quiz_art');
     
           const quizArt = document.getElementsByClassName('p_quiz_art');
-          const createdetailTxt = document.createElement('p');
-          createdetailTxt.textContent = quizSet[currentNum].d;
+          const createDetailtxt = document.createElement('p');
+          createDetailtxt.textContent = quizSet[currentNum].d;
     
           for(let d = 0; d < quizArt.length; d++){
-            quizArt[d].appendChild(createdetailTxt);
-            createdetailTxt.classList.add('p_quiz_art_txt');;
+            quizArt[d].appendChild(createDetailtxt);
+            createDetailtxt.classList.add('p_quiz_art_txt');;
           }
       }
   }//資料の生成
