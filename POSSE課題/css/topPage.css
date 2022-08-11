@@ -242,7 +242,7 @@ nav {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  margin-top: 15px;
+  margin-top: 19px;
 }
 
 .p_footter {
@@ -435,6 +435,12 @@ nav {
 
   .p_line{
     width: 94%;
+    height: 372px;
+    border-radius: 28px;
+  }
+
+  .p_line:before{
+    border-radius: 28px;
   }
 
   .p_lineInner{
@@ -447,6 +453,7 @@ nav {
     border-radius: 0;
     bottom:0;
     right: 0;
+    z-index: 10;
   }
 
   .p_footter_line br{
