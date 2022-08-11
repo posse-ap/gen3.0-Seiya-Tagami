@@ -234,7 +234,7 @@ nav {
   right: 20px;
 }
 
-#p_line_icon {
+.p_line_icon {
   width: 30px;
   height: 30px;
   background-color: #fff;
@@ -443,10 +443,27 @@ nav {
     border-radius: 28px;
   }
 
+  .p_line_icon{
+    margin-top: 0;
+  }
+
   .p_lineInner{
     width: 100%;
   }
+
+  .p_lineInner h2{
+    font-size: 24px;
+    line-height: 43px;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
   
+  .p_lineInner span{
+    text-align: left;
+    padding: 8px 25px;
+  }
+
   .p_footter_line{
     width: 100%;
     height: 48px;
