@@ -8,5 +8,5 @@ hamburgurMenu.addEventListener('click',() =>{
 
   const fotterLine = document.getElementsByClassName('p_footter_line');
   fotterLine[0].classList.toggle('p_footter_line_disappear');
-
+  
 })
