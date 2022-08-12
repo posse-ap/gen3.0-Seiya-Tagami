@@ -16,9 +16,12 @@
       <h1>
         <a href="./index.html"><img src="./img/logo.svg" alt="" /></a>
       </h1>
+      <div id="hamburger_menu">
+        <span class="hamburger_menu_clickbefore"></span>
+      </div>
       <nav>
-        <ul class="p_header_ul">
-          <li><a href="./index.html">POSSEとは</a></li>
+        <ul class="p_header_ul p_header_ul_clickafter">
+          <li class="p_header_li_responsive"><a href="./index.html">POSSEとは</a></li>
           <li><a href="./quiz.html">クイズ</a></li>
           <li class="p_header_li">
             <a
@@ -32,6 +35,31 @@
               class="p_header_item"><img src="./img/icon/icon-instagram.svg" alt=""
             /></a>
           </li>
+          <a
+          href="https://line.me/R/ti/p/@651htnqp?from=page#~"
+          class="p_footter_line_clickafter"
+        >
+          <div id="p_footter_line_icon">
+            <img src="./img/icon/icon-line.svg" alt="" />
+          </div>
+          <span>POSSE公式LINE追加</span>
+          <img
+            src="./img/icon/icon-link-light.svg"
+            alt=""
+            class="p_footter_linelink_clickafter"
+          />
+        </a>
+          <div class="p_footter_clickafter">
+          <a href="https://posse-ap.com/" class="p_footterInner"
+            >POSSE公式サイト
+            <img src="./img/icon/icon-link-gray-dark.svg" alt=""/></a>
+          <div class="p_footterInner_sns">
+            <a href="https://twitter.com/posse_program?s=20&t=sqo8kspkGI9dyjdnpYjAOQ" class="p_footerInner_sns_item">
+              <img src="./img/icon/icon-twitter.svg" alt=""/></a>
+            <a href="https://www.instagram.com/posse_programming/?igshid=YmMyMTA2M2Y=" class="p_footerInner_sns_item">
+              <img src="./img/icon/icon-instagram.svg" alt=""/></a>
+          </div>
+        </div>
         </ul>
       </nav>
     </header>
@@ -105,7 +133,7 @@
             <img src="./img/icon/icon-instagram.svg" alt=""/></a>
         </div>
       </div>
-      <div class="p_footterInner_small">
+      <div class="p_footterInner_copyright">
         <small>&copy; 2022 POSSE</small>
         <a
           href="https://line.me/R/ti/p/@651htnqp?from=page#~"
@@ -124,5 +152,6 @@
         </a>
       </div>
     </footer>
+    <script src="./js/common.js"></script>
   </body>
 </html>
