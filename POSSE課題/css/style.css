@@ -4,7 +4,7 @@
 }
 
 .p_mainvisual img {
-  width: 976px;
+  width: 65%;
   height: auto;
   border-radius: 80px 0px 0px 80px;
 }
@@ -13,8 +13,8 @@
   background-color: #eff2f5;
   border-radius: 24px;
   position: absolute;
-  top: 198px;
-  left: 80px;
+  top: 33%;
+  left: 7%;
   padding: 62px;
 }
 
