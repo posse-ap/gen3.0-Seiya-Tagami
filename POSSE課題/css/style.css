@@ -220,7 +220,7 @@
   text-align: left;
 }
 
-@media screen and (max-width:520px){
+@media screen and (max-width:768px){
 
   .p_mainvisual img{
     width: 100%;

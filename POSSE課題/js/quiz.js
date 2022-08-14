@@ -33,9 +33,8 @@
   }
   
   function Set(currentNum){
-      const createSection =document.createElement('section');
-      const article = document.getElementById('p_article');
-      article.before(createSection);
+      const createSection = document.createElement('section');
+      document.getElementById('p_article').before(createSection);
       createSection.classList.add('quizFrame'); //sectionを生成
 
       const createQnum = document.createElement('div');
