@@ -345,11 +345,11 @@ img.p_footer_line_link {
     margin-top: 0;
   }
 
-  .p_lineInner{
+  .p_line_inner{
     width: 100%;
   }
 
-  .p_lineInner h2{
+  .p_line_inner h2{
     font-size: 24px;
     line-height: 43px;
     flex-direction: column;
@@ -357,7 +357,7 @@ img.p_footer_line_link {
     gap: 0;
   }
   
-  .p_lineInner span{
+  .p_line_inner span{
     text-align: left;
     padding: 8px 25px;
   }
