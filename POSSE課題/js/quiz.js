@@ -58,16 +58,21 @@
       makeQuiz[currentNum].appendChild(createImg);
       createImg.classList.add('p_quiz_qimg');//設問の画像を生成
 
-      const createAnsweralphabet = document.createElement('div');
-      Section[currentNum].appendChild(createAnsweralphabet);
-      createAnsweralphabet.textContent = 'A';
-      createAnsweralphabet.classList.add('p_quiz_a');//アンサーのアルファベット生成
+      // const createAnsweralphabet = document.createElement('div');
+      // Section[currentNum].appendChild(createAnsweralphabet);
+      // createAnsweralphabet.textContent = 'A';
+      // createAnsweralphabet.classList.add('p_quiz_a');//アンサーのアルファベット生成
 
       const createQuizbox = document.createElement('div');
       Section[currentNum].appendChild(createQuizbox);
       createQuizbox.classList.add('p_quiz_box');//選択肢の大枠生成
 
       const quizBox = document.getElementsByClassName('p_quiz_box');
+      const createAnsweralphabet = document.createElement('div');
+      quizBox[currentNum].appendChild(createAnsweralphabet);
+      createAnsweralphabet.textContent = 'A';
+      createAnsweralphabet.classList.add('p_quiz_a');//アンサーのアルファベット生成
+      
       const createOptbox = document.createElement('ul');
       quizBox[currentNum].appendChild(createOptbox);
       createOptbox.classList.add('p_quiz_optbox');//選択肢の箱生成
