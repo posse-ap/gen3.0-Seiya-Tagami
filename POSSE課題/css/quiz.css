@@ -1,24 +1,23 @@
-
-.p_quizvisual {
+.p_quiz_visual {
   width: 100%;
   height: 320px;
   background-image: url(../img/quiz/bg-hero.jpg);
   background-size: cover;
 }
 
-.p_quizvisual_text {
+.p_quiz_visual_text {
   padding-top: 110px;
   padding-left: 220px;
   color: #eff2f5;
 }
 
-.p_quizvisual_text h1{
+.p_quiz_visual_text h1{
   font-weight: 700;
   font-size: 18px;
   line-height: 180%;
 }
 
-.p_quizvisual_text h2 {
+.p_quiz_visual_text h2 {
   font-weight: 700;
   font-size: 60px;
   line-height: 150%;
@@ -89,8 +88,8 @@
 .p_quiz_option{
   width: 278px;
   height: 80px;
-  background: #FFFFFF;
-  border: 5px solid #EEEEEE;
+  background: #ffffff;
+  border: 5px solid #eeeeee;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -117,7 +116,7 @@
   display: none;
   width: 1002px;
   height: 143px;
-  background: #FFF2F5;
+  background: #fff2f5;
   border-radius: 8px;
 }
 
@@ -125,7 +124,7 @@
   display: none;
   width: 1002px;
   height: 143px;
-  background: #EFF2F5;;
+  background: #eff2f5;;
   border-radius: 8px;
 }
 
@@ -139,7 +138,7 @@
   font-size: 24px;
   line-height: 150%;
   letter-spacing: 0.05em;
-  color: #E34E70;
+  color: #e34e70;
   margin: 24px 0 0 40px;
 }
 
@@ -148,7 +147,7 @@
   font-size: 24px;
   line-height: 150%;
   letter-spacing: 0.05em;
-  color: #0071BC;
+  color: #0071bc;
   margin: 24px 0 0 40px;
 }
 
@@ -169,7 +168,7 @@
 .p_quiz_art{
   width: 1002px;
   height: 80px;
-  background: #F6F6F6;
+  background: #f6f6f6;
   border-radius: 8px;
   font-weight: 700;
   font-size: 18px;
@@ -189,17 +188,17 @@
 
 @media screen and (max-width:768px){
 
-  .p_quizvisual{
+  .p_quiz_visual{
     height: 159px;
     background-repeat: no-repeat;
     background-size: cover;
   }
 
-  .p_quizvisual_text{
+  .p_quiz_visual_text{
     padding: 60px 0 32px 32px;
-  }.p_quizvisual_text h1{
+  }.p_quiz_visual_text h1{
     font-size: 14px;
-  }.p_quizvisual_text h2{
+  }.p_quiz_visual_text h2{
     font-size: 28px;
   }
 
@@ -229,7 +228,7 @@
     height: 54px;
     font-size: 14px;
     box-sizing: border-box;
-    border: 4px solid #EEEEEE;
+    border: 4px solid #eeeeee;
     border-radius: 8px;
   }
 
