@@ -3,9 +3,13 @@ document.getElementById('hamburger_menu').addEventListener('click',() =>{
   clickBefore.classList.toggle('hamburger_menu_clickafter');
 
   const clickAfter = document.getElementsByClassName('p_header_ul')[0];
-  clickAfter.classList.toggle('p_header_ul_clickafter');
+  clickAfter.classList.toggle('p_header_ul_clickbefore');
+  clickAfter.animate([{opacity:"0"},{opacity:1}] , 400);
 
-  const fotterLine = document.getElementsByClassName('p_footer_line')[0];
-  fotterLine.classList.toggle('p_footer_line_disappear');
-  
+  if(document.querySelector('p_footer_line') != null){
+    const footerLine = document.querySelector('p_footer_line');
+  footerLine.classList.toggle('p_footer_line_disappear');
+  } else {
+    return;
+  }
 })

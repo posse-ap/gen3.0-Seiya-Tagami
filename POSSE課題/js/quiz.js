@@ -37,17 +37,23 @@
       document.getElementById('p_article').before(createSection);
       createSection.classList.add('quizFrame'); //sectionを生成
 
-      const createQnum = document.createElement('div');
-      createQnum.textContent = `Q${currentNum + 1}`;
       const Section = document.getElementsByClassName('quizFrame');
-      Section[currentNum].appendChild(createQnum);
-      createQnum.classList.add('p_quiz_qnum') //設問ナンバーを生成 
+      // const createQnum = document.createElement('div');
+      // createQnum.textContent = `Q${currentNum + 1}`;
+      // Section[currentNum].appendChild(createQnum);
+      // createQnum.classList.add('p_quiz_qnum') //設問ナンバーを生成 
 
       const createQuestion = document.createElement('div');
       Section[currentNum].appendChild(createQuestion);
       createQuestion.classList.add('p_quiz_q') //設問の大枠を生成
 
       const makeQuiz = document.getElementsByClassName('p_quiz_q');
+
+      const createQnum = document.createElement('div');
+      createQnum.textContent = `Q${currentNum + 1}`;
+      makeQuiz[currentNum].appendChild(createQnum);
+      createQnum.classList.add('p_quiz_qnum') //設問ナンバーを生成 
+      
       const createQuiztxt = document.createElement('span');
       createQuiztxt.textContent = shuffledQuizset[currentNum].q;
       makeQuiz[currentNum].appendChild(createQuiztxt);
