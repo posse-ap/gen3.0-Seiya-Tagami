@@ -70,17 +70,20 @@
   const showTrue = document.getElementsByClassName("p_quiz_answer_t");
   const showFalse = document.getElementsByClassName("p_quiz_answer_f");
   const optBox = document.getElementsByClassName("p_quiz_optbox");
-  let isAnswered;
+  // let isAnswered;
 
   for (let currentNum = 0; currentNum < quizSet.length; currentNum++) {
     createQuiz(currentNum);
-    checkAnswer(currentNum);
+    // checkAnswer(currentNum);
   }
 
   function createQuiz(currentNum) {
     const createSection = document.createElement("section");
     document.getElementById("p_article").before(createSection);
-    createSection.classList.add("quiz_frame"); //sectionを生成
+    createSection.classList.add("quiz_frame", "js-quiz"); 
+    createSection.dataset.quiz = currentNum;
+
+    //sectionを生成
 
     const Section = document.getElementsByClassName("quiz_frame");
 
@@ -122,18 +125,20 @@
     const shuffledChoices = shuffle([...shuffledQuizset[currentNum].o]);
     shuffledChoices.forEach( option => {
       const createOption = document.createElement("li");
-      createOption.textContent = option;
+      // createOption.textContent = option;
+      createOption.innerHTML = `<button class="p_quiz_option p_quiz_option_disappear js-answer">${option}</button>`
       optBox[currentNum].appendChild(createOption);
-      createOption.classList.add("p_quiz_option", "p_quiz_option_disappear");
+      // createOption.classList.add("p_quiz_option", "p_quiz_option_disappear");
+      createOption.classList.add('p_quiz_option_item')
     }); //選択肢生成
 
     const createTruebox = document.createElement("div");
     quizBox[currentNum].appendChild(createTruebox);
-    createTruebox.classList.add("p_quiz_answer_t");
+    createTruebox.classList.add("p_quiz_answer_t", "js-correct");
 
     const creatFalsebox = document.createElement("div");
     quizBox[currentNum].appendChild(creatFalsebox);
-    creatFalsebox.classList.add("p_quiz_answer_f"); //正解不正解の生成
+    creatFalsebox.classList.add("p_quiz_answer_f", "js-false"); //正解不正解の生成
 
     const createTrue = document.createElement("h2");
     const createSpan01 = document.createElement("span");
@@ -180,28 +185,62 @@
     }
   } //資料の生成
 
-  function checkAnswer(currentNum) {
-    optBox[currentNum].addEventListener("click", e => {
-      if (optBox[currentNum].isAnswered === true) {
-        return;
-      }
+  // function checkAnswer(currentNum) {
+  //   optBox[currentNum].addEventListener("click", e => {
+  //     // if (optBox[currentNum].isAnswered === true) {
+  //     //   return;
+  //     // }
 
-      if (e.target.textContent === quizSet[currentNum].o[0]) {
-        showTrue[currentNum].classList.add("p_quiz_answer_t_show");
-      } else {
-        showFalse[currentNum].classList.add("p_quiz_answer_f_show");
-      }
+  //     if (e.target.textContent === quizSet[currentNum].o[0]) {
+  //       showTrue[currentNum].classList.add("p_quiz_answer_t_show");
+  //     } else {
+  //       showFalse[currentNum].classList.add("p_quiz_answer_f_show");
+  //     }
 
-      if (e.target.nodeName === "LI") {
-        const option =
-          optBox[currentNum].getElementsByClassName("p_quiz_option");
+  //     if (e.target.nodeName === "LI") {
+  //       const option =
+  //         optBox[currentNum].getElementsByClassName("p_quiz_option");
 
-        for (let listNum = 0; listNum < option.length; listNum++) {
-          option[listNum].classList.remove("p_quiz_option_disappear");
+  //       for (let listNum = 0; listNum < option.length; listNum++) {
+  //         option[listNum].classList.remove("p_quiz_option_disappear");
+  //       }
+  //       e.target.classList.add("color");
+  //       // optBox[currentNum].isAnswered = true;
+  //     }
+  //   });
+  // } //ボタンを押した時の動き
+
+  const setDisabled = (answers) => {
+    answers.forEach((answer) => {
+      answer.disabled = true;
+    })
+  }
+
+  const removeArrow = (answers) => {
+    answers.forEach( answer => {
+      answer.classList.remove('p_quiz_option_disappear')
+    })  
+  }
+  const allQuiz = document.querySelectorAll('.js-quiz');
+
+  allQuiz.forEach(quiz => {
+    const answers = quiz.querySelectorAll('.js-answer');
+    const quizNum = Number(quiz.getAttribute('data-quiz'));
+    const correctBox = quiz.querySelector('.js-correct');
+    const falseBox = quiz.querySelector('.js-false');
+
+    answers.forEach(answer => {
+      answer.addEventListener('click', () => {
+        answer.classList.add('is-selected');
+        setDisabled(answers);
+        removeArrow(answers);
+        
+        if(answer.textContent === quizSet[quizNum].o[0]) {
+          correctBox.classList.add('block');
+        } else {
+          falseBox.classList.add('block')
         }
-        e.target.classList.add("color");
-        optBox[currentNum].isAnswered = true;
-      }
-    });
-  } //ボタンを押した時の動き
+      })
+    })
+  })
 }
