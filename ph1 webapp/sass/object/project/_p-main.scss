@@ -1,12 +1,15 @@
 @use "../../foundation/variables" as *;
 
 .p-main {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 20px;
-  width: 88%;
-  margin: 0 auto;
   margin-top: 20px;
+
+  &__contents {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    width: 88%;
+    margin: 0 auto;
+  }
 
   //leftここから
   &__left {
@@ -60,7 +63,7 @@
     height: 560px;
 
     &__graph {
-      width: calc((100% - 20px)/2);
+      width: calc((100% - 20px) / 2);
       height: 100%;
       background-color: $color-white;
       border-radius: 12px;
@@ -83,13 +86,13 @@
     text-align: center;
     line-height: 100px;
 
-
-    & span:nth-child(2){
+    & span:nth-child(2) {
       display: inline-block;
       margin: 0 13px;
     }
 
-    & span:first-child, span:last-child {
+    & span:first-child,
+    span:last-child {
       color: $color-blue;
       font-size: 18px;
     }

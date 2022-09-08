@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <script src="./assets/scripts/modal.js" defer></script>
     <title>web app</title>
   </head>
   <body>
@@ -23,7 +24,7 @@
             <span>4th week</span>
           </div>
           <div class="p-header__button">
-            <button  class="p-header__button__inner">記録・投稿</button>
+            <button class="p-header__button__inner js-record">記録・投稿</button>
           </div>
         </div>
       </div>
@@ -31,32 +32,34 @@
     <!-- headerここまで -->
 
     <!-- mainここから -->
-    <main>
+    <main class="l-main">
       <div class="p-main">
-        <div class="p-main__left">
-          <div class="p-main__left__item">
-            <span>Today</span>
-            <span>3</span>
-            <span>hour</span>
+        <div class="p-main__contents">
+          <div class="p-main__left">
+            <div class="p-main__left__item">
+              <span>Today</span>
+              <span>3</span>
+              <span>hour</span>
+            </div>
+            <div class="p-main__left__item">
+              <span>Month</span>
+              <span>120</span>
+              <span>hour</span>
+            </div>
+            <div class="p-main__left__item">
+              <span>Total</span>
+              <span>1348</span>
+              <span>hour</span>
+            </div>
+            <div class="p-main__left__graph"></div>
           </div>
-          <div class="p-main__left__item">
-            <span>Month</span>
-            <span>120</span>
-            <span>hour</span>
-          </div>
-          <div class="p-main__left__item">
-            <span>Total</span>
-            <span>1348</span>
-            <span>hour</span>
-          </div>
-          <div class="p-main__left__graph"></div>
-        </div>
-        <div class="p-main__right">
-          <div class="p-main__right__graph">
-            <span>学習言語</span>
-          </div>
-          <div class="p-main__right__graph">
-            <span>学習コンテンツ</span>
+          <div class="p-main__right">
+            <div class="p-main__right__graph">
+              <span>学習言語</span>
+            </div>
+            <div class="p-main__right__graph">
+              <span>学習コンテンツ</span>
+            </div>
           </div>
         </div>
       </div>
@@ -65,6 +68,11 @@
         <span>2020年10月</span>
         <span>&gt;</span>
         <!-- memo この矢印マークあってるの？ -->
+      </div>
+      <div class="p-modal js-modal-open">
+        <div class="p-modal__content">
+          <div class="p-modal__button"><button class=" js-modal-close">ばつ</button></div>
+        </div>
       </div>
     </main>
     <!-- mainここまで -->

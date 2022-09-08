@@ -1,0 +1,23 @@
+@use "../../foundation/variables" as *;
+
+.p-modal {
+  display: none;
+
+  &::before {
+    content: "";
+    background-color: rgba(0, 0, 0, .3);
+    position: absolute;
+    inset: 0;
+  }
+
+  &__content {
+    width: 900px;
+    height: 600px; //仮
+    border-radius: 50px;
+    background-color: $color-white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
