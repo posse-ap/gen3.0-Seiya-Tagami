@@ -1,0 +1,8 @@
+@use "./variables" as *;
+
+body {
+  background-color: $color-gray;
+  user-select: none;
+  font-family: $font-default;
+  letter-spacing: 0.05em;
+}

@@ -1,0 +1,42 @@
+@use "../../foundation/variables" as *;
+
+.p-header {
+  height: 64px;
+  background-color: $color-white;
+
+  &__container {
+    display: flex;
+    padding: 11px 40px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: $color-light-blue-b;
+    font-size: 16px;
+
+    & img {
+      width: 130px;
+    }
+  }
+
+  &__button {
+    margin-left: auto;
+
+    &__inner {
+      width: 200px;
+      height: 42px;
+      border-radius: 50px;
+      background: linear-gradient(to right, $color-blue, $color-light-blue-a);
+      color: $color-white;
+      box-shadow: 0 5px 10px $color-light-blue-a;
+      line-height: 42px;
+      text-align: center;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
