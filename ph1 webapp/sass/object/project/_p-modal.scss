@@ -28,8 +28,8 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 3px; 
-        height: 25px; 
+        width: 3px;
+        height: 25px;
         background: $color-close-button;
         border-radius: 3px;
         transform: translate(-50%, -50%) rotate(45deg);
@@ -41,7 +41,7 @@
         top: 50%;
         left: 50%;
         width: 3px;
-        height: 25px; 
+        height: 25px;
         background: $color-close-button;
         border-radius: 3px;
         transform: translate(-50%, -50%) rotate(-45deg);
@@ -97,11 +97,22 @@
       }
 
       & dd {
-        padding: 10px 12px;
+        padding: 0 10px;
         border-radius: 50px;
         background-color: $color-gray;
         font-size: 18px;
         letter-spacing: 0;
+      }
+
+      & label {
+        display: flex;
+        align-items: center;
+        height: 40px;
+      }
+
+      & input {
+        width: 0;
+        height: 0;
       }
     }
 
@@ -117,6 +128,50 @@
         font-size: 18px;
         letter-spacing: 0;
       }
+    }
+//たぶん別ファイルにつくるべきかも　とりあえず装飾
+    &__checkbox__dummy-input {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 25px;
+      height: 25px;
+      margin-right: 5px;
+      border-radius: 50%;
+      background-color: #cccccc;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 35%;
+        height: 3px;
+        border-radius: 2px;
+        transform: translate(-5px, 0px) rotateZ(-135deg);
+        transform-origin: 2px 2px;
+        background: $color-white;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 55%;
+        height: 3px;
+        border-radius: 2px;
+        transform: translate(-4px, 1px) rotateZ(-40deg);
+        transform-origin: 2px 2px;
+        background: $color-white;
+      }
+    }
+
+    & input:checked + .p-modal__left__checkbox__dummy-input {
+      background-color: $color-blue;
     }
   }
 
@@ -144,6 +199,62 @@
         padding: 0 20px;
         border-radius: 8px;
         background-color: $color-gray;
+      }
+    }
+
+    &__twitter-share {
+      & label {
+        display: flex;
+        align-items: center;
+      }
+
+      & input {
+        width: 0;
+        height: 0;
+      }
+
+      &__dummy-input {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        border-radius: 50%;
+        background-color: #cccccc;
+
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 35%;
+          height: 4px;
+          border-radius: 2px;
+          transform: translate(-6px, 5px) rotateZ(-135deg);
+          transform-origin: 2px 2px;
+          background: $color-white;
+        }
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 55%;
+          height: 4px;
+          border-radius: 2px;
+          transform: translate(-6px, 5px) rotateZ(-40deg);
+          transform-origin: 2px 2px;
+          background: $color-white;
+        }
+      }
+
+      & input:checked + .p-modal__right__twitter-share__dummy-input {
+        background-color: $color-blue;
       }
     }
   }

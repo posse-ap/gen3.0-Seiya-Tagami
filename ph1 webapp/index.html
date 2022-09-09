@@ -83,7 +83,9 @@
             <div class="p-modal__left">
               <dl class="p-modal__left__date">
                 <dt>学習日</dt>
-                <dd><input type="text" name="study-date" id="" /></dd>
+                <dd>
+                  <input type="text" name="study-date" id="" />
+                </dd>
               </dl>
               <dl class="p-modal__left__contents">
                 <dt>学習コンテンツ（複数選択可）</dt>
@@ -91,19 +93,28 @@
                   <dd>
                     <label>
                       <input type="checkbox" name="study-contents" id="" />
-                      N予備校
+                      <span
+                        class="p-modal__left__checkbox__dummy-input"
+                      ></span>
+                      <span>N予備校</span>
                     </label>
                   </dd>
                   <dd>
                     <label>
                       <input type="checkbox" name="study-contents" id="" />
-                      ドットインストール
+                      <span
+                        class="p-modal__left__checkbox__dummy-input"
+                      ></span>
+                      <span>ドットインストール</span>
                     </label>
                   </dd>
                   <dd>
                     <label>
                       <input type="checkbox" name="study-contents" id="" />
-                      POSSE課題
+                      <span
+                        class="p-modal__left__checkbox__dummy-input"
+                      ></span>
+                      <span>POSSE課題</span>
                     </label>
                   </dd>
                 </div>
@@ -174,10 +185,13 @@
                 <dt>Twitter用コメント</dt>
                 <dd><input type="text" name="twitter-text" id="" /></dd>
               </dl>
-              <div>
+              <div class="p-modal__right__twitter-share">
                 <label>
                   <input type="checkbox" name="twitter-share" id="" />
-                  Twitterにシェアする
+                  <span
+                    class="p-modal__right__twitter-share__dummy-input"
+                  ></span>
+                  <span>Twitterにシェアする</span>
                 </label>
               </div>
             </div>
