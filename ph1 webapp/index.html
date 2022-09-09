@@ -24,7 +24,9 @@
             <span>4th week</span>
           </div>
           <div class="p-header__button">
-            <button class="p-header__button__inner js-record">記録・投稿</button>
+            <button class="p-header__button__inner js-record">
+              記録・投稿
+            </button>
           </div>
         </div>
       </div>
@@ -71,7 +73,103 @@
       </div>
       <div class="p-modal js-modal-open">
         <div class="p-modal__content">
-          <div class="p-modal__button"><button class=" js-modal-close">ばつ</button></div>
+          <div class="p-modal__button">
+            <button class="js-modal-close">ばつ</button>
+          </div>
+          <div class="p-modal__inner">
+            <div class="p-modal__left">
+              <dl class="p-modal__left__date">
+                <dt>学習日</dt>
+                <dd><input type="text" name="study-date" id="" /></dd>
+              </dl>
+              <dl class="p-modal__left__contents">
+                <dt>学習コンテンツ（複数選択可）</dt>
+                <div class="p-modal__left__contents__checkboxes">
+                  <dd>
+                    <label>
+                      <input type="checkbox" name="study-contents" id="" />
+                      N予備校
+                    </label>
+                  </dd>
+                  <dd>
+                    <label>
+                      <input type="checkbox" name="study-contents" id="" />
+                      ドットインストール
+                    </label>
+                  </dd>
+                  <dd>
+                    <label>
+                      <input type="checkbox" name="study-contents" id="" />
+                      POSSE課題
+                    </label>
+                  </dd>
+                </div>
+              </dl>
+              <dl class="p-modal__left__languages">
+                <dt>学習言語（複数選択可）</dt>
+                <div class="p-modal__left__languages__checkboxes">
+                  <dd>
+                    <label>
+                      <input type="checkbox" name="study-language" id="" />
+                      HTML
+                    </label>
+                  </dd>
+                  <dd>
+                    <label>
+                      <input type="checkbox" name="study-language" id="" />
+                      CSS
+                    </label>
+                  </dd>
+                  <dd>
+                    <label>
+                      <input type="checkbox" name="study-language" id="" />
+                      JavaScript
+                    </label>
+                  </dd>
+                  <dd>
+                    <label>
+                      <input type="checkbox" name="study-language" id="" />
+                      PHP
+                    </label>
+                  </dd>
+                  <dd>
+                    <label>
+                      <input type="checkbox" name="study-language" id="" />
+                      Laravel
+                    </label>
+                  </dd>
+                  <dd>
+                    <label>
+                      <input type="checkbox" name="study-language" id="" />
+                      SQL
+                    </label>
+                  </dd>
+                  <dd>
+                    <label>
+                      <input type="checkbox" name="study-language" id="" />
+                      SHELL
+                    </label>
+                  </dd>
+                  <dd>
+                    <label>
+                      <input type="checkbox" name="study-language" id="" />
+                      情報システム基礎知識（その他）
+                    </label>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+            <div class="p-modal__right">
+              <dl class="p-modal__right__time">
+                <dt>学習時間</dt>
+                <dd><input type="text" name="study-time" id="" /></dd>
+              </dl>
+              <dl class="p-modal__right__twitter">
+                <dt>Twitter用コメント</dt>
+                <dd><input type="text" name="twitter-text" id="" /></dd>
+              </dl>
+            </div>
+          </div>
         </div>
       </div>
     </main>
