@@ -71,12 +71,15 @@
         <span>&gt;</span>
         <!-- memo この矢印マークあってるの？ -->
       </div>
+
+      <!-- modalここから -->
       <div class="p-modal js-modal-open">
         <div class="p-modal__content">
-          <div class="p-modal__button">
-            <button class="js-modal-close">ばつ</button>
+          <div class="p-modal__close-button">
+            <button class="js-modal-close"></button>
           </div>
           <div class="p-modal__inner">
+            <!-- modal左半分ここから -->
             <div class="p-modal__left">
               <dl class="p-modal__left__date">
                 <dt>学習日</dt>
@@ -159,6 +162,9 @@
                 </div>
               </dl>
             </div>
+            <!-- modal左半分ここまで -->
+
+            <!-- modal右半分ここから -->
             <div class="p-modal__right">
               <dl class="p-modal__right__time">
                 <dt>学習時間</dt>
@@ -168,10 +174,21 @@
                 <dt>Twitter用コメント</dt>
                 <dd><input type="text" name="twitter-text" id="" /></dd>
               </dl>
+              <div>
+                <label>
+                  <input type="checkbox" name="twitter-share" id="" />
+                  Twitterにシェアする
+                </label>
+              </div>
             </div>
+            <!-- modal右半分ここまで -->
+          </div>
+          <div class="p-modal__record-button">
+            <button class="p-modal__record-button__inner">記録・投稿</button>
           </div>
         </div>
       </div>
+      <!-- modalここまで -->
     </main>
     <!-- mainここまで -->
   </body>

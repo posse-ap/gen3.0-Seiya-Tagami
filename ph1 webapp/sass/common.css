@@ -396,17 +396,40 @@ img {
   position: absolute;
   inset: 0;
 }
-.p-modal__button {
-  display: flex;
-  justify-content: flex-end;
+.p-modal__close-button {
   margin-top: 20px;
 }
-.p-modal__button button {
+.p-modal__close-button button {
+  display: block;
+  position: relative;
   width: 50px;
   height: 50px;
-  margin-right: 30px;
+  margin-left: auto;
+  margin-right: 25px;
   border-radius: 50%;
   background-color: #f5f5f8;
+}
+.p-modal__close-button button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 25px;
+  background: #666666;
+  border-radius: 3px;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.p-modal__close-button button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 25px;
+  background: #666666;
+  border-radius: 3px;
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 .p-modal__content {
   width: 900px;
@@ -482,6 +505,24 @@ img {
   padding: 0 20px;
   border-radius: 8px;
   background-color: #f5f5f8;
+}
+.p-modal__record-button {
+  margin-top: 25px;
+}
+.p-modal__record-button__inner {
+  display: block;
+  width: 280px;
+  height: 50px;
+  margin: 0 auto;
+  border-radius: 50px;
+  background: linear-gradient(to right, #0f71bc, #3ccfff);
+  color: #ffffff;
+  box-shadow: 0 5px 10px #3ccfff;
+  line-height: 50px;
+  text-align: center;
+}
+.p-modal__record-button__inner:hover {
+  opacity: 0.8;
 }
 
 .u-display-block {
