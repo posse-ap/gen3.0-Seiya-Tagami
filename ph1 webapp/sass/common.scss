@@ -11,5 +11,8 @@
 @use "./object/project/p-main";
 @use "./object/project/p-modal";
 
+//component
+@use "./object/component/c-checkbutton";
+
 //utility
 @use "./object/utility/u-display"

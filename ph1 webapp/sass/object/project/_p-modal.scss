@@ -66,16 +66,16 @@
     column-gap: 40px;
     width: calc(100% - 112px);
     margin: 0 auto;
+
+    & dt {
+      font-size: 14px;
+    }
   }
 
   &__left {
     display: flex;
     flex-direction: column;
     gap: 25px;
-
-    & dt {
-      font-size: 15px;
-    }
 
     &__date {
       & input {
@@ -92,27 +92,8 @@
       &__checkboxes {
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 6px;
         margin-top: 18px;
-      }
-
-      & dd {
-        padding: 0 10px;
-        border-radius: 50px;
-        background-color: $color-gray;
-        font-size: 18px;
-        letter-spacing: 0;
-      }
-
-      & label {
-        display: flex;
-        align-items: center;
-        height: 40px;
-      }
-
-      & input {
-        width: 0;
-        height: 0;
       }
     }
 
@@ -120,58 +101,6 @@
       &__checkboxes {
         @extend .p-modal__left__contents__checkboxes;
       }
-
-      & dd {
-        padding: 10px 12px;
-        border-radius: 50px;
-        background-color: $color-gray;
-        font-size: 18px;
-        letter-spacing: 0;
-      }
-    }
-//たぶん別ファイルにつくるべきかも　とりあえず装飾
-    &__checkbox__dummy-input {
-      position: relative;
-      top: 0;
-      left: 0;
-      display: block;
-      width: 25px;
-      height: 25px;
-      margin-right: 5px;
-      border-radius: 50%;
-      background-color: #cccccc;
-
-      &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 35%;
-        height: 3px;
-        border-radius: 2px;
-        transform: translate(-5px, 0px) rotateZ(-135deg);
-        transform-origin: 2px 2px;
-        background: $color-white;
-      }
-
-      &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 55%;
-        height: 3px;
-        border-radius: 2px;
-        transform: translate(-4px, 1px) rotateZ(-40deg);
-        transform-origin: 2px 2px;
-        background: $color-white;
-      }
-    }
-
-    & input:checked + .p-modal__left__checkbox__dummy-input {
-      background-color: $color-blue;
     }
   }
 
@@ -223,6 +152,7 @@
         margin-right: 10px;
         border-radius: 50%;
         background-color: #cccccc;
+        transition: background-color 0.2s;
 
         &::before {
           content: "";
