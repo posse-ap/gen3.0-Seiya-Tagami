@@ -448,7 +448,6 @@ img {
        column-gap: 40px;
   width: calc(100% - 112px);
   margin: 0 auto;
-  display: none;
 }
 .p-modal__inner dt {
   font-size: 14px;
@@ -563,7 +562,7 @@ img {
   opacity: 0.8;
 }
 .p-modal__record-done {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   margin-top: 80px;
@@ -574,15 +573,42 @@ img {
   font-size: 24px;
 }
 .p-modal__record-done__circle {
+  position: relative;
   width: 80px;
   height: 80px;
   margin-top: 15px;
   background-color: #cbdf82;
   border-radius: 50%;
 }
+.p-modal__record-done__circle::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 35%;
+  height: 5px;
+  border-radius: 2px;
+  transform: translate(-6px, 13px) rotateZ(-135deg);
+  transform-origin: 2px 2px;
+  background: #ffffff;
+}
+.p-modal__record-done__circle::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 55%;
+  height: 5px;
+  border-radius: 2px;
+  transform: translate(-6px, 13px) rotateZ(-44deg);
+  transform-origin: 2px 2px;
+  background: #ffffff;
+}
 .p-modal__record-done span:last-child {
   margin-top: 36px;
-  font-size: 26px;
+  font-size: 25px;
 }
 
 .c-checkbutton {
@@ -654,4 +680,7 @@ img {
 }
 .u-display-hidden {
   display: none;
+}
+.u-display-flex {
+  display: flex;
 }/*# sourceMappingURL=common.css.map */
