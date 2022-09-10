@@ -1,12 +1,23 @@
 @use "../../foundation/variables" as *;
+@use "../../foundation/mixin" as *;
 
 .p-header {
   height: 64px;
   background-color: $color-white;
 
+  @include mobile {
+    height: 60px;
+  }
+
   &__container {
     display: flex;
     padding: 11px 40px;
+    font-size: 16px;
+
+    @include mobile {
+      padding: 20px;
+      font-size: 12px;
+    }
   }
 
   &__logo {
@@ -14,15 +25,26 @@
     align-items: center;
     gap: 20px;
     color: $color-light-blue-b;
-    font-size: 16px;
+
+    @include mobile {
+      gap: 12px;
+    }
 
     & img {
       width: 130px;
+
+      @include mobile {
+        width: 110px;
+      }
     }
   }
 
   &__button {
     margin-left: auto;
+
+    @include mobile {
+      display: none;
+    }
 
     &__inner {
       width: 200px;
