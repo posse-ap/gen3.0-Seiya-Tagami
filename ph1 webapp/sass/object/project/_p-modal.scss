@@ -5,7 +5,7 @@
 
   &::before {
     content: "";
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: $color-modal-background;
     position: absolute;
     inset: 0;
   }
@@ -151,7 +151,7 @@
         height: 40px;
         margin-right: 10px;
         border-radius: 50%;
-        background-color: #cccccc;
+        background-color: $color-checkbox-background;
         transition: background-color 0.2s;
 
         &::before {
@@ -220,7 +220,7 @@
     text-align: center;
 
     & span:first-child {
-      color: #cbdf82;
+      color: $color-record-done;
       font-size: 24px;
     }
 
@@ -229,7 +229,7 @@
       width: 80px;
       height: 80px;
       margin-top: 15px;
-      background-color: #cbdf82;
+      background-color: $color-record-done;
       border-radius: 50%;
 
       &::before {
