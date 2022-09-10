@@ -78,7 +78,8 @@
           <div class="p-modal__close-button">
             <button class="js-modal-close"></button>
           </div>
-          <div class="p-modal__inner">
+          <div class="p-modal__inner js-modal-inner">
+
             <!-- modal左半分ここから -->
             <div class="p-modal__left">
               <dl class="p-modal__left__date">
@@ -198,13 +199,25 @@
               </div>
             </div>
             <!-- modal右半分ここまで -->
+
+            <!-- modal記録・投稿ボタンここから -->
+            <div class="p-modal__record-button">
+              <button class="p-modal__record-button__inner js-record-is-done">記録・投稿</button>
+            </div>
+            <!-- modal記録・投稿ボタンここまで -->
           </div>
-          <div class="p-modal__record-button">
-            <button class="p-modal__record-button__inner">記録・投稿</button>
+
+          <!-- modal記録・投稿完了表示ここから -->
+          <div class="p-modal__record-done">
+            <span>AWESOME!</span>
+            <span class="p-modal__record-done__circle"></span>
+            <span>記録・投稿<br>完了しました</span>
           </div>
+          <!-- modal記録・投稿完了表示ここまで -->
         </div>
       </div>
       <!-- modalここまで -->
+
     </main>
     <!-- mainここまで -->
   </body>

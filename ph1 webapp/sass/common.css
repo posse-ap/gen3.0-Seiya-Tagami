@@ -448,6 +448,7 @@ img {
        column-gap: 40px;
   width: calc(100% - 112px);
   margin: 0 auto;
+  display: none;
 }
 .p-modal__inner dt {
   font-size: 14px;
@@ -543,6 +544,8 @@ img {
 }
 .p-modal__record-button {
   margin-top: 25px;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 .p-modal__record-button__inner {
   display: block;
@@ -558,6 +561,28 @@ img {
 }
 .p-modal__record-button__inner:hover {
   opacity: 0.8;
+}
+.p-modal__record-done {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+  text-align: center;
+}
+.p-modal__record-done span:first-child {
+  color: #cbdf82;
+  font-size: 24px;
+}
+.p-modal__record-done__circle {
+  width: 80px;
+  height: 80px;
+  margin-top: 15px;
+  background-color: #cbdf82;
+  border-radius: 50%;
+}
+.p-modal__record-done span:last-child {
+  margin-top: 36px;
+  font-size: 26px;
 }
 
 .c-checkbutton {
