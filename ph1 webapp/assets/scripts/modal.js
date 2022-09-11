@@ -14,12 +14,18 @@
   };
 
   const clearText = (writtenTexts) => {
-    writtenTexts.forEach((text)=>{
+    writtenTexts.forEach((text) => {
       text.value = "";
-    })
-  }
+    });
+  };
 
   document.querySelector(".js-record").addEventListener("click", () => {
+    modal.classList.toggle("u-display-block");
+    //改良の余地あり
+  });
+
+  document.querySelector(".js-record-mobile").addEventListener("click", () => {
+    window.scroll({ top: 0, behavior: "smooth" });
     modal.classList.toggle("u-display-block");
     //改良の余地あり
   });
@@ -33,10 +39,9 @@
     //改良の余地あり
   });
 
-  document
-    .querySelector(".js-button-record-done")
-    .addEventListener("click", () => {
-      modalInner.classList.add("u-display-hidden");
-      recordDone.classList.add("u-display-flex");
-    });
+  document.querySelector(".js-button-record-done").addEventListener("click", () => {
+    window.scroll({top: 0, behavior: 'smooth'});
+    modalInner.classList.add("u-display-hidden");
+    recordDone.classList.add("u-display-flex");
+  });
 }
