@@ -141,7 +141,7 @@
       &__checkboxes {
         display: flex;
         flex-wrap: wrap;
-        gap: 6px;
+        gap: 7px;
         margin-top: 18px;
       }
     }
@@ -179,11 +179,11 @@
     }
 
     &__twitter {
-      & input {
+      & textarea {
         width: 100%;
         height: 245px;
         margin-top: 10px;
-        padding: 0 20px;
+        padding: 20px;
         border-radius: 8px;
         background-color: $color-gray;
 
@@ -296,6 +296,59 @@
       &:hover {
         opacity: 0.8;
       }
+    }
+  }
+
+  &__nowloading {
+    display: none;
+    margin-top: 180px;
+
+    @include mobile {
+      margin-bottom: 431px;
+    }
+
+    &__inner {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background-image: linear-gradient(
+        to right,
+        $color-blue,
+        $color-light-blue-a
+      );
+      animation: spin .9s infinite linear;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 8px;
+        border-radius: 50%;
+        background-color: $color-white;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-right: 22px solid $color-white;
+      }
+
+      @include mobile {
+        width: 66px;
+        height: 66px;
+      }
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: none;
+    }
+
+    to {
+      transform: rotate(360deg);
     }
   }
 

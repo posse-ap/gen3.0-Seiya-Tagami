@@ -94,33 +94,21 @@
                 <dt>学習コンテンツ（複数選択可）</dt>
                 <div class="p-modal__left__contents__checkboxes">
                   <dd class="c-checkbutton">
-                    <input
-                      id="checkbox1"
-                      class="js-checkbox"
-                      type="checkbox"
-                    />
+                    <input id="checkbox1" class="js-checkbox" type="checkbox" />
                     <label for="checkbox1" class="c-checkbutton__container">
                       <span class="c-checkbutton__dummy-input"></span>
                       N予備校
                     </label>
                   </dd>
                   <dd class="c-checkbutton">
-                    <input
-                      id="checkbox2"
-                      class="js-checkbox"
-                      type="checkbox"
-                    />
+                    <input id="checkbox2" class="js-checkbox" type="checkbox" />
                     <label for="checkbox2" class="c-checkbutton__container">
                       <span class="c-checkbutton__dummy-input"></span>
                       ドットインストール
                     </label>
                   </dd>
                   <dd class="c-checkbutton">
-                    <input
-                      id="checkbox3"
-                      class="js-checkbox"
-                      type="checkbox"
-                    />
+                    <input id="checkbox3" class="js-checkbox" type="checkbox" />
                     <label for="checkbox3" class="c-checkbutton__container">
                       <span class="c-checkbutton__dummy-input"></span>
                       POSSE課題
@@ -132,55 +120,35 @@
                 <dt>学習言語（複数選択可）</dt>
                 <div class="p-modal__left__languages__checkboxes">
                   <dd class="c-checkbutton">
-                    <input
-                      id="checkbox4"
-                      class="js-checkbox"
-                      type="checkbox"
-                    />
+                    <input id="checkbox4" class="js-checkbox" type="checkbox" />
                     <label for="checkbox4" class="c-checkbutton__container">
                       <span class="c-checkbutton__dummy-input"></span>
                       HTML
                     </label>
                   </dd>
                   <dd class="c-checkbutton">
-                    <input
-                      id="checkbox5"
-                      class="js-checkbox"
-                      type="checkbox"
-                    />
+                    <input id="checkbox5" class="js-checkbox" type="checkbox" />
                     <label for="checkbox5" class="c-checkbutton__container">
                       <span class="c-checkbutton__dummy-input"></span>
                       CSS
                     </label>
                   </dd>
                   <dd class="c-checkbutton">
-                    <input
-                      id="checkbox6"
-                      class="js-checkbox"
-                      type="checkbox"
-                    />
+                    <input id="checkbox6" class="js-checkbox" type="checkbox" />
                     <label for="checkbox6" class="c-checkbutton__container">
                       <span class="c-checkbutton__dummy-input"></span>
                       JavaScript
                     </label>
                   </dd>
                   <dd class="c-checkbutton">
-                    <input
-                      id="checkbox7"
-                      class="js-checkbox"
-                      type="checkbox"
-                    />
+                    <input id="checkbox7" class="js-checkbox" type="checkbox" />
                     <label for="checkbox7" class="c-checkbutton__container">
                       <span class="c-checkbutton__dummy-input"></span>
                       PHP
                     </label>
                   </dd>
                   <dd class="c-checkbutton">
-                    <input
-                      id="checkbox8"
-                      class="js-checkbox"
-                      type="checkbox"
-                    />
+                    <input id="checkbox8" class="js-checkbox" type="checkbox" />
                     <label for="checkbox8" class="c-checkbutton__container">
                       <span class="c-checkbutton__dummy-input"></span>
                       Laravel
@@ -229,28 +197,26 @@
               <dl class="p-modal__right__time">
                 <dt>学習時間</dt>
                 <dd>
-                  <input
-                    type="text"
-                    class="js-written-text"
-                  />
+                  <input type="text" class="js-written-text" />
                 </dd>
               </dl>
               <dl class="p-modal__right__twitter">
                 <dt>Twitter用コメント</dt>
                 <dd>
-                  <input
-                    type="text"
-                    name="twitter-text"
+                  <textarea
                     class="js-written-text"
-                  />
+                    id="js-tweetarea"
+                    cols="30"
+                    rows="10"
+                  ></textarea>
                 </dd>
               </dl>
               <div class="p-modal__right__twitter-share">
                 <label>
                   <input
                     type="checkbox"
-                    name="twitter-share"
                     class="js-checkbox"
+                    id="js-tweet-share"
                   />
                   <span
                     class="p-modal__right__twitter-share__dummy-input"
@@ -272,6 +238,9 @@
             <!-- modal記録・投稿ボタンここまで -->
           </div>
 
+          <div class="p-modal__nowloading js-now-loading">
+            <div class="p-modal__nowloading__inner"></div>
+          </div>
           <!-- modal記録・投稿完了表示ここから -->
           <div class="p-modal__record-done js-record-done">
             <span>AWESOME!</span>

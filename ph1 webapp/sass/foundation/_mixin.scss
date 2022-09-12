@@ -1,7 +1,7 @@
 //responsive
 
 $tablet-breakpoint: 960px;
-$mobile-breakpoint: 520px;
+$mobile-breakpoint: 600px;
 
 @mixin tablet {
   @media (max-width: $tablet-breakpoint) {
