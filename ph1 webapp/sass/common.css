@@ -296,7 +296,7 @@ img {
   display: flex;
   align-items: center;
   gap: 20px;
-  color: #aac5d9;
+  color: #97b9d1;
 }
 @media (max-width: 600px) {
   .p-header__logo {
@@ -404,7 +404,7 @@ img {
   }
 }
 .p-main__left__item span:last-child {
-  color: #aac5d9;
+  color: #97b9d1;
   font-size: 22px;
 }
 @media (max-width: 600px) {
@@ -888,7 +888,7 @@ img {
   }
 }
 .p-modal__record-done span:first-child {
-  color: #cbdf82;
+  color: #bde360;
   font-size: 24px;
 }
 @media (max-width: 600px) {
@@ -901,7 +901,7 @@ img {
   width: 80px;
   height: 80px;
   margin-top: 15px;
-  background-color: #cbdf82;
+  background-color: #bde360;
   border-radius: 50%;
 }
 @media (max-width: 600px) {
@@ -955,7 +955,7 @@ img {
   text-align: center;
 }
 .p-error span:first-child {
-  color: #edbe74;
+  color: #f4bd67;
   font-size: 21px;
 }
 @media (max-width: 600px) {
@@ -968,7 +968,7 @@ img {
   width: 70px;
   height: 70px;
   margin-top: 15px;
-  background-color: #edbe74;
+  background-color: #f4bd67;
   border-radius: 50%;
 }
 @media (max-width: 600px) {
@@ -1032,7 +1032,7 @@ img {
   left: -9999px;
 }
 .c-checkbutton input[type=checkbox]:checked + .c-checkbutton__container {
-  background-color: #e7f3fc;
+  background-color: #e7f5ff;
 }
 .c-checkbutton input[type=checkbox]:checked + .c-checkbutton__container .c-checkbutton__dummy-input {
   background-color: #0f71bc;
