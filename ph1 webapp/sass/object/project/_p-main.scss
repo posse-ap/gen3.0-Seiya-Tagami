@@ -155,15 +155,28 @@
       line-height: 60px;
     }
 
-    & span:nth-child(2) {
+    & span {
       display: inline-block;
-      margin: 0 13px;
-    }
 
-    & span:first-child,
-    span:last-child {
-      color: $color-blue;
-      font-size: 18px;
+      &:nth-child(2) {
+        margin: 0 7px;
+      }
+
+      &:first-child {
+        border-bottom: solid 2px #0f71bc;
+        border-left: solid 2px #0f71bc;
+        width: 12px;
+        height: 12px;
+        transform: rotate(45deg);
+      }
+
+      &:last-child {
+        border-top: solid 2px #0f71bc;
+        border-right: solid 2px #0f71bc;
+        width: 12px;
+        height: 12px;
+        transform: rotate(45deg);
+      }
     }
   }
   //changemonthここまで

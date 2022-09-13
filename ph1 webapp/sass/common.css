@@ -276,7 +276,7 @@ img {
   height: 64px;
   background-color: #ffffff;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-header {
     height: 60px;
   }
@@ -286,7 +286,7 @@ img {
   padding: 11px 40px;
   font-size: 16px;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-header__container {
     padding: 20px;
     font-size: 12px;
@@ -298,7 +298,7 @@ img {
   gap: 20px;
   color: #97b9d1;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-header__logo {
     gap: 12px;
   }
@@ -306,7 +306,7 @@ img {
 .p-header__logo img {
   width: 130px;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-header__logo img {
     width: 110px;
   }
@@ -314,7 +314,7 @@ img {
 .p-header__button {
   margin-left: auto;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-header__button {
     display: none;
   }
@@ -350,7 +350,7 @@ img {
     row-gap: 20px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-main__contents {
     width: calc(100% - 40px);
     grid-template-columns: 1fr;
@@ -362,7 +362,7 @@ img {
   gap: 20px;
   flex-wrap: wrap;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-main__left {
     -moz-column-gap: 16px;
          column-gap: 16px;
@@ -382,7 +382,7 @@ img {
   font-weight: 600;
   box-shadow: 2px 2px 4px gray;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-main__left__item {
     width: calc((100% - 32px) / 3);
     gap: 3px;
@@ -393,7 +393,7 @@ img {
   color: #0f71bc;
   font-size: 20px;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-main__left__item span:first-child {
     font-size: 16px;
   }
@@ -402,7 +402,7 @@ img {
   color: #000000;
   font-size: 36px;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-main__left__item span:nth-child(2) {
     font-size: 24px;
   }
@@ -411,7 +411,7 @@ img {
   color: #97b9d1;
   font-size: 22px;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-main__left__item span:last-child {
     font-size: 16px;
   }
@@ -428,7 +428,7 @@ img {
     height: 370px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-main__left__chart {
     height: 170px;
   }
@@ -443,7 +443,7 @@ img {
     height: 500px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-main__right {
     gap: 15px;
     height: 280px;
@@ -456,7 +456,7 @@ img {
   border-radius: 10px;
   box-shadow: 2px 2px 4px gray;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-main__right__chart {
     width: calc((100% - 15px) / 2);
   }
@@ -468,7 +468,7 @@ img {
   font-size: 24px;
   font-weight: bold;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-main__right__chart span {
     margin-top: 12px;
     margin-left: 12px;
@@ -481,25 +481,36 @@ img {
   text-align: center;
   line-height: 100px;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-main__changemonth {
     height: 60px;
     line-height: 60px;
   }
 }
-.p-main__changemonth span:nth-child(2) {
+.p-main__changemonth span {
   display: inline-block;
-  margin: 0 13px;
 }
-.p-main__changemonth span:first-child,
+.p-main__changemonth span:nth-child(2) {
+  margin: 0 7px;
+}
+.p-main__changemonth span:first-child {
+  border-bottom: solid 2px #0f71bc;
+  border-left: solid 2px #0f71bc;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+}
 .p-main__changemonth span:last-child {
-  color: #0f71bc;
-  font-size: 18px;
+  border-top: solid 2px #0f71bc;
+  border-right: solid 2px #0f71bc;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
 }
 .p-main__bottom-button-mobile {
   display: none;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-main__bottom-button-mobile {
     display: block;
     margin-top: 20px;
@@ -541,7 +552,7 @@ img {
   border-radius: 50%;
   background-color: #f5f5f8;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-modal__close-button button {
     width: 40px;
     height: 40px;
@@ -558,7 +569,7 @@ img {
   border-radius: 3px;
   transform: translate(-50%, -50%) rotate(45deg);
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-modal__close-button button::before {
     height: 22px;
   }
@@ -574,7 +585,7 @@ img {
   border-radius: 3px;
   transform: translate(-50%, -50%) rotate(-45deg);
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-modal__close-button button::after {
     height: 22px;
   }
@@ -593,13 +604,13 @@ img {
   .p-modal__content {
     position: absolute;
     top: 64px;
-    width: 90%;
+    width: 95%;
     min-height: 800px;
     height: auto;
     transform: translate(-50%, 0);
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-modal__content {
     position: absolute;
     top: 60px;
@@ -620,9 +631,10 @@ img {
 @media (max-width: 960px) {
   .p-modal__inner {
     display: block;
+    width: calc(100% - 80px);
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-modal__inner {
     width: calc(100% - 40px);
   }
@@ -696,7 +708,7 @@ img {
   flex-wrap: wrap;
   gap: 20px;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-modal__right__twitter__title {
     gap: 10px;
   }
@@ -724,7 +736,7 @@ img {
     height: 170px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-modal__right__twitter textarea {
     height: 110px;
     padding: 12px;
@@ -755,7 +767,7 @@ img {
   transition: background-color 0.2s;
   cursor: pointer;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-modal__right__twitter__dummy-input {
     width: 30px;
     height: 30px;
@@ -774,7 +786,7 @@ img {
   transform-origin: 2px 2px;
   background: #ffffff;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-modal__right__twitter__dummy-input::before {
     transform: translate(-4px, 4px) rotateZ(-135deg);
   }
@@ -792,7 +804,7 @@ img {
   transform-origin: 2px 2px;
   background: #ffffff;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-modal__right__twitter__dummy-input::after {
     transform: translate(-4px, 4px) rotateZ(-46deg);
   }
@@ -818,7 +830,7 @@ img {
   line-height: 50px;
   text-align: center;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-modal__record-button__inner {
     width: 100%;
     height: 42px;
@@ -833,7 +845,7 @@ img {
   display: none;
   margin-top: 180px;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-modal__nowloading {
     margin-bottom: 443px;
   }
@@ -861,7 +873,7 @@ img {
   inset: -1px;
   border-right: 22px solid #ffffff;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-modal__nowloading__inner {
     width: 66px;
     height: 66px;
@@ -890,7 +902,7 @@ img {
   margin-top: 80px;
   text-align: center;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-modal__record-done {
     margin-top: 120px;
     margin-bottom: 401px;
@@ -900,7 +912,7 @@ img {
   color: #bde360;
   font-size: 24px;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-modal__record-done span:first-child {
     font-size: 21px;
   }
@@ -913,7 +925,7 @@ img {
   background-color: #bde360;
   border-radius: 50%;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-modal__record-done__circle {
     width: 60px;
     height: 60px;
@@ -949,7 +961,7 @@ img {
   margin-top: 36px;
   font-size: 25px;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-modal__record-done span:last-child {
     margin-top: 28px;
     font-size: 18px;
@@ -967,7 +979,7 @@ img {
   color: #f4bd67;
   font-size: 21px;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-error span:first-child {
     font-size: 18px;
   }
@@ -980,7 +992,7 @@ img {
   background-color: #f4bd67;
   border-radius: 50%;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .p-error__circle {
     width: 60px;
     height: 60px;
@@ -1020,7 +1032,7 @@ img {
 .c-checkbutton {
   font-size: 15px;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .c-checkbutton {
     font-size: 12px;
     font-weight: 500;
@@ -1058,7 +1070,7 @@ img {
   background-color: #cccccc;
   transition: background-color 0.2s;
 }
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .c-checkbutton__dummy-input {
     width: 20px;
     height: 20px;
