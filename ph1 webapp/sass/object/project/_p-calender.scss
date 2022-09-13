@@ -1,0 +1,81 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/mixin" as *;
+
+.p-calendar {
+  display: none;
+  width: 50%; //仮
+  margin: 30px auto 0;
+
+  & table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  &__header {
+    & th:first-child {
+      display: inline-block;
+      border-bottom: solid 2px #0f71bc;
+      border-left: solid 2px #0f71bc;
+      width: 12px;
+      height: 12px;
+      padding: 0; //あとで
+      transform: rotate(45deg);
+      cursor: pointer;
+    }
+
+    & th:nth-child(2) {
+      padding: 0;
+    }
+
+    & th:last-child {
+      display: inline-block;
+      border-top: solid 2px #0f71bc;
+      border-right: solid 2px #0f71bc;
+      width: 12px;
+      height: 12px;
+      padding: 0; //あとで
+      transform: rotate(45deg);
+      cursor: pointer;
+    }
+  }
+
+  &__inner {
+    &__days {
+      & th {
+        color: $color-light-blue-b;
+      }
+    }
+  }
+
+  & td {
+    color: #9b9b9b;
+    font-weight: bold;
+    cursor: pointer;
+
+    &.disabled {
+      opacity: 0;
+      cursor: auto;
+    }
+
+    &.today {
+      color: $color-white;
+      background-color: $color-blue;
+    }
+  }
+}
+
+th,
+td {
+  padding: 15px 8px;
+  text-align: center;
+}
+
+tfoot {
+  font-weight: bold;
+}
+
+#prev,
+#next {
+  cursor: pointer;
+  user-select: none;
+}

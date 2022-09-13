@@ -56,12 +56,12 @@
   const recordButtons = document.querySelectorAll(".js-record");
   const clickRecord = (recordButtons) => {
     recordButtons.forEach((recordButton) => {
-      recordButton.addEventListener('click', () => {
+      recordButton.addEventListener("click", () => {
         countlettersOftweet();
-        window.scroll({ top: 0, behavior: "smooth" })
+        window.scroll({ top: 0, behavior: "smooth" });
         modal.classList.toggle("u-display-block");
-      })
-    })
+      });
+    });
   }; //モーダルを開く
   clickRecord(recordButtons);
 
@@ -76,7 +76,26 @@
     clearText(writtenTexts);
   }); //モーダルを閉じる
 
+  const studyingDate = document.getElementById("js-studying-date");
+  const modalBack = document.querySelector(".js-modal-back");
+  const calendar = document.querySelector(".js-calendar");
+
+  studyingDate.addEventListener("click", () => {
+    modalClose.classList.add("u-display-hidden");
+    modalInner.classList.add("u-display-hidden");
+    modalBack.classList.add("u-display-block");
+    calendar.classList.add('u-display-block');
+  }); //カレンダー画面へ移る
+
+  modalBack.addEventListener("click", () => {
+    modalClose.classList.remove("u-display-hidden");
+    modalInner.classList.remove("u-display-hidden");
+    modalBack.classList.remove("u-display-block");
+    calendar.classList.remove('u-display-block');
+  }); //もとの画面に戻る
+
   const record = document.querySelector(".js-button-record-done");
+
   record.addEventListener("click", () => {
     tweet();
     window.scroll({ top: 0, behavior: "smooth" });

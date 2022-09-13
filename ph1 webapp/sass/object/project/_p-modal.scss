@@ -14,7 +14,7 @@
   &__close-button {
     margin-top: 20px;
 
-    & button {
+    &__inner {
       display: block;
       position: relative;
       width: 50px;
@@ -59,6 +59,62 @@
         @include mobile {
           height: 22px;
         }
+      }
+    }
+  }
+
+  &__back-button {
+    margin-top: 20px;
+
+    &__inner {
+      display: none;
+      position: relative;
+      width: 50px;
+      height: 50px;
+      margin-right: auto;
+      margin-left: 25px;
+      border-radius: 50%;
+      background-color: $color-gray;
+
+      @include mobile {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &__arrow {
+      position: relative;
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 0 auto;
+      border-radius: 5px;
+      background-color: $color-close-button; //
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: -1px;
+        display: block;
+        width: 15px;
+        height: 3px;
+        border-radius: 5px;
+        background-color: $color-close-button;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -1px;
+        display: block;
+        width: 15px;
+        height: 3px;
+        border-radius: 5px;
+        background-color: $color-close-button;
+        transform: rotate(-45deg);
       }
     }
   }
@@ -125,17 +181,14 @@
 
     &__date {
       & input[type="text"] {
+        outline: none;
         width: 100%;
         height: 48px;
         margin-top: 10px;
         padding: 0 20px;
         border-radius: 8px;
         background-color: $color-gray;
-
-        &:focus {
-          outline: none;
-          border: 2px solid $color-blue;
-        }
+        cursor: pointer;
 
         @include tablet {
           height: 40px;

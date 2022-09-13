@@ -12,6 +12,7 @@
       rel="stylesheet"
     />
     <script src="./assets/scripts/modal.js" defer></script>
+    <script src="./assets/scripts/calendar.js" defer></script>
     <title>web app</title>
   </head>
   <body>
@@ -79,7 +80,14 @@
       <div class="p-modal js-modal">
         <div class="p-modal__content">
           <div class="p-modal__close-button">
-            <button class="js-modal-close"></button>
+            <button
+              class="p-modal__close-button__inner js-modal-close"
+            ></button>
+          </div>
+          <div class="p-modal__back-button">
+            <button class="p-modal__back-button__inner js-modal-back">
+              <span class="p-modal__back-button__arrow"></span>
+            </button>
           </div>
           <form class="p-modal__inner js-modal-inner">
             <!-- modal左半分ここから -->
@@ -87,7 +95,7 @@
               <dl class="p-modal__left__date">
                 <dt>学習日</dt>
                 <dd>
-                  <input type="text" name="studying-date" id="" />
+                  <input type="text" id="js-studying-date" readonly>
                 </dd>
               </dl>
               <dl class="p-modal__left__contents">
@@ -253,6 +261,31 @@
             <span>記録・投稿<br />完了しました</span>
           </div>
           <!-- modal記録・投稿完了表示ここまで -->
+
+          <!-- calenderここから -->
+          <div class="p-calendar js-calendar">
+            <table>
+              <thead>
+                <tr class="p-calendar__header">
+                  <th id="js-prev"></th>
+                  <th id="js-title" colspan="5">2022/05</th>
+                  <th id="js-next"></th>
+                </tr>
+                <tr class="p-calendar__inner__days">
+                  <th>Sun</th>
+                  <th>Mon</th>
+                  <th>Tue</th>
+                  <th>Wed</th>
+                  <th>Thu</th>
+                  <th>Fri</th>
+                  <th>Sat</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <!-- calenderここまで -->
+
         </div>
       </div>
       <!-- modalここまで -->
