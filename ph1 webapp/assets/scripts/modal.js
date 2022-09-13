@@ -53,18 +53,17 @@
     recordDone.classList.add("u-display-flex");
   }; //記録・投稿完了画面を表示
 
-//短縮できないか？
-  document.querySelector(".js-record").addEventListener("click", () => {
-    countlettersOftweet();
-    modal.classList.toggle("u-display-block");
-  });
-
-  document.querySelector(".js-record-mobile").addEventListener("click", () => {
-    countlettersOftweet();
-    window.scroll({ top: 0, behavior: "smooth" });
-    modal.classList.toggle("u-display-block");
-  });
-//
+  const recordButtons = document.querySelectorAll(".js-record");
+  const clickRecord = (recordButtons) => {
+    recordButtons.forEach((recordButton) => {
+      recordButton.addEventListener('click', () => {
+        countlettersOftweet();
+        window.scroll({ top: 0, behavior: "smooth" })
+        modal.classList.toggle("u-display-block");
+      })
+    })
+  }; //モーダルを開く
+  clickRecord(recordButtons);
 
   const modalClose = document.querySelector(".js-modal-close");
   modalClose.addEventListener("click", () => {
