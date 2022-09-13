@@ -352,7 +352,9 @@ img {
 }
 @media (max-width: 600px) {
   .p-main__contents {
-    row-gap: 15px;
+    width: calc(100% - 40px);
+    grid-template-columns: 1fr;
+    row-gap: 16px;
   }
 }
 .p-main__left {
@@ -362,7 +364,9 @@ img {
 }
 @media (max-width: 600px) {
   .p-main__left {
-    gap: 15px;
+    -moz-column-gap: 16px;
+         column-gap: 16px;
+    row-gap: 32px;
   }
 }
 .p-main__left__item {
@@ -380,7 +384,7 @@ img {
 }
 @media (max-width: 600px) {
   .p-main__left__item {
-    width: calc((100% - 30px) / 3);
+    width: calc((100% - 32px) / 3);
     gap: 3px;
     height: 90px;
   }
@@ -633,7 +637,7 @@ img {
 }
 @media (max-width: 960px) {
   .p-modal__left {
-    gap: 18px;
+    gap: 24px;
   }
 }
 .p-modal__left__date input[type=text] {
@@ -656,8 +660,8 @@ img {
 .p-modal__left__contents__checkboxes, .p-modal__left__languages__checkboxes {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
-  margin-top: 18px;
+  gap: 8px;
+  margin-top: 10px;
 }
 .p-modal__right {
   display: flex;
@@ -666,7 +670,7 @@ img {
 }
 @media (max-width: 960px) {
   .p-modal__right {
-    gap: 18px;
+    gap: 24px;
     margin-top: 18px;
   }
 }
@@ -723,17 +727,22 @@ img {
 @media (max-width: 600px) {
   .p-modal__right__twitter textarea {
     height: 110px;
+    padding: 12px;
   }
 }
-.p-modal__right__twitter-share label {
+.p-modal__right__twitter__share {
+  margin-top: 10px;
+  font-size: 13px;
+}
+.p-modal__right__twitter__share label {
   display: flex;
   align-items: center;
 }
-.p-modal__right__twitter-share input {
+.p-modal__right__twitter__share input {
   width: 0;
   height: 0;
 }
-.p-modal__right__twitter-share__dummy-input {
+.p-modal__right__twitter__dummy-input {
   position: relative;
   top: 0;
   left: 0;
@@ -747,12 +756,12 @@ img {
   cursor: pointer;
 }
 @media (max-width: 600px) {
-  .p-modal__right__twitter-share__dummy-input {
+  .p-modal__right__twitter__dummy-input {
     width: 30px;
     height: 30px;
   }
 }
-.p-modal__right__twitter-share__dummy-input::before {
+.p-modal__right__twitter__dummy-input::before {
   content: "";
   display: block;
   position: absolute;
@@ -766,11 +775,11 @@ img {
   background: #ffffff;
 }
 @media (max-width: 600px) {
-  .p-modal__right__twitter-share__dummy-input::before {
+  .p-modal__right__twitter__dummy-input::before {
     transform: translate(-4px, 4px) rotateZ(-135deg);
   }
 }
-.p-modal__right__twitter-share__dummy-input::after {
+.p-modal__right__twitter__dummy-input::after {
   content: "";
   display: block;
   position: absolute;
@@ -784,11 +793,11 @@ img {
   background: #ffffff;
 }
 @media (max-width: 600px) {
-  .p-modal__right__twitter-share__dummy-input::after {
+  .p-modal__right__twitter__dummy-input::after {
     transform: translate(-4px, 4px) rotateZ(-46deg);
   }
 }
-.p-modal__right__twitter-share input:checked + .p-modal__right__twitter-share__dummy-input {
+.p-modal__right__twitter input:checked + .p-modal__right__twitter__dummy-input {
   background-color: #0f71bc;
 }
 .p-modal__record-button {
@@ -826,7 +835,7 @@ img {
 }
 @media (max-width: 600px) {
   .p-modal__nowloading {
-    margin-bottom: 431px;
+    margin-bottom: 443px;
   }
 }
 .p-modal__nowloading__inner {
@@ -884,7 +893,7 @@ img {
 @media (max-width: 600px) {
   .p-modal__record-done {
     margin-top: 120px;
-    margin-bottom: 384px;
+    margin-bottom: 401px;
   }
 }
 .p-modal__record-done span:first-child {
@@ -1051,8 +1060,8 @@ img {
 }
 @media (max-width: 600px) {
   .c-checkbutton__dummy-input {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
   }
 }
 .c-checkbutton__dummy-input::before {
@@ -1064,7 +1073,7 @@ img {
   width: 35%;
   height: 3px;
   border-radius: 2px;
-  transform: translate(-4px, 2px) rotateZ(-135deg);
+  transform: translate(-3px, 0px) rotateZ(-135deg);
   transform-origin: 2px 2px;
   background: #ffffff;
 }
@@ -1077,7 +1086,7 @@ img {
   width: 55%;
   height: 3px;
   border-radius: 2px;
-  transform: translate(-2px, 3px) rotateZ(-48deg);
+  transform: translate(-2px, 1px) rotateZ(-46deg);
   transform-origin: 2px 2px;
   background: #ffffff;
 }
