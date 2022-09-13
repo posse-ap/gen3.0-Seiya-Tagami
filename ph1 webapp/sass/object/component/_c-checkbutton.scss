@@ -25,7 +25,7 @@
     left: -9999px;
 
     &:checked + .c-checkbutton__container {
-      background-color: #e7f3fc;
+      background-color: $color-checkbox-background-after;
     }
 
     &:checked + .c-checkbutton__container .c-checkbutton__dummy-input {
@@ -42,7 +42,7 @@
     height: 25px;
     margin-right: 5px;
     border-radius: 50%;
-    background-color: #cccccc;
+    background-color: $color-checkbox-background-before;
     transition: background-color 0.2s;
 
     @include mobile {

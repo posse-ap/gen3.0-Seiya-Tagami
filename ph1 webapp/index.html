@@ -76,12 +76,12 @@
       </div>
 
       <!-- modalここから -->
-      <div class="p-modal js-modal-open">
+      <div class="p-modal js-modal">
         <div class="p-modal__content">
           <div class="p-modal__close-button">
             <button class="js-modal-close"></button>
           </div>
-          <div class="p-modal__inner js-modal-inner">
+          <form class="p-modal__inner js-modal-inner">
             <!-- modal左半分ここから -->
             <div class="p-modal__left">
               <dl class="p-modal__left__date">
@@ -201,13 +201,19 @@
                 </dd>
               </dl>
               <dl class="p-modal__right__twitter">
-                <dt>Twitter用コメント</dt>
+                <div class="p-modal__right__twitter__title">
+                  <dt>Twitter用コメント</dt>
+                  <span class="p-modal__right__twitter__alert js-alert"
+                    >140文字以内で入力してください</span
+                  >
+                </div>
                 <dd>
                   <textarea
                     class="js-written-text"
                     id="js-tweetarea"
                     cols="30"
                     rows="10"
+                    placeholder="140文字以内で入力"
                   ></textarea>
                 </dd>
               </dl>
@@ -230,13 +236,14 @@
             <!-- modal記録・投稿ボタンここから -->
             <div class="p-modal__record-button">
               <button
+                type="button"
                 class="p-modal__record-button__inner js-button-record-done"
               >
                 記録・投稿
               </button>
             </div>
             <!-- modal記録・投稿ボタンここまで -->
-          </div>
+          </form>
 
           <div class="p-modal__nowloading js-now-loading">
             <div class="p-modal__nowloading__inner"></div>
