@@ -24,29 +24,27 @@
     justify-content: center;
     gap: 50px;
 
-    & span:first-child {
+    & span {
       display: inline-block;
-      border-bottom: solid 2px #0f71bc;
-      border-left: solid 2px #0f71bc;
       width: 14px;
       height: 14px;
       transform: rotate(45deg);
       cursor: pointer;
+
+      &:first-child {
+        border-bottom: solid 2px $color-blue;
+        border-left: solid 2px $color-blue;
+      }
+
+      &:last-child {
+        border-top: solid 2px $color-blue;
+        border-right: solid 2px $color-blue;
+      }
     }
 
     & h1 {
       font-size: 18px;
       font-weight: bold;
-    }
-
-    & span:last-child {
-      display: inline-block;
-      border-top: solid 2px #0f71bc;
-      border-right: solid 2px #0f71bc;
-      width: 14px;
-      height: 14px;
-      transform: rotate(45deg);
-      cursor: pointer;
     }
   }
 
@@ -74,6 +72,7 @@
 
   &__button {
     margin-top: 25px;
+
     &__inner {
       display: block;
       width: 170px;
@@ -82,13 +81,32 @@
       border-radius: 50px;
       background: linear-gradient(to right, $color-blue, $color-light-blue-a);
       color: $color-white;
-      box-shadow: 0 5px 10px #3ccfff;
+      box-shadow: 0 5px 10px $color-light-blue-a;
       font-size: 22px;
       text-align: center;
 
       &:hover {
         opacity: 0.8;
       }
+    }
+  }
+
+  &-is-pushed {
+    position: relative;
+    color: $color-white !important;
+    z-index: 0;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      content: "";
+      width: 45px;
+      height: 45px;
+      background-color: $color-blue;
+      border-radius: 50%;
+      z-index: -1;
     }
   }
 }

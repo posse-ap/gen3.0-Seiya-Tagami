@@ -6,7 +6,7 @@
 
   &::before {
     content: "";
-    background-color: $color-modal-background;
+    background-color: rgba(0, 0, 0, 0.3);
     position: fixed;
     inset: 0;
   }
@@ -307,7 +307,7 @@
         height: 40px;
         margin-right: 10px;
         border-radius: 50%;
-        background-color: $color-checkbox-background-before;
+        background-color: #cccccc;
         transition: background-color 0.2s;
         cursor: pointer;
 
@@ -456,7 +456,7 @@
     }
 
     & span:first-child {
-      color: $color-record-done;
+      color: #bde360;
       font-size: 24px;
 
       @include mobile {
@@ -469,7 +469,7 @@
       width: 80px;
       height: 80px;
       margin-top: 15px;
-      background-color: $color-record-done;
+      background-color: #bde360;
       border-radius: 50%;
 
       @include mobile {

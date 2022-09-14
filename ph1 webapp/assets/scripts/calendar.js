@@ -9,8 +9,7 @@
     const dates = [];
     const d = new Date(year, month, 0).getDate();
     const n = new Date(year, month, 1).getDay();
-    //曜日を取得
-    //memo: 0は日曜日、1は月曜日と続く
+    //memo: 曜日を取得。0は日曜日、1は月曜日と続いていく
 
     for (let i = 0; i < n; i++) {
       dates.unshift({
@@ -69,7 +68,7 @@
 
         td.textContent = date.date;
         if (date.isToday) {
-          td.classList.add("u-colors-calendar-pushed");
+          td.classList.add("p-calendar-is-pushed");
         }
         if (date.isDisabled) {
           td.classList.add("disabled");
@@ -144,13 +143,13 @@
     if (e.target.nodeName === "TD") {
       const allDates = dates.querySelectorAll("td");
       allDates.forEach((date) => {
-        date.classList.remove("u-colors-calendar-pushed");
+        date.classList.remove("p-calendar-is-pushed");
       });
 
       dateInner = `${year}年${String(month + 1).padStart(2, "0")}月${
         e.target.textContent
       }日`; //dateInnerに日付を格納
-      e.target.classList.add("u-colors-calendar-pushed");
+      e.target.classList.add("p-calendar-is-pushed");
     }
   });
 
@@ -169,6 +168,7 @@
 
   const modalBack = document.querySelector(".js-modal-back");
   const calendarButton = document.querySelector(".js-calendar-button");
+
   modalBack.addEventListener("click", () => {
     backToModal();
   });
