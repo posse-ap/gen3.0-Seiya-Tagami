@@ -591,10 +591,10 @@ img {
   }
 }
 .p-modal__back-button {
+  display: none;
   margin-top: 20px;
 }
 .p-modal__back-button__inner {
-  display: none;
   position: relative;
   width: 50px;
   height: 50px;
@@ -1082,37 +1082,55 @@ img {
 .p-calendar {
   display: none;
   width: 50%;
-  margin: 30px auto 0;
+  margin: 20px auto 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .p-calendar table {
   width: 100%;
   border-collapse: collapse;
 }
-.p-calendar__header th:first-child {
+.p-calendar th,
+.p-calendar td {
+  text-align: center;
+  padding: 15px 8px;
+}
+.p-calendar__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+.p-calendar__header span:first-child {
   display: inline-block;
   border-bottom: solid 2px #0f71bc;
   border-left: solid 2px #0f71bc;
-  width: 12px;
-  height: 12px;
-  padding: 0;
+  width: 14px;
+  height: 14px;
   transform: rotate(45deg);
   cursor: pointer;
 }
-.p-calendar__header th:nth-child(2) {
-  padding: 0;
+.p-calendar__header h1 {
+  font-size: 18px;
+  font-weight: bold;
 }
-.p-calendar__header th:last-child {
+.p-calendar__header span:last-child {
   display: inline-block;
   border-top: solid 2px #0f71bc;
   border-right: solid 2px #0f71bc;
-  width: 12px;
-  height: 12px;
-  padding: 0;
+  width: 14px;
+  height: 14px;
   transform: rotate(45deg);
   cursor: pointer;
 }
+.p-calendar__inner {
+  margin-top: 26px;
+}
 .p-calendar__inner__days th {
   color: #97b9d1;
+  width: 70px;
 }
 .p-calendar td {
   color: #9b9b9b;
@@ -1123,28 +1141,23 @@ img {
   opacity: 0;
   cursor: auto;
 }
-.p-calendar td.today {
-  color: #ffffff;
-  background-color: #0f71bc;
+.p-calendar__button {
+  margin-top: 25px;
 }
-
-th,
-td {
-  padding: 15px 8px;
+.p-calendar__button__inner {
+  display: block;
+  width: 170px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 50px;
+  background: linear-gradient(to right, #0f71bc, #3ccfff);
+  color: #ffffff;
+  box-shadow: 0 5px 10px #3ccfff;
+  font-size: 22px;
   text-align: center;
 }
-
-tfoot {
-  font-weight: bold;
-}
-
-#prev,
-#next {
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+.p-calendar__button__inner:hover {
+  opacity: 0.8;
 }
 
 .c-checkbutton {
@@ -1203,7 +1216,7 @@ tfoot {
   width: 35%;
   height: 3px;
   border-radius: 2px;
-  transform: translate(-3px, 0px) rotateZ(-135deg);
+  transform: translate(-3px, 3px) rotateZ(-135deg);
   transform-origin: 2px 2px;
   background: #ffffff;
 }
@@ -1216,7 +1229,7 @@ tfoot {
   width: 55%;
   height: 3px;
   border-radius: 2px;
-  transform: translate(-2px, 1px) rotateZ(-46deg);
+  transform: translate(-2px, 4px) rotateZ(-46deg);
   transform-origin: 2px 2px;
   background: #ffffff;
 }
@@ -1229,4 +1242,9 @@ tfoot {
 }
 .u-display-flex {
   display: flex;
+}
+
+td.u-colors-calendar-pushed {
+  background-color: #0f71bc;
+  color: #ffffff;
 }/*# sourceMappingURL=common.css.map */

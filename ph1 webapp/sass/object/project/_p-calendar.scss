@@ -4,45 +4,59 @@
 .p-calendar {
   display: none;
   width: 50%; //仮
-  margin: 30px auto 0;
+  margin: 20px auto 0;
+  user-select: none;
 
   & table {
     width: 100%;
     border-collapse: collapse;
   }
 
+  & th,
+  td {
+    text-align: center;
+    padding: 15px 8px;
+  }
+
   &__header {
-    & th:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+    & span:first-child {
       display: inline-block;
       border-bottom: solid 2px #0f71bc;
       border-left: solid 2px #0f71bc;
-      width: 12px;
-      height: 12px;
-      padding: 0; //あとで
+      width: 14px;
+      height: 14px;
       transform: rotate(45deg);
       cursor: pointer;
     }
 
-    & th:nth-child(2) {
-      padding: 0;
+    & h1 {
+      font-size: 18px;
+      font-weight: bold;
     }
 
-    & th:last-child {
+    & span:last-child {
       display: inline-block;
       border-top: solid 2px #0f71bc;
       border-right: solid 2px #0f71bc;
-      width: 12px;
-      height: 12px;
-      padding: 0; //あとで
+      width: 14px;
+      height: 14px;
       transform: rotate(45deg);
       cursor: pointer;
     }
   }
 
   &__inner {
+    margin-top: 26px;
+
     &__days {
       & th {
         color: $color-light-blue-b;
+        width: 70px;
       }
     }
   }
@@ -56,26 +70,25 @@
       opacity: 0;
       cursor: auto;
     }
+  }
 
-    &.today {
+  &__button {
+    margin-top: 25px;
+    &__inner {
+      display: block;
+      width: 170px;
+      height: 60px;
+      margin: 0 auto;
+      border-radius: 50px;
+      background: linear-gradient(to right, $color-blue, $color-light-blue-a);
       color: $color-white;
-      background-color: $color-blue;
+      box-shadow: 0 5px 10px #3ccfff;
+      font-size: 22px;
+      text-align: center;
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
-}
-
-th,
-td {
-  padding: 15px 8px;
-  text-align: center;
-}
-
-tfoot {
-  font-weight: bold;
-}
-
-#prev,
-#next {
-  cursor: pointer;
-  user-select: none;
 }

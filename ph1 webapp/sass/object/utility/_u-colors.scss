@@ -1,0 +1,8 @@
+@use "../../foundation/variables" as *;
+
+td.u-colors {
+  &-calendar-pushed {
+    background-color: $color-blue;
+    color: $color-white;
+  }
+} //仮
