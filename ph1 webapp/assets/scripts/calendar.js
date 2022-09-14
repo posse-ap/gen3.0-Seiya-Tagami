@@ -31,6 +31,7 @@
         date: i,
         isToday: false,
         isDisabled: false,
+        isFutureDay: true,
       });
     }
 
@@ -73,7 +74,17 @@
         if (date.isDisabled) {
           td.classList.add("disabled");
         }
-
+        if (today.getFullYear() < year || today.getMonth() < month) {
+          td.classList.add("u-colors-black");
+        } else if (
+          today.getFullYear() > year ||
+          today.getMonth() > month ||
+          (year === today.getFullYear() &&
+            month == today.getMonth() &&
+            today.getDate() > date.date)
+        ) {
+          td.classList.add("u-colors-gray");
+        }
         tr.appendChild(td);
       });
       document.querySelector("tbody").appendChild(tr);
@@ -85,6 +96,8 @@
     renderTitle();
     renderWeeks();
   }
+  createCalendar();
+  // カレンダー生成
 
   document.getElementById("js-prev").addEventListener("click", () => {
     month--;
@@ -92,8 +105,8 @@
       year--;
       month = 11;
     }
-    setToday();
     createCalendar();
+    setToday();
   }); //前の月へ
 
   document.getElementById("js-next").addEventListener("click", () => {
@@ -101,23 +114,21 @@
     if (month > 11) {
       year++;
       month = 0;
-    } //次の月へ
-
-    setToday();
+    }
     createCalendar();
-  });
-  createCalendar();
+    setToday();
+  }); //次の月へ
 
   const studyingDate = document.getElementById("js-studying-date");
   const dates = document.getElementById("js-dates");
-  let dateInner = `${year}年${String(month + 1).padStart(2,"0")}月${today.getDate()}日`;
-  
+  let dateInner = `${year}年${String(month + 1).padStart(
+    2,
+    "0"
+  )}月${today.getDate()}日`;
+
   const initializeDate = () => {
-    studyingDate.value = `${year}年${String(month + 1).padStart(
-      2,
-      "0"
-    )}月${today.getDate()}日`;
-  }// 初期値は今日の日付にする
+    studyingDate.value = dateInner;
+  }; // 初期値は今日の日付にする
   initializeDate();
 
   const setToday = () => {
@@ -127,7 +138,7 @@
         "0"
       )}月${today.getDate()}日`;
     }
-  } //今月に戻ったら、強制的に今日の日付を指すようにする
+  }; //今月に戻ったら、強制的に今日の日付を指すようにする。これどうなん？分からん
 
   dates.addEventListener("click", (e) => {
     if (e.target.nodeName === "TD") {
@@ -141,20 +152,29 @@
       }日`; //dateInnerに日付を格納
       e.target.classList.add("u-colors-calendar-pushed");
     }
-  });  
+  });
 
-    const modalInner = document.querySelector(".js-modal-inner");
-    const modalClose = document.querySelector(".js-modal-close");
-    const modalBack = document.querySelector(".js-modal-back");
-    const calendar = document.querySelector(".js-calendar");
-    const calendarButton = document.querySelector(".js-calendar-button");
-    //memo 煩雑だからなんとかしたい
+  const backToModal = () => {
+    document
+      .querySelector(".js-modal-inner")
+      .classList.remove("u-display-hidden");
+    document
+      .querySelector(".js-modal-close")
+      .classList.remove("u-display-hidden");
+    document
+      .querySelector(".js-modal-back")
+      .classList.remove("u-display-block");
+    document.querySelector(".js-calendar").classList.remove("u-display-block");
+  }; //もとの画面へ戻る
 
-    calendarButton.addEventListener('click', () => {
-      studyingDate.value = dateInner;
-      modalClose.classList.remove("u-display-hidden");
-      modalInner.classList.remove("u-display-hidden");
-      modalBack.classList.remove("u-display-block");
-      calendar.classList.remove("u-display-block");
-    });
+  const modalBack = document.querySelector(".js-modal-back");
+  const calendarButton = document.querySelector(".js-calendar-button");
+  modalBack.addEventListener("click", () => {
+    backToModal();
+  });
+
+  calendarButton.addEventListener("click", () => {
+    studyingDate.value = dateInner;
+    backToModal();
+  });
 }

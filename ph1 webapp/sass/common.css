@@ -1133,7 +1133,7 @@ img {
   width: 70px;
 }
 .p-calendar td {
-  color: #9b9b9b;
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
 }
@@ -1245,6 +1245,26 @@ img {
 }
 
 td.u-colors-calendar-pushed {
+  position: relative;
+  color: #ffffff !important;
+  z-index: 0;
+}
+td.u-colors-calendar-pushed::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: "";
+  width: 45px;
+  height: 45px;
   background-color: #0f71bc;
-  color: #ffffff;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+td.u-colors-black {
+  color: black;
+}
+td.u-colors-gray {
+  color: #9b9b9b;
 }/*# sourceMappingURL=common.css.map */

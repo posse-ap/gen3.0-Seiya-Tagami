@@ -87,13 +87,6 @@
     calendar.classList.add('u-display-block');
   }); //カレンダー画面へ移る
 
-  modalBack.addEventListener("click", () => {
-    modalClose.classList.remove("u-display-hidden");
-    modalInner.classList.remove("u-display-hidden");
-    modalBack.classList.remove("u-display-block");
-    calendar.classList.remove('u-display-block');
-  }); //もとの画面に戻る
-
   const record = document.querySelector(".js-button-record-done");
 
   record.addEventListener("click", () => {
