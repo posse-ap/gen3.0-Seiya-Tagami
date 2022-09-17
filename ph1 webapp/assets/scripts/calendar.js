@@ -39,7 +39,7 @@
     }
 
     return dates;
-  }; //日付を取得
+  }; //その月の日付を取得
 
   const clearCalendar = () => {
     const tbody = document.querySelector("tbody");
@@ -66,9 +66,6 @@
         const td = document.createElement("td");
 
         td.textContent = date.date;
-        // if (date.isToday) {
-        //   td.classList.add("p-calendar-is-pushed");
-        // }
         if (date.isDisabled) {
           td.classList.add("disabled");
         }
@@ -134,14 +131,15 @@
     ) {
       const allDates = dates.querySelectorAll("td");
       allDates.forEach((date) => {
-        if(`${date.textContent}日` === dateData.substring(8, 10)){ //日にちが一桁なら"日"まで含むようにする。
+        if (`${date.textContent}日` === dateData.substring(8, 10)) {
+          //日にちが一桁なら"日"まで含むようにする。
           date.classList.add("p-calendar-is-pushed");
-        } else if(date.textContent === dateData.substring(8, 10)){
+        } else if (date.textContent === dateData.substring(8, 10)) {
           date.classList.add("p-calendar-is-pushed");
-        } 
+        }
       });
     }
-  };
+  }; // dateDataに格納されている日付に対して"p-calendar-is-pushed"状態を付け続ける。
 
   dates.addEventListener("click", (e) => {
     if (e.target.nodeName === "TD") {
@@ -182,7 +180,6 @@
     backToModal();
   }); //決定ボタン押下時
 
-  
   initializeDate();
-  createCalendar()
+  createCalendar();
 }
