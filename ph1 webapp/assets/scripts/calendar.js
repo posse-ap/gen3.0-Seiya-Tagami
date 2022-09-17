@@ -19,7 +19,7 @@
       });
     }
     return dates;
-  };
+  }; //前月の日付を一部を取得
 
   const getCalenderBody = () => {
     const dates = [];
@@ -39,7 +39,7 @@
     }
 
     return dates;
-  };
+  }; //日付を取得
 
   const clearCalendar = () => {
     const tbody = document.querySelector("tbody");
@@ -49,11 +49,10 @@
   const renderTitle = () => {
     const title = `${year}年${String(month + 1).padStart(2, "0")}月`;
     document.getElementById("js-title").textContent = title;
-  };
+  }; //カレンダー上部に年月日を表示
 
   const renderWeeks = () => {
     const dates = [...getCalendarHead(), ...getCalenderBody()];
-
     const weeks = [];
     const weekCount = dates.length / 7;
 
@@ -67,9 +66,9 @@
         const td = document.createElement("td");
 
         td.textContent = date.date;
-        if (date.isToday) {
-          td.classList.add("p-calendar-is-pushed");
-        }
+        // if (date.isToday) {
+        //   td.classList.add("p-calendar-is-pushed");
+        // }
         if (date.isDisabled) {
           td.classList.add("disabled");
         }
@@ -88,14 +87,15 @@
       });
       document.querySelector("tbody").appendChild(tr);
     });
-  };
+  }; //カレンダーの日付を表示
 
   function createCalendar() {
     clearCalendar();
     renderTitle();
     renderWeeks();
+    fixClickedDate();
   }
-  createCalendar();
+  // createCalendar();
   // カレンダー生成
 
   document.getElementById("js-prev").addEventListener("click", () => {
@@ -105,7 +105,6 @@
       month = 11;
     }
     createCalendar();
-    setToday();
   }); //前の月へ
 
   document.getElementById("js-next").addEventListener("click", () => {
@@ -115,29 +114,34 @@
       month = 0;
     }
     createCalendar();
-    setToday();
   }); //次の月へ
 
   const studyingDate = document.getElementById("js-studying-date");
   const dates = document.getElementById("js-dates");
-  let dateInner = `${year}年${String(month + 1).padStart(
+  let dateData = `${year}年${String(month + 1).padStart(
     2,
     "0"
   )}月${today.getDate()}日`;
 
   const initializeDate = () => {
-    studyingDate.value = dateInner;
+    studyingDate.value = dateData;
   }; // 初期値は今日の日付にする
-  initializeDate();
 
-  const setToday = () => {
-    if (year === today.getFullYear() && month == today.getMonth()) {
-      dateInner = `${year}年${String(month + 1).padStart(
-        2,
-        "0"
-      )}月${today.getDate()}日`;
+  const fixClickedDate = () => {
+    if (
+      year == dateData.substring(0, 4) &&
+      month + 1 == dateData.substring(5, 7)
+    ) {
+      const allDates = dates.querySelectorAll("td");
+      allDates.forEach((date) => {
+        if(`${date.textContent}日` === dateData.substring(8, 10)){ //日にちが一桁なら"日"まで含むようにする。
+          date.classList.add("p-calendar-is-pushed");
+        } else if(date.textContent === dateData.substring(8, 10)){
+          date.classList.add("p-calendar-is-pushed");
+        } 
+      });
     }
-  }; //今月に戻ったら、強制的に今日の日付を指すようにする。これどうなん？分からん
+  };
 
   dates.addEventListener("click", (e) => {
     if (e.target.nodeName === "TD") {
@@ -146,9 +150,9 @@
         date.classList.remove("p-calendar-is-pushed");
       });
 
-      dateInner = `${year}年${String(month + 1).padStart(2, "0")}月${
+      dateData = `${year}年${String(month + 1).padStart(2, "0")}月${
         e.target.textContent
-      }日`; //dateInnerに日付を格納
+      }日`; //dateDataに日付を格納
       e.target.classList.add("p-calendar-is-pushed");
     }
   });
@@ -171,10 +175,14 @@
 
   modalBack.addEventListener("click", () => {
     backToModal();
-  });
+  }); //戻るボタン押下時
 
   calendarButton.addEventListener("click", () => {
-    studyingDate.value = dateInner;
+    studyingDate.value = dateData;
     backToModal();
-  });
+  }); //決定ボタン押下時
+
+  
+  initializeDate();
+  createCalendar()
 }

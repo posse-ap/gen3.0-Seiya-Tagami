@@ -27,6 +27,7 @@
       @include mobile {
         width: 40px;
         height: 40px;
+        margin-right: 20px;
       }
 
       &::before {
@@ -79,6 +80,7 @@
       @include mobile {
         width: 40px;
         height: 40px;
+        margin-left: 20px;
       }
     }
 
@@ -325,7 +327,7 @@
           width: 35%;
           height: 4px;
           border-radius: 2px;
-          transform: translate(-6px, 5px) rotateZ(-135deg);
+          transform: translate(-4px, 5px) rotateZ(-135deg);
           transform-origin: 2px 2px;
           background: $color-white;
 
@@ -343,7 +345,7 @@
           width: 55%;
           height: 4px;
           border-radius: 2px;
-          transform: translate(-6px, 5px) rotateZ(-40deg);
+          transform: translate(-3px, 5px) rotateZ(-45deg);
           transform-origin: 2px 2px;
           background: $color-white;
 

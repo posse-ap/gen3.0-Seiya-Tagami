@@ -3,19 +3,22 @@
 
 .p-calendar {
   display: none;
-  width: 50%; //仮
+  width: 455px; //仮
   margin: 20px auto 0;
   user-select: none;
 
+  @include mobile {
+    width: 350px;
+  }
+
   & table {
-    width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
   }
 
   & th,
   td {
     text-align: center;
-    padding: 15px 8px;
   }
 
   &__header {
@@ -51,10 +54,23 @@
   &__inner {
     margin-top: 26px;
 
+    @include mobile {
+      margin-top: 22px;
+    }
+
     &__days {
       & th {
         color: $color-light-blue-b;
-        width: 70px;
+        width: 65px;
+        padding-top: 15px;
+        padding-bottom: 4px;
+        font-weight: 500;
+
+        @include mobile {
+          width: 50px;
+          padding-top: 12px;
+          font-size: 14px;
+        }
       }
     }
   }
@@ -63,6 +79,12 @@
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
+    padding: 15px;
+
+    @include mobile {
+      padding: 12px;
+      font-size: 16px;
+    }
 
     &.disabled {
       opacity: 0;
@@ -85,6 +107,12 @@
       font-size: 22px;
       text-align: center;
 
+      @include mobile {
+        width: 160px;
+        height: 50px;
+        font-size: 18px;
+      }
+      
       &:hover {
         opacity: 0.8;
       }
@@ -107,6 +135,11 @@
       background-color: $color-blue;
       border-radius: 50%;
       z-index: -1;
+
+      @include mobile {
+        width: 40px;
+        height: 40px;
+      }
     }
   }
 }
