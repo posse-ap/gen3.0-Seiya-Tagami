@@ -1,7 +1,10 @@
 "use strict";
+
+// Register the plugin to all charts:
+Chart.register(ChartDataLabels);
+
 {
   //棒グラフここから
-
   const STUDYING_TIME_DATA =
     "http://posse-task.anti-pattern.co.jp/1st-work/study_time.json";
   fetch(STUDYING_TIME_DATA)
@@ -35,7 +38,6 @@
             // label: "",
             data: convertedTimeData,
             backgroundColor: gradient,
-            borderWidth: 1,
             borderRadius: 50,
             borderSkipped: false,
           },
@@ -85,9 +87,116 @@
         plugins: {
           legend: {
             display: false,
+          },
+          datalabels: {
+            display: false,
           }
         },
       },
     });
   }
+  //棒グラフここまで
+
+  //学習言語ここから
+  const bgColors = [
+    "#0345ec",
+    "#0f71bd",
+    "#20bdde",
+    "#3ccefe",
+    "#b29ef3",
+    "#6d46ec",
+    "#4a17ef",
+    "#3105c0",
+  ];
+
+  const STUDYING_LANGUAGES_DATA =
+    "http://posse-task.anti-pattern.co.jp/1st-work/study_language.json";
+  fetch(STUDYING_LANGUAGES_DATA)
+    .then((response) => {
+      return response.json();
+    })
+    .then((jsonData) => {
+      createLanguagesChart(jsonData);
+    });
+
+  function createLanguagesChart(jsonData) {
+    const convertedLangauagesData = Object.keys(jsonData[0]);
+    const convertedRatioDataOfLanguages = Object.values(jsonData[0]);
+    const doughnut1_ctx = document
+      .getElementById("js-doughnut1")
+      .getContext("2d");
+    const doughnutChart1 = new Chart(doughnut1_ctx, {
+      type: "doughnut",
+      data: {
+        labels: convertedLangauagesData,
+        datasets: [
+          {
+            data: convertedRatioDataOfLanguages,
+            backgroundColor: bgColors,
+            datalabels: {
+              color: "#ffffff",
+              formatter: function (value, context) {
+                return value + "%";
+              },
+            },
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display:false,
+          }
+        }
+      },
+    });
+  }
+  //学習言語ここまで
+
+  //学習コンテンツここから
+  const STUDYING_CONTENTS_DATA =
+    "http://posse-task.anti-pattern.co.jp/1st-work/study_contents.json";
+  fetch(STUDYING_CONTENTS_DATA)
+    .then((response) => {
+      return response.json();
+    })
+    .then((jsonData) => {
+      createContentsChart(jsonData);
+    });
+
+  function createContentsChart(jsonData) {
+    const convertedContentsData = Object.keys(jsonData[0]);
+    const convertedRatioDataOfContents = Object.values(jsonData[0]);
+    const doughnut2_ctx = document.getElementById("js-doughnut2").getContext("2d");
+    const doughnutChart2 = new Chart(doughnut2_ctx, {
+      type: "doughnut",
+      data: {
+        labels: convertedContentsData,
+        datasets: [
+          {
+            data: convertedRatioDataOfContents,
+            backgroundColor: bgColors,
+            datalabels: {
+              color: "#ffffff",
+              formatter: function (value, context) {
+                return value + "%";
+              },
+            },
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display:false,
+          }
+        }
+      },
+    });
+  }
+  //学習コンテンツここまで
 }
