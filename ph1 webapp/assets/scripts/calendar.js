@@ -69,15 +69,12 @@
         if (date.isDisabled) {
           td.classList.add("disabled");
         }
-        if (today.getFullYear() < year || today.getMonth() < month) {
+        if (today.getFullYear() < year) {
           td.classList.add("u-colors-black");
-        } else if (
-          today.getFullYear() > year ||
-          today.getMonth() > month ||
-          (year === today.getFullYear() &&
-            month == today.getMonth() &&
-            today.getDate() > date.date)
-        ) {
+        } else 
+        if (today.getFullYear() > year || today.getMonth() > month || (year === today.getFullYear() && month == today.getMonth() && 
+        today.getDate() > date.date))
+        {
           td.classList.add("u-colors-gray");
         }
         tr.appendChild(td);
@@ -92,7 +89,6 @@
     renderWeeks();
     fixClickedDate();
   }
-  // createCalendar();
   // カレンダー生成
 
   document.getElementById("js-prev").addEventListener("click", () => {
