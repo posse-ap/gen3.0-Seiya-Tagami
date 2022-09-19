@@ -25,9 +25,9 @@ Chart.register(ChartDataLabels);
 
     const bar_ctx = document.getElementById("js-bar-chart").getContext("2d");
     bar_ctx.canvas.height = 280;
-    const gradient = bar_ctx.createLinearGradient(0, 300, 0, 0);
-    gradient.addColorStop(0, "#0f71bc");
-    gradient.addColorStop(1, "#3ccfff");
+    const gradient = bar_ctx.createLinearGradient(0, 0, 0, 300);
+    gradient.addColorStop(0, "#3ccfff");
+    gradient.addColorStop(1, "#0f71bc");
 
     const barChart = new Chart(bar_ctx, {
       type: "bar",
@@ -152,6 +152,8 @@ Chart.register(ChartDataLabels);
         }
       },
     });
+    const languagesLegendContainer = document.getElementById('js-languages-legends');
+    createLegend(convertedLangauagesData, languagesLegendContainer)
   }
   //学習言語ここまで
 
@@ -197,6 +199,20 @@ Chart.register(ChartDataLabels);
         }
       },
     });
+    const contentsLegendContainer = document.getElementById('js-contents-legends');
+    createLegend(convertedContentsData, contentsLegendContainer);
   }
   //学習コンテンツここまで
+
+  function createLegend(data, appendArea){
+    for(let i = 0; i < data.length; i++){
+      const li = document.createElement('li');
+      if(data[i] === "その他"){
+        li.innerHTML = `<div style="background-color:${bgColors[i]}"></div><span>情報システム基礎知識(${data[i]})</span>`
+      } else {
+        li.innerHTML = `<div style="background-color:${bgColors[i]}"></div><span>${data[i]}</span>`
+      }
+      appendArea.appendChild(li)
+    }
+  }
 }
