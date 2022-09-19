@@ -25,19 +25,23 @@ Chart.register(ChartDataLabels);
 
     const bar_ctx = document.getElementById("js-bar-chart").getContext("2d");
     bar_ctx.canvas.height = 280;
-    const gradient = bar_ctx.createLinearGradient(0, 0, 0, 300);
-    gradient.addColorStop(0, "#3ccfff");
-    gradient.addColorStop(1, "#0f71bc");
-
+    const gradient_desktop = bar_ctx.createLinearGradient(0, 0, 0, 300);
+    const gradient_mobile = bar_ctx.createLinearGradient(0, 0, 0, 100);
+    gradient_desktop.addColorStop(0, "#3ccfff");
+    gradient_desktop.addColorStop(1, "#0f71bc");
+    gradient_mobile.addColorStop(0, "#3ccfff");
+    gradient_mobile.addColorStop(1, "#0f71bc");
+    //memo 一旦これで
+    
     const barChart = new Chart(bar_ctx, {
       type: "bar",
       data: {
         labels: convertedDayData,
         datasets: [
           {
-            // label: "",
             data: convertedTimeData,
-            backgroundColor: gradient,
+            barPercentage: 0.6,
+            backgroundColor: screen.width > 520 ? gradient_desktop : gradient_mobile,
             borderRadius: 50,
             borderSkipped: false,
           },
@@ -139,6 +143,7 @@ Chart.register(ChartDataLabels);
                 return value + "%";
               },
             },
+            hoverOffset: 4
           },
         ],
       },
@@ -186,6 +191,7 @@ Chart.register(ChartDataLabels);
                 return value + "%";
               },
             },
+            hoverOffset: 4
           },
         ],
       },
