@@ -1,0 +1,86 @@
+@use "../../foundation/variables" as *;
+
+.p-quiz-container {
+  max-width: 1024px;
+  width: 100%;
+  margin: 120px auto 0;
+  padding: 0 20px;
+  z-index: 1;
+}
+
+.p-quiz {
+  &__header {
+    font-size: 36px;
+
+    &__quizlabel {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 8px;
+      background-color: $color-blue;
+      color: $color-white;
+      line-height: 1.5;
+    }
+
+    &__question {
+      display: block;
+      margin-top: 24px;
+      font-weight: 700;
+    }
+
+    &__image {
+      width: 718px;
+      height: 357px;
+      margin: 64px auto 0;
+    }
+  }
+
+  &__answerlabel {
+    display: inline-block;
+    margin-top: 64px;
+    padding: 8px 16px;
+    background-color: $color-red;
+    color: $color-white;
+    border-radius: 8px;
+    font-size: 36px;
+    line-height: 1.5;
+  }
+
+  &__answer-box {
+    &__choices {
+      display: flex;
+      justify-content: space-between;
+
+      & li button {
+        width: 312px;
+        height: 80px;
+        margin-top: 16px;
+        padding-left: 24px;
+        border: 5px solid $color-gray-light;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: 700;
+      }
+    }
+
+    &__answer-true {
+      height: 143px;
+      margin-top: 16px;
+      background-color: #FFF2F5;
+      font-weight: 700;
+    }
+
+    &__answer-false {
+      height: 143px;
+      margin-top: 16px;
+      background-color: #EFF2F5;
+      font-weight: 700;
+    }
+  }
+}
+
+//others
+.is-attached-arrow {
+  background-image: url(../../img/icon/icon-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: 90% center; 
+}

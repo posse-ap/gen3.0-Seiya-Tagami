@@ -1,50 +1,82 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="quiz.js">
-  <title>ph1-writing</title>
-</head>
-<body>
-  <header>
-    <div>
-      <div><img src="./img/logo.svg" alt=""></div>
-      <ul>
-        <li><a href="">トップページ</a></li>
-        <li><a href="">クイズページ</a></li>
-        <li><a href=""><img src="./img/icon/icon-twitter.svg" alt=""></a></li>
-        <li><a href=""><img src="./img/icon/icon-instagram.svg" alt=""></a></li>
-      </ul>
-    </div>
-  </header>
-  <main>
-    <article>
-      <section></section>
-      <section id="js-quiz-area">
-        <div>
-          <div class="p-quiz__quizlabel">Q1</div>
-          <span>早稲田大学の創設者である大隈重信は外務卿となったことがある、〇か×か</span>
-          <!-- <img src="./img/quiz/img-quiz01.png" alt=""> -->
-          <div class="p-quiz__answerlabel">A</div>
-          <div class="p-quiz__answer-box">
-            <ul>
-              <li><button>aaa</button></li>
-              <li><button>aaa</button></li>
-              <li><button>aaa</button></li>
-            </ul>
-            <div>
-              <span>正解</span>
-              <div><span>A</span><span>まる</span></div>
-            </div>
-            <cite>早稲田大学</cite>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./sass/common.css" />
+    <link rel="stylesheet" href="quiz.js" />
+    <title>ph1-writing</title>
+  </head>
+  <body>
+    <!--headerここから  -->
+    <header class="p-header">
+      <div class="p-header__container">
+        <div class="p-header__logo"><img src="./img/logo.svg" alt="" /></div>
+        <nav>
+          <ul class="p-header__items-list">
+            <li><a href="">トップページ</a></li>
+            <li><a href="">クイズページ</a></li>
+            <li>
+              <a href=""><img src="./img/icon/icon-twitter.svg" alt="" /></a>
+            </li>
+            <li>
+              <a href=""><img src="./img/icon/icon-instagram.svg" alt="" /></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- headerここまで -->
+
+    <!-- mainここから -->
+    <main class="test">
+      <article>
+        <section class="p-hero">
+          <div class="p-hero__title">
+            <h1>POSSE課題</h1>
+            <span>ITクイズ</span>
           </div>
-        </div>
-      </section>
-    </article>
-  </main>
-  <footer></footer>
-</body>
+        </section>
+        <section class="p-quiz-container" id="js-quiz-area">
+          <div class="p-quiz">
+            <div class="p-quiz__header">
+              <div class="p-quiz__header__quizlabel">Q1</div>
+              <span class="p-quiz__header__question">早稲田大学の創設者である大隈重信は外務卿となったことがある、〇か×か</span>
+              <div class="p-quiz__header__image"><img src="./img/quiz/img-quiz01.png" alt=""></div>
+            </div>
+            <div class="p-quiz__answerlabel">A</div>
+            <div class="p-quiz__answer-box">
+              <ul class="p-quiz__answer-box__choices">
+                <li><button class="is-attached-arrow">aaa</button></li>
+                <li><button class="is-attached-arrow">aaa</button></li>
+                <li><button class="is-attached-arrow">aaa</button></li>
+              </ul>
+              <div class="p-quiz__answer-box__answer-true">
+                <div class="p-quiz__answer-box__text">
+                  <span>正解!</span>
+                  <div><span>A</span><span>まる</span></div>
+                </div>
+              </div>
+              <div class="p-quiz__answer-box__answer-false">
+                <div class="p-quiz__answer-box__text">
+                  <span>不正解!</span>
+                  <div><span>A</span><span>まる</span></div>
+                </div>
+              </div>
+              <cite>早稲田大学</cite>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+    <!-- mainここまで -->
+
+    <!-- footerここから -->
+    <footer></footer>
+    <!-- footerここまで -->
+  </body>
 </html>
