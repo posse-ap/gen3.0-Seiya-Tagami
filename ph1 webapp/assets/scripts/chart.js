@@ -32,7 +32,7 @@ Chart.register(ChartDataLabels);
     gradient_mobile.addColorStop(0, "#3ccfff");
     gradient_mobile.addColorStop(1, "#0f71bc");
     //memo 一旦これで
-    
+
     const barChart = new Chart(bar_ctx, {
       type: "bar",
       data: {
@@ -220,5 +220,5 @@ Chart.register(ChartDataLabels);
       }
       appendArea.appendChild(li)
     }
-  }
+  } //legend生成
 }

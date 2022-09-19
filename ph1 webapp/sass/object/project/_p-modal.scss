@@ -132,7 +132,7 @@
     transform: translate(-50%, -50%);
 
     @include tablet {
-      position: absolute;
+      // position: absolute; どっちが良いんだろ？
       top: 64px;
       width: 95%;
       min-height: 800px;
@@ -141,8 +141,8 @@
     }
 
     @include mobile {
-      position: absolute;
-      top: 60px;
+      position: absolute; //ペアはbodyのrelative
+      bottom: 0;
       width: 100%;
       min-height: calc(100vh - 60px);
       border-radius: 30px 30px 0 0;
@@ -395,10 +395,6 @@
   &__nowloading {
     display: none;
     margin-top: 180px;
-
-    @include mobile {
-      margin-bottom: 443px;
-    }
 
     &__inner {
       position: relative;
