@@ -91,7 +91,11 @@
       height: 3px;
       margin: 0 auto;
       border-radius: 5px;
-      background-color: $color-close-button; //
+      background-color: $color-close-button;
+
+      @include mobile {
+        width: 22px;
+      }
 
       &::before {
         content: "";
@@ -104,6 +108,11 @@
         border-radius: 5px;
         background-color: $color-close-button;
         transform: rotate(45deg);
+
+        @include mobile {
+          top: 4px;
+          width: 12px;
+        }
       }
 
       &::after {
@@ -117,6 +126,11 @@
         border-radius: 5px;
         background-color: $color-close-button;
         transform: rotate(-45deg);
+
+        @include mobile {
+          top: -4px;
+          width: 12px;
+        }
       }
     }
   }
@@ -269,6 +283,10 @@
         padding: 20px;
         border-radius: 8px;
         background-color: $color-gray;
+
+        @include mobile {
+          font-size: 14px;
+        }
 
         &:focus {
           outline: none;
@@ -458,7 +476,7 @@
       font-size: 24px;
 
       @include mobile {
-        font-size: 21px;
+        font-size: 18px;
       }
     }
 
@@ -471,8 +489,8 @@
       border-radius: 50%;
 
       @include mobile {
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
       }
 
       &::before {

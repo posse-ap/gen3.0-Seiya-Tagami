@@ -3,7 +3,7 @@
 
 .p-calendar {
   display: none;
-  width: 455px; //仮
+  width: 455px; 
   margin: 20px auto 0;
   user-select: none;
 
@@ -25,7 +25,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 50px;
+    gap: 36px;
 
     & span {
       display: inline-block;
@@ -35,13 +35,13 @@
       cursor: pointer;
 
       &:first-child {
-        border-bottom: solid 2px $color-blue;
-        border-left: solid 2px $color-blue;
+        border-bottom: 3px solid $color-blue;
+        border-left: 3px solid $color-blue;
       }
 
       &:last-child {
-        border-top: solid 2px $color-blue;
-        border-right: solid 2px $color-blue;
+        border-top: 3px solid $color-blue;
+        border-right: 3px solid $color-blue;
       }
     }
 
