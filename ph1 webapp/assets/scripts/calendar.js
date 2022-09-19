@@ -71,10 +71,7 @@
         }
         if (today.getFullYear() < year) {
           td.classList.add("u-colors-black");
-        } else 
-        if (today.getFullYear() > year || today.getMonth() > month || (year === today.getFullYear() && month == today.getMonth() && 
-        today.getDate() > date.date))
-        {
+        } else if (today.getFullYear() > year || today.getMonth() > month || (year === today.getFullYear() && month == today.getMonth() && today.getDate() > date.date)) {
           td.classList.add("u-colors-gray");
         }
         tr.appendChild(td);
@@ -111,20 +108,14 @@
 
   const studyingDate = document.getElementById("js-studying-date");
   const dates = document.getElementById("js-dates");
-  let dateData = `${year}年${String(month + 1).padStart(
-    2,
-    "0"
-  )}月${today.getDate()}日`;
+  let dateData = `${year}年${String(month + 1).padStart(2, "0")}月${today.getDate()}日`;
 
   const initializeDate = () => {
     studyingDate.value = dateData;
   }; // 初期値は今日の日付にする
 
   const fixClickedDate = () => {
-    if (
-      year == dateData.substring(0, 4) &&
-      month + 1 == dateData.substring(5, 7)
-    ) {
+    if (year == dateData.substring(0, 4) && month + 1 == dateData.substring(5, 7)) {
       const allDates = dates.querySelectorAll("td");
       allDates.forEach((date) => {
         if (`${date.textContent}日` === dateData.substring(8, 10)) {
@@ -144,23 +135,15 @@
         date.classList.remove("p-calendar-is-pushed");
       });
 
-      dateData = `${year}年${String(month + 1).padStart(2, "0")}月${
-        e.target.textContent
-      }日`; //dateDataに日付を格納
+      dateData = `${year}年${String(month + 1).padStart(2, "0")}月${e.target.textContent}日`; //dateDataに日付を格納
       e.target.classList.add("p-calendar-is-pushed");
     }
   });
 
   const backToModal = () => {
-    document
-      .querySelector(".js-modal-inner")
-      .classList.remove("u-display-hidden");
-    document
-      .querySelector(".js-modal-close")
-      .classList.remove("u-display-hidden");
-    document
-      .querySelector(".js-modal-back")
-      .classList.remove("u-display-block");
+    document.querySelector(".js-modal-inner").classList.remove("u-display-hidden");
+    document.querySelector(".js-modal-close").classList.remove("u-display-hidden");
+    document.querySelector(".js-modal-back").classList.remove("u-display-block");
     document.querySelector(".js-calendar").classList.remove("u-display-block");
   }; //もとの画面へ戻る
 

@@ -84,7 +84,7 @@
     modalClose.classList.add("u-display-hidden");
     modalInner.classList.add("u-display-hidden");
     modalBack.classList.add("u-display-block");
-    calendar.classList.add('u-display-block');
+    calendar.classList.add("u-display-block");
   }); //カレンダー画面へ移る
 
   const record = document.querySelector(".js-button-record-done");
