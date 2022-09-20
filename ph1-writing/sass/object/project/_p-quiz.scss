@@ -46,6 +46,9 @@
   }
 
   &__answer-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     &__choices {
       display: flex;
       justify-content: space-between;
@@ -59,28 +62,110 @@
         border-radius: 8px;
         font-size: 18px;
         font-weight: 700;
+
+        &:disabled {
+          color: $color-black;
+        }
       }
     }
 
     &__answer-true {
+      display: none;
       height: 143px;
-      margin-top: 16px;
-      background-color: #FFF2F5;
+      background-color: #fff2f5;
+      border-radius: 8px;
       font-weight: 700;
+
+      &__textbox {
+        margin-left: 40px;
+        padding-top: 24px;
+
+        & span:first-child {
+          color: $color-red;
+          font-size: 24px;
+          line-height: 1.5;
+        }
+
+        & div {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          margin-top: 16px;
+
+          & span:first-child {
+            color: $color-black;
+            line-height: 1.8;
+          }
+
+          & span:last-child {
+            font-size: 18px;
+          }
+        }
+      }
     }
 
     &__answer-false {
+      display: none;
       height: 143px;
-      margin-top: 16px;
-      background-color: #EFF2F5;
+      background-color: #eff2f5;
+      border-radius: 8px;
       font-weight: 700;
+
+      &__textbox {
+        margin-left: 40px;
+        padding-top: 24px;
+
+        & span:first-child {
+          color: $color-blue;
+          font-size: 24px;
+          line-height: 1.5;
+        }
+
+        & div {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          margin-top: 16px;
+
+          & span:first-child {
+            color: $color-black;
+            line-height: 1.8;
+          }
+
+          & span:last-child {
+            font-size: 18px;
+          }
+        }
+      }
     }
+  }
+
+  & cite {
+    display: block;
+    height: 80px;
+    padding-left: 64px;
+    background-color: #F6F6F6;
+    background-image: url(../../img/icon/icon-note.svg);
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    border-radius: 8px;
+    line-height: 80px;
+    font-weight: 700;
   }
 }
 
-//others
+//state
+.is-selected {
+  border: 5px solid $color-blue;
+  color: $color-blue;
+}
+
 .is-attached-arrow {
   background-image: url(../../img/icon/icon-arrow.svg);
   background-repeat: no-repeat;
-  background-position: 90% center; 
+  background-position: 90% center;
+}
+
+.block {
+  display: block;
 }

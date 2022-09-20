@@ -1,0 +1,82 @@
+@use "../../foundation/variables" as *;
+
+.p-line {
+  &__container {
+    position: relative;
+    max-width: 984px;
+    width: 100%;
+    height: 357px;
+    margin: 140px auto 0;
+    background-image: url(../../img/bg-line.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 48px;
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      display: block;
+      content: "";
+      width: 100%;
+      height: 357px;
+      background-color: $color-blue;
+      border-radius: 48px;
+      opacity: 0.9;
+    }
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding-top: 68px;
+    color: $color-white;
+    font-weight: 700;
+    text-align: center;
+    z-index: 2;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &__image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      margin-top: 5px;
+      background-color: $color-white;
+      border-radius: 8px;
+
+      & img {
+        width: 46px;
+        height: 46px;
+      }
+    }
+
+    &__title {
+      font-size: 36px;
+      line-height: 1.8;
+    }
+  }
+
+  &__link {
+    width: 320px;
+    height: 50px;
+    margin-top: 8px;
+    background-color: $color-white;
+    color: $color-gray-dark;
+    border-radius: 98px;
+    line-height: 50px;
+    background-image: url(../../img/icon/icon-link-gray-dark.svg);
+    background-repeat: no-repeat;
+    background-position: 90% center;
+    background-size: 12.25px;
+  }
+}

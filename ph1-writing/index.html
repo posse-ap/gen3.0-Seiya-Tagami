@@ -46,23 +46,23 @@
             <div class="p-quiz__header">
               <div class="p-quiz__header__quizlabel">Q1</div>
               <span class="p-quiz__header__question">早稲田大学の創設者である大隈重信は外務卿となったことがある、〇か×か</span>
-              <div class="p-quiz__header__image"><img src="./img/quiz/img-quiz01.png" alt=""></div>
+              <div class="p-quiz__header__image"><img src="./img/quiz/img-quiz01.png" alt="" /></div>
             </div>
             <div class="p-quiz__answerlabel">A</div>
             <div class="p-quiz__answer-box">
               <ul class="p-quiz__answer-box__choices">
-                <li><button class="is-attached-arrow">aaa</button></li>
-                <li><button class="is-attached-arrow">aaa</button></li>
-                <li><button class="is-attached-arrow">aaa</button></li>
+                <li><button class="is-attached-arrow js-answer">aaa</button></li>
+                <li><button class="is-attached-arrow js-answer">aaa</button></li>
+                <li><button class="is-attached-arrow js-answer">aaa</button></li>
               </ul>
               <div class="p-quiz__answer-box__answer-true">
-                <div class="p-quiz__answer-box__text">
+                <div class="p-quiz__answer-box__answer-true__textbox js-true">
                   <span>正解!</span>
                   <div><span>A</span><span>まる</span></div>
                 </div>
               </div>
-              <div class="p-quiz__answer-box__answer-false">
-                <div class="p-quiz__answer-box__text">
+              <div class="p-quiz__answer-box__answer-false js-false">
+                <div class="p-quiz__answer-box__answer-false__textbox">
                   <span>不正解!</span>
                   <div><span>A</span><span>まる</span></div>
                 </div>
@@ -71,12 +71,36 @@
             </div>
           </div>
         </section>
+        <section class="p-line">
+          <div class="p-line__container">
+            <div class="p-line__inner">
+              <div class="p-line__header">
+                <div class="p-line__header__image"><img src="./img/icon/icon-line.svg" alt="" /></div>
+                <span class="p-line__header__title">POSSE 公式LINE</span>
+              </div>
+              <span>
+                公式LINEにてご質問を随時受け付けております。<br />詳細やPOSSE最新情報につきましては、公式LINEにてお知らせ致しますので<br />下記ボタンより友達追加をお願いします！
+              </span>
+              <a href="" class="p-line__link">LINE追加</a>
+            </div>
+          </div>
+        </section>
       </article>
     </main>
     <!-- mainここまで -->
 
     <!-- footerここから -->
-    <footer></footer>
+    <footer class="p-footer">
+      <div class="p-footer__links">
+        <div class="p-footer__links__image"><img src="./img/logo.svg" alt=""></div>
+        <a href="" class="p-footer__links__link">POSSE公式サイト<img src="./img/icon/icon-link-gray-dark.svg" alt=""></a>
+        <ul class="p-footer__links__sns">
+          <li><a href=""><img src="./img/icon/icon-twitter.svg" alt=""></a></li>
+          <li><a href=""><img src="./img/icon/icon-instagram.svg" alt=""></a></li>
+        </ul>
+      </div>  
+      <div class="p-footer__copyright"><small>©︎2022 POSSE</small></div>  
+    </footer>
     <!-- footerここまで -->
   </body>
 </html>
