@@ -87,6 +87,25 @@
       border-radius: 12px;
       background-color: $color-white;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      
+      @include mobile {
+        position: relative;
+      }
+      
+      &::before {
+        @include mobile {
+          content: "";
+          position: absolute;
+          top: -16px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: block;
+          background-color: #bfbfc2;
+          width: 95%;
+          height: 2px;
+          border-radius: 2px;
+        }
+      }
 
       @include tablet {
         height: 370px;

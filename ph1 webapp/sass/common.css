@@ -424,6 +424,25 @@ img {
   background-color: #ffffff;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
+@media (max-width: 520px) {
+  .p-main__left__chart {
+    position: relative;
+  }
+}
+@media (max-width: 520px) {
+  .p-main__left__chart::before {
+    content: "";
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    background-color: #bfbfc2;
+    width: 95%;
+    height: 2px;
+    border-radius: 2px;
+  }
+}
 @media (max-width: 960px) {
   .p-main__left__chart {
     height: 370px;
@@ -886,9 +905,6 @@ img {
 }
 .p-modal__right__twitter__dummy-input {
   position: relative;
-  top: 0;
-  left: 0;
-  display: block;
   width: 40px;
   height: 40px;
   margin-right: 10px;
@@ -930,7 +946,7 @@ img {
   width: 55%;
   height: 4px;
   border-radius: 2px;
-  transform: translate(-3px, 5px) rotateZ(-45deg);
+  transform: translate(-4px, 5px) rotateZ(-46deg);
   transform-origin: 2px 2px;
   background: #ffffff;
 }
@@ -1344,7 +1360,7 @@ img {
   width: 35%;
   height: 3px;
   border-radius: 2px;
-  transform: translate(-3px, 3px) rotateZ(-135deg);
+  transform: translate(-4px, 1px) rotateZ(-135deg);
   transform-origin: 2px 2px;
   background: #ffffff;
 }
@@ -1363,7 +1379,7 @@ img {
   width: 55%;
   height: 3px;
   border-radius: 2px;
-  transform: translate(-2px, 4px) rotateZ(-46deg);
+  transform: translate(-3px, 2px) rotateZ(-46deg);
   transform-origin: 2px 2px;
   background: #ffffff;
 }

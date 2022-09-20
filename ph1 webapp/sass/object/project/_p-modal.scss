@@ -320,9 +320,6 @@
 
       &__dummy-input {
         position: relative;
-        top: 0;
-        left: 0;
-        display: block;
         width: 40px;
         height: 40px;
         margin-right: 10px;
@@ -363,7 +360,7 @@
           width: 55%;
           height: 4px;
           border-radius: 2px;
-          transform: translate(-3px, 5px) rotateZ(-45deg);
+          transform: translate(-4px, 5px) rotateZ(-46deg);
           transform-origin: 2px 2px;
           background: $color-white;
 
