@@ -6,7 +6,7 @@
   const nowLoading = document.querySelector(".js-now-loading");
   const recordDone = document.querySelector(".js-record-done");
   const checkBoxes = document.querySelectorAll(".js-checkbox");
-  const writtenTexts = document.querySelectorAll(".js-written-text");
+  const inputedTexts = document.querySelectorAll(".js-inputed-text");
 
   const unChecked = (checkBoxes) => {
     checkBoxes.forEach((checkbox) => {
@@ -14,8 +14,8 @@
     });
   }; //チェックを全て外す
 
-  const clearText = (writtenTexts) => {
-    writtenTexts.forEach((text) => {
+  const clearText = (inputedTexts) => {
+    inputedTexts.forEach((text) => {
       text.value = "";
     });
   }; //テキストを入力前の状態にする
@@ -24,7 +24,7 @@
   const regulationAlert = document.querySelector(".js-alert");
   const shareTweet = document.getElementById("js-tweet-share");
 
-  const countlettersOftweet = () => {
+  const countLetters = () => {
     tweetArea.addEventListener("input", (e) => {
       if (e.target.value.length > 140) {
         regulationAlert.classList.add("u-display-block");
@@ -48,7 +48,7 @@
     }
   }; //ツイート機能
 
-  const showRecorddone = () => {
+  const showRecordDone = () => {
     nowLoading.classList.remove("u-display-block");
     recordDone.classList.add("u-display-flex");
   }; //記録・投稿完了画面を表示
@@ -57,7 +57,7 @@
   const clickRecord = (recordButtons) => {
     recordButtons.forEach((recordButton) => {
       recordButton.addEventListener("click", () => {
-        countlettersOftweet();
+        countLetters();
         window.scroll({ top: 0, behavior: "smooth" });
         modal.classList.toggle("u-display-block");
       });
@@ -73,7 +73,7 @@
     nowLoading.classList.remove("u-display-block");
     regulationAlert.classList.remove("u-display-block");
     unChecked(checkBoxes);
-    clearText(writtenTexts);
+    clearText(inputedTexts);
   }); //モーダルを閉じる
 
   const studyingDate = document.getElementById("js-studying-date");
@@ -94,7 +94,7 @@
     window.scroll({ top: 0, behavior: "smooth" });
     modalInner.classList.add("u-display-hidden");
     nowLoading.classList.add("u-display-block");
-    const cleartimeoutId = setTimeout(showRecorddone, 3000);
+    const cleartimeoutId = setTimeout(showRecordDone, 3000);
 
     modalClose.addEventListener("click", () => {
       clearTimeout(cleartimeoutId);
