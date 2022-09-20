@@ -375,7 +375,7 @@ img {
   display: flex;
   justify-content: space-between;
 }
-.p-quiz__answer-box__choices li button {
+.p-quiz__answer-box__choices__button {
   width: 312px;
   height: 80px;
   margin-top: 16px;
@@ -385,7 +385,7 @@ img {
   font-size: 18px;
   font-weight: 700;
 }
-.p-quiz__answer-box__choices li button:disabled {
+.p-quiz__answer-box__choices__button:disabled {
   color: #000000;
 }
 .p-quiz__answer-box__answer-true {
@@ -461,7 +461,7 @@ img {
 
 .is-selected {
   border: 5px solid #0071BC;
-  color: #0071BC;
+  color: #0071BC !important;
 }
 
 .is-attached-arrow {

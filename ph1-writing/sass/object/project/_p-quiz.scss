@@ -10,7 +10,7 @@
 
 .p-quiz {
   margin-top: 120px;
-   
+
   &__header {
     font-size: 36px;
 
@@ -55,7 +55,7 @@
       display: flex;
       justify-content: space-between;
 
-      & li button {
+      &__button {
         width: 312px;
         height: 80px;
         margin-top: 16px;
@@ -159,7 +159,7 @@
 //state
 .is-selected {
   border: 5px solid $color-blue;
-  color: $color-blue;
+  color: $color-blue !important;
 }
 
 .is-attached-arrow {
