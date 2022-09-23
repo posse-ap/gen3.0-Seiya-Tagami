@@ -378,8 +378,7 @@
   }
 
   &__record-button {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 20px 0;
     grid-column-start: 1;
     grid-column-end: 3;
 
@@ -496,7 +495,7 @@
         width: 35%;
         height: 5px;
         border-radius: 2px;
-        transform: translate(-6px, 13px) rotateZ(-135deg);
+        transform: translate(-6px, 17px) rotateZ(-135deg);
         transform-origin: 2px 2px;
         background: $color-white;
       }
@@ -510,7 +509,7 @@
         width: 55%;
         height: 5px;
         border-radius: 2px;
-        transform: translate(-6px, 13px) rotateZ(-44deg);
+        transform: translate(-6px, 16px) rotateZ(-49deg);
         transform-origin: 2px 2px;
         background: $color-white;
       }

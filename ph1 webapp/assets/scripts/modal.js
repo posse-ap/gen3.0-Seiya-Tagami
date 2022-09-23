@@ -50,6 +50,7 @@
 
   const showRecordDone = () => {
     nowLoading.classList.remove("u-display-block");
+    modalClose.classList.remove("u-display-hidden");
     recordDone.classList.add("u-display-flex");
   }; //記録・投稿完了画面を表示
 
@@ -93,6 +94,7 @@
     tweet();
     window.scroll({ top: 0, behavior: "smooth" });
     modalInner.classList.add("u-display-hidden");
+    modalClose.classList.add("u-display-hidden");
     nowLoading.classList.add("u-display-block");
     const cleartimeoutId = setTimeout(showRecordDone, 3000);
 
