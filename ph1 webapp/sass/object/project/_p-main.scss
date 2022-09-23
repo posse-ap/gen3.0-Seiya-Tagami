@@ -46,6 +46,11 @@
       background-color: $color-white;
       font-weight: 600;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      transition-duration: .7s;
+
+      &:hover {
+        transform: scale(1.05);
+      } //memo 無くてもよい
 
       @include mobile {
         width: calc((100% - 32px) / 3);
@@ -87,11 +92,11 @@
       border-radius: 12px;
       background-color: $color-white;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-      
+
       @include mobile {
         position: relative;
       }
-      
+
       &::before {
         @include mobile {
           content: "";
@@ -100,7 +105,7 @@
           left: 50%;
           transform: translateX(-50%);
           display: block;
-          background-color: #bfbfc2;
+          background-color: #77969A;
           width: 95%;
           height: 2px;
           border-radius: 2px;
@@ -222,6 +227,7 @@
   }
   //rightここまで
 
+  //change-monthここから
   &__change-month {
     display: flex;
     align-items: center;
@@ -229,35 +235,35 @@
     gap: 36px;
     height: 100px;
     font-weight: bold;
-    // text-align: center;
-    // line-height: 100px;
 
     @include mobile {
       height: 60px;
-      line-height: 60px;
     }
 
     & span {
-      &:first-child {
-        border-bottom: 3px solid #0f71bc;
-        border-left: 3px solid #0f71bc;
+      &:first-child,
+      &:last-child {
+        cursor: pointer;
         width: 12px;
         height: 12px;
         transform: rotate(45deg);
+      }
+
+      &:first-child {
+        border-bottom: 3px solid #0f71bc;
+        border-left: 3px solid #0f71bc;
       }
 
       &:last-child {
         border-top: 3px solid #0f71bc;
         border-right: 3px solid #0f71bc;
-        width: 12px;
-        height: 12px;
-        transform: rotate(45deg);
       }
     }
   }
   //changemonthここまで
 
-  &__bottom-button-mobile {
+  //mobile用記録ボタンここから
+  &__button-mobile {
     display: none;
 
     @include mobile {
@@ -278,4 +284,5 @@
       text-align: center;
     }
   }
+  //mobile用記録ボタンここまで
 }

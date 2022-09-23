@@ -330,7 +330,7 @@ img {
   line-height: 42px;
   text-align: center;
 }
-.p-header__button:hover {
+.p-header__button__inner:hover {
   opacity: 0.8;
 }
 
@@ -382,6 +382,10 @@ img {
   background-color: #ffffff;
   font-weight: 600;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition-duration: 0.7s;
+}
+.p-main__left__item:hover {
+  transform: scale(1.05);
 }
 @media (max-width: 520px) {
   .p-main__left__item {
@@ -437,7 +441,7 @@ img {
     left: 50%;
     transform: translateX(-50%);
     display: block;
-    background-color: #bfbfc2;
+    background-color: #77969A;
     width: 95%;
     height: 2px;
     border-radius: 2px;
@@ -567,33 +571,32 @@ img {
 @media (max-width: 520px) {
   .p-main__change-month {
     height: 60px;
-    line-height: 60px;
   }
+}
+.p-main__change-month span:first-child, .p-main__change-month span:last-child {
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
 }
 .p-main__change-month span:first-child {
   border-bottom: 3px solid #0f71bc;
   border-left: 3px solid #0f71bc;
-  width: 12px;
-  height: 12px;
-  transform: rotate(45deg);
 }
 .p-main__change-month span:last-child {
   border-top: 3px solid #0f71bc;
   border-right: 3px solid #0f71bc;
-  width: 12px;
-  height: 12px;
-  transform: rotate(45deg);
 }
-.p-main__bottom-button-mobile {
+.p-main__button-mobile {
   display: none;
 }
 @media (max-width: 520px) {
-  .p-main__bottom-button-mobile {
+  .p-main__button-mobile {
     display: block;
     padding: 20px 0;
   }
 }
-.p-main__bottom-button-mobile button {
+.p-main__button-mobile button {
   display: block;
   width: 88%;
   height: 42px;
@@ -1300,11 +1303,12 @@ img {
   z-index: 0;
 }
 .p-calendar-is-pushed::before {
+  content: "";
+  display: block;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  content: "";
   width: 45px;
   height: 45px;
   background-color: #0f71bc;
@@ -1374,7 +1378,7 @@ img {
   width: 35%;
   height: 3px;
   border-radius: 2px;
-  transform: translate(-4px, 1px) rotateZ(-135deg);
+  transform: translate(-3px, 2px) rotateZ(-135deg);
   transform-origin: 2px 2px;
   background: #ffffff;
 }
@@ -1393,7 +1397,7 @@ img {
   width: 55%;
   height: 3px;
   border-radius: 2px;
-  transform: translate(-3px, 2px) rotateZ(-46deg);
+  transform: translate(-2px, 3px) rotateZ(-46deg);
   transform-origin: 2px 2px;
   background: #ffffff;
 }
