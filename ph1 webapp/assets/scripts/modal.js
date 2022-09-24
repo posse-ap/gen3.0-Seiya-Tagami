@@ -1,6 +1,7 @@
 "use strict";
 
 {
+  const body = document.querySelector('body')
   const modal = document.querySelector(".js-modal");
   const modalInner = document.querySelector(".js-modal-inner");
   const nowLoading = document.querySelector(".js-now-loading");
@@ -40,9 +41,7 @@
   const tweet = () => {
     if (shareTweet.checked) {
       const tweetText = `${tweetArea.value}`;
-      // const hashtag = "";
       window.open(
-        // `http://twitter.com/intent/tweet?&text=${tweetText}&hashtags=${hashtag}`
         `http://twitter.com/intent/tweet?&text=${tweetText}`
       );
     }
@@ -54,20 +53,22 @@
     recordDone.classList.add("u-display-flex");
   }; //記録・投稿完了画面を表示
 
-  const recordButtons = document.querySelectorAll(".js-record");
-  const clickRecord = (recordButtons) => {
-    recordButtons.forEach((recordButton) => {
-      recordButton.addEventListener("click", () => {
+  const modalOpen = document.querySelectorAll(".js-modal-open");
+  const clickRecord = (modalOpens) => {
+    modalOpens.forEach((modalOpen) => {
+      modalOpen.addEventListener("click", () => {
         countLetters();
         window.scroll({ top: 0, behavior: "smooth" });
+        body.classList.add('u-overflow-hidden');
         modal.classList.toggle("u-display-block");
       });
     });
   }; //モーダルを開く
-  clickRecord(recordButtons);
+  clickRecord(modalOpen);
 
   const modalClose = document.querySelector(".js-modal-close");
   modalClose.addEventListener("click", () => {
+    body.classList.remove('u-overflow-hidden');
     modal.classList.toggle("u-display-block");
     modalInner.classList.remove("u-display-hidden");
     recordDone.classList.remove("u-display-flex");

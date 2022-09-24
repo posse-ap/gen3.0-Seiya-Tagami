@@ -106,6 +106,8 @@
       box-shadow: 0 5px 10px $color-light-blue-a;
       font-size: 22px;
       text-align: center;
+      transition-property: opacity;
+      transition-duration: .4s;
 
       @include mobile {
         width: 160px;
