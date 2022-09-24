@@ -1,7 +1,6 @@
 "use strict";
 
 {
-  const body = document.querySelector('body')
   const modal = document.querySelector(".js-modal");
   const modalInner = document.querySelector(".js-modal-inner");
   const nowLoading = document.querySelector(".js-now-loading");
@@ -59,7 +58,6 @@
       modalOpen.addEventListener("click", () => {
         countLetters();
         window.scroll({ top: 0, behavior: "smooth" });
-        body.classList.add('u-overflow-hidden');
         modal.classList.toggle("u-display-block");
       });
     });
@@ -68,7 +66,6 @@
 
   const modalClose = document.querySelector(".js-modal-close");
   modalClose.addEventListener("click", () => {
-    body.classList.remove('u-overflow-hidden');
     modal.classList.toggle("u-display-block");
     modalInner.classList.remove("u-display-hidden");
     recordDone.classList.remove("u-display-flex");
