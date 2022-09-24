@@ -4,9 +4,6 @@
 @use "./foundation/reset";
 @use "./foundation/variables";
 
-//layout
-@use "./layout/l-main";
-
 //project
 @use "./object/project/p-header";
 @use "./object/project/p-main";
@@ -20,4 +17,3 @@
 //utility
 @use "./object/utility/u-display";
 @use "./object/utility/u-colors";
-@use "./object/utility/u-overflow";

@@ -626,8 +626,8 @@ img {
   padding-top: 20px;
 }
 .p-modal__close-button {
-  display: block;
   position: relative;
+  display: block;
   width: 50px;
   height: 50px;
   margin-left: auto;
@@ -756,11 +756,16 @@ img {
   transform: translate(-50%, -50%);
   border-radius: 40px;
   background-color: #ffffff;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
 }
 @media (max-width: 960px) {
   .p-modal__container {
     width: 95%;
     min-height: 800px;
+    height: auto;
   }
 }
 @media (max-width: 600px) {
@@ -777,6 +782,22 @@ img {
             animation-name: popup;
     -webkit-animation-duration: 1.1s;
             animation-duration: 1.1s;
+  }
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 @-webkit-keyframes popup {
@@ -1020,7 +1041,7 @@ img {
 }
 .p-modal__nowloading {
   display: none;
-  margin-top: 180px;
+  margin-top: 220px;
 }
 .p-modal__nowloading__inner {
   position: relative;
@@ -1438,8 +1459,4 @@ img {
 }
 .u-colors-gray {
   color: #9b9b9b;
-}
-
-.u-overflow-hidden {
-  overflow: hidden;
 }/*# sourceMappingURL=common.css.map */
