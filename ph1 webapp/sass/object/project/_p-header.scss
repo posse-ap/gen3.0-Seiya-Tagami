@@ -55,6 +55,8 @@
       box-shadow: 0 5px 10px $color-light-blue-a;
       line-height: 42px;
       text-align: center;
+      transition-property: opacity;
+      transition-duration: .4s;
 
       &:hover {
         opacity: .8;

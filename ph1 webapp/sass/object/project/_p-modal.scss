@@ -23,6 +23,10 @@
     margin-right: 25px;
     border-radius: 50%;
     background-color: $color-gray;
+    
+    &:hover {
+      opacity: .8;
+    }
 
     @include mobile {
       width: 40px;
@@ -72,6 +76,10 @@
     margin-left: 25px;
     border-radius: 50%;
     background-color: $color-gray;
+
+    &:hover {
+      opacity: .8;
+    }
 
     @include mobile {
       width: 40px;
@@ -403,6 +411,7 @@
 
       &:hover {
         opacity: 0.8;
+        transition-duration: .4s;
       }
     }
   }
