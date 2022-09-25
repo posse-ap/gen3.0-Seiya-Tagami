@@ -61,7 +61,7 @@ Chart.register(ChartDataLabels);
               minRotation: 0,
               //回転させない
               min: 1,
-              max: 31,
+              max: 30,
               color: "#97b9d1",
               autoSkip: false,
               //画面を小さくしても、非表示させない

@@ -30,7 +30,6 @@
         date: i,
         isToday: false,
         isDisabled: false,
-        isFutureDay: true,
       });
     }
 
@@ -85,9 +84,8 @@
     renderTitle();
     renderWeeks();
     fixClickedDate();
-  }
-  // カレンダー生成
-
+  } // カレンダー生成
+  
   document.getElementById("js-prev").addEventListener("click", () => {
     month--;
     if (month < 0) {
@@ -126,7 +124,7 @@
         }
       });
     }
-  }; // dateDataに格納されている日付に対して"p-calendar-is-pushed"状態を付け続ける。
+  }; // dateDataに格納されている日付に対して".p-calendar-is-pushed"を付与し続ける
 
   dates.addEventListener("click", (e) => {
     if (e.target.nodeName === "TD") {
@@ -140,23 +138,20 @@
     }
   });
 
-  const backToModal = () => {
+  const modalBack = () => {
     document.querySelector(".js-modal-inner").classList.remove("u-display-hidden");
     document.querySelector(".js-modal-close").classList.remove("u-display-hidden");
     document.querySelector(".js-modal-back").classList.remove("u-display-block");
     document.querySelector(".js-calendar").classList.remove("u-display-block");
   }; //もとの画面へ戻る
 
-  const modalBack = document.querySelector(".js-modal-back");
-  const calendarButton = document.querySelector(".js-calendar-button");
-
-  modalBack.addEventListener("click", () => {
-    backToModal();
+  document.querySelector(".js-modal-back").addEventListener("click", () => {
+    modalBack();
   }); //戻るボタン押下時
 
-  calendarButton.addEventListener("click", () => {
+  document.querySelector(".js-calendar-button").addEventListener("click", () => {
     studyingDate.value = dateData;
-    backToModal();
+    modalBack();
   }); //決定ボタン押下時
 
   initializeDate();
