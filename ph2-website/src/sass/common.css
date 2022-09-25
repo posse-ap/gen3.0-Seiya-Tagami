@@ -308,13 +308,13 @@ img {
 }
 
 .p-tophero__container {
+  position: relative;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 .p-tophero__title {
-  width: 500px;
-  height: 281px;
+  max-width: 500px;
   margin-right: -110px;
   padding: 40px 62px;
   background-color: #eff2f5;
@@ -327,12 +327,12 @@ img {
   gap: 12px;
   font-weight: bold;
 }
-.p-tophero__title__text span:first-child {
+.p-tophero__title__text h1 {
   color: #0071BC;
   font-size: 16px;
   line-height: 1.8;
 }
-.p-tophero__title__text span:last-child {
+.p-tophero__title__text span {
   color: #0071BC;
   font-size: 60px;
   line-height: 133%;
@@ -342,6 +342,66 @@ img {
   width: 67%;
   height: auto;
   border-radius: 80px 0 0 80px;
+}
+.p-tophero__sd {
+  position: absolute;
+  left: 126px;
+  bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.p-tophero__sd__circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #adadad;
+}
+.p-tophero__sd__text {
+  color: #000000;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.p-about {
+  margin-top: 96px;
+  text-align: center;
+}
+.p-about__container {
+  max-width: 1016px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.p-about__title {
+  font-weight: 700;
+}
+.p-about__title h2 {
+  font-size: 36px;
+  line-height: 1.5;
+}
+.p-about__title span {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #0071BC;
+}
+.p-about__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 43px;
+}
+.p-about__content img {
+  width: 472px;
+  height: 312px;
+  border-radius: 24px;
+}
+.p-about__content p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.8;
+  text-align: left;
 }
 
 .p-quizhero {
@@ -365,10 +425,10 @@ img {
 }
 
 .p-quiz-container {
-  max-width: 1024px;
+  max-width: 1016px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 16px;
   z-index: 1;
 }
 
@@ -515,18 +575,21 @@ img {
 }
 
 .p-line__container {
+  max-width: 1016px;
+  margin: 140px auto 0;
+  padding: 0 12px;
+}
+.p-line__content {
   position: relative;
-  max-width: 984px;
   width: 100%;
   height: 357px;
-  margin: 140px auto 0;
   background-image: url(../img/bg-line.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   border-radius: 48px;
 }
-.p-line__container::after {
+.p-line__content::after {
   position: absolute;
   inset: 0;
   display: block;
