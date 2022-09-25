@@ -5,8 +5,11 @@
   const modalInner = document.querySelector(".js-modal-inner");
   const nowLoading = document.querySelector(".js-now-loading");
   const recordDone = document.querySelector(".js-record-done");
-  const checkBoxes = document.querySelectorAll(".js-checkbox");
   const inputTexts = document.querySelectorAll(".js-input-text");
+  const contentsCheckBoxes = document.querySelectorAll(".js-contents-checkbox");
+  const languagesCheckBoxes = document.querySelectorAll(".js-languages-checkbox");
+  const tweetCheckBox = document.querySelector('.js-tweet-checkbox')
+  const checkBoxes = [...contentsCheckBoxes, ...languagesCheckBoxes, tweetCheckBox];
 
   const unChecked = (checkBoxes) => {
     checkBoxes.forEach((checkbox) => {
@@ -29,22 +32,20 @@
       regulationAlert.classList.remove('u-display-block')
     })
   }; //アラート表示をなくす
-
+  
   const checkInputThings = () => {
     clearRegulationAlerts(regulationAlerts);
-    const ContentsCheckBoxes = document.querySelectorAll(".js-contents-checkbox");
-    const LanguagesCheckBoxes = document.querySelectorAll(".js-languages-checkbox");
     const studyingTime = document.querySelector(".js-studying-time");
     let ContentsCount = 0;
     let LanguagesCount = 0;
 
-    for (let i = 0; i < ContentsCheckBoxes.length; i++) {
-      if (ContentsCheckBoxes[i].checked) {
+    for (let i = 0; i < contentsCheckBoxes.length; i++) {
+      if (contentsCheckBoxes[i].checked) {
         ContentsCount++;
       }
     }
-    for (let i = 0; i < LanguagesCheckBoxes.length; i++) {
-      if (LanguagesCheckBoxes[i].checked) {
+    for (let i = 0; i < languagesCheckBoxes.length; i++) {
+      if (languagesCheckBoxes[i].checked) {
         LanguagesCount++;
       }
     }
@@ -64,24 +65,23 @@
     }
   }; //validation
 
-  const tweetArea = document.getElementById("js-tweetarea");
-  const shareTweet = document.getElementById("js-tweet-share");
+  const tweetArea = document.getElementById("js-tweet-area");
 
   const countLetters = () => {
     tweetArea.addEventListener("input", (e) => {
       if (e.target.value.length > 140) {
         regulationAlerts[3].classList.add("u-display-block");
-        shareTweet.checked = false;
-        shareTweet.disabled = true;
+        tweetCheckBox.checked = false;
+        tweetCheckBox.disabled = true;
       } else if (e.target.value.length <= 140) {
         regulationAlerts[3].classList.remove("u-display-block");
-        shareTweet.disabled = false;
+        tweetCheckBox.disabled = false;
       }
     });
   }; //ツイートテキスト文字数カウンター
 
   const tweet = () => {
-    if (shareTweet.checked) {
+    if (tweetCheckBox.checked) {
       const tweetText = `${tweetArea.value}`;
       window.open(`http://twitter.com/intent/tweet?&text=${tweetText}`);
     }
@@ -111,9 +111,9 @@
     modalInner.classList.remove("u-display-hidden");
     recordDone.classList.remove("u-display-flex");
     nowLoading.classList.remove("u-display-block");
-    clearRegulationAlerts(regulationAlerts);
     unChecked(checkBoxes);
     clearText(inputTexts);
+    clearRegulationAlerts(regulationAlerts);
   }); //モーダルを閉じる
 
   const studyingDate = document.getElementById("js-studying-date");
