@@ -1,0 +1,23 @@
+@use "../../foundation/variables" as *;
+
+.p-quizhero {
+  height: 320px;
+  background-image: url(../img/quiz/bg-hero.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: $color-white;
+  font-weight: 700;
+
+  &__title {
+    margin-left: 204px;
+    padding-top: 154px;
+    & h1 {
+      font-size: 18px;
+    }
+  
+    & span {
+      font-size: 60px;
+    }
+  }
+}
