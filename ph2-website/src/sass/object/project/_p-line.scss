@@ -1,4 +1,5 @@
 @use "../../foundation/variables" as *;
+@use "../../foundation/mixin" as *;
 
 .p-line {
   &__container {
@@ -17,6 +18,11 @@
     background-size: cover;
     border-radius: 48px;
 
+    @include mobile {
+      height: 372px;
+      border-radius: 28px;
+    }
+
     &::after {
       position: absolute;
       inset: 0;
@@ -27,6 +33,11 @@
       background-color: $color-blue;
       border-radius: 48px;
       opacity: 0.9;
+
+      @include mobile {
+        height: 372px;
+        border-radius: 28px;
+      }
     }
   }
 
@@ -41,12 +52,24 @@
     font-weight: 700;
     text-align: center;
     z-index: 2;
+
+    @include mobile {
+      gap: 8px;
+      padding: 42px 25px;
+      font-size: 14px;
+      text-align: left;
+      line-height: 1.6;
+    }
   }
 
   &__header {
     display: flex;
     align-items: center;
     gap: 8px;
+
+    @include mobile {
+      flex-direction: column;
+    }
 
     &__image {
       display: flex;
@@ -67,6 +90,10 @@
     &__title {
       font-size: 36px;
       line-height: 1.8;
+
+      @include mobile {
+        font-size: 24px;
+      }
     }
   }
 
@@ -82,5 +109,11 @@
     background-repeat: no-repeat;
     background-position: 90% center;
     background-size: 12.25px;
+
+    @include mobile {
+      width: 100%;
+      margin-top: 26px;
+      text-align: center;
+    }
   }
 }

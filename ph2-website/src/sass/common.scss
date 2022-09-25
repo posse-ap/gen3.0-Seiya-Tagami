@@ -1,6 +1,7 @@
 //foundation
 @use "./foundation/base";
 @use "./foundation/reset";
+@use "./foundation/mixin";
 
 //layout
 @use "./layout/l-main";
@@ -13,3 +14,7 @@
 @use "./object/project/p-quiz";
 @use "./object/project/p-line";
 @use "./object/project/p-footer";
+
+//utility
+@use "./object/utility/u-display";
+

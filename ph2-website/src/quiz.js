@@ -121,9 +121,9 @@
           removeArrows(answers);
           answer.classList.add('is-selected');
           if(answer.textContent === correctAnswer){
-            answerTrue.classList.add('block');
+            answerTrue.classList.add('u-display-block');
           } else {
-            answerFalse.classList.add('block');
+            answerFalse.classList.add('u-display-block');
           }
         })
       })

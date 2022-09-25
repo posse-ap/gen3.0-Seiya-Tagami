@@ -1,8 +1,13 @@
 @use "../../foundation/variables" as *;
+@use "../../foundation/mixin" as *;
 
 .p-about {
   margin-top: 96px;
   text-align: center;
+
+  @include mobile {
+    margin-top: 64px;
+  }
 
   &__container {
     max-width: 1016px;
@@ -14,12 +19,20 @@
     & h2 {
       font-size: 36px;
       line-height: 1.5;
+
+      @include mobile {
+        font-size: 24px;
+      }
     }
 
     & span {
       font-size: 14px;
       line-height: 1.8;
       color: $color-blue;
+
+      @include mobile {
+        font-size: 14px;
+      }
     }
   }
 
@@ -30,10 +43,20 @@
     gap: 40px;
     margin-top: 43px;
 
+    @include mobile {
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
     & img {
-      width: 472px;
-      height: 312px;
+      width: 48%;
+      height: auto;
       border-radius: 24px;
+
+      @include mobile {
+        width: 100%;
+      }
     }
 
     & p {
