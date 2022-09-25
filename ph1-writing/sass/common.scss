@@ -2,6 +2,9 @@
 @use "./foundation/base";
 @use "./foundation/reset";
 
+//layout
+@use "./layout/l-main";
+
 //project
 @use "./object/project/p-header";
 @use "./object/project/p-hero";
