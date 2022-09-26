@@ -20,7 +20,7 @@
         <nav>
           <ul class="p-header__items-list js-navigation">
             <li class="p-header__items-list__text01"><a href="./index.html">POSSEとは</a></li>
-            <li class="p-header__items-list__text02"><a href="./quiz.html">クイズ</a></li>
+            <li class="p-header__items-list__text02"><a href="./quiz.php">クイズ</a></li>
             <li class="p-header__items-list__sns">
               <a href="https://twitter.com/posse_program?s=20&t=cMS9Ly9_ZmsxjGV-K3i7sw"><img src="./img/icon/icon-twitter.svg" alt="" /></a>
             </li>
