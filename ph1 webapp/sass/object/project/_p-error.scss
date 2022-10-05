@@ -9,7 +9,7 @@
   text-align: center;
 
   & span:first-child {
-    color: $color-error;
+    color: #f4bd67;
     font-size: 21px;
 
     @include mobile {
@@ -22,7 +22,7 @@
     width: 70px;
     height: 70px;
     margin-top: 15px;
-    background-color: $color-error;
+    background-color: #f4bd67;
     border-radius: 50%;
 
     @include mobile {

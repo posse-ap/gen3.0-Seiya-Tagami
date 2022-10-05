@@ -25,7 +25,7 @@
     left: -9999px;
 
     &:checked + .c-checkbutton__container {
-      background-color: $color-checkbox-background-after;
+      background-color: #e7f5ff;
     }
 
     &:checked + .c-checkbutton__container .c-checkbutton__dummy-input {
@@ -42,7 +42,7 @@
     height: 25px;
     margin-right: 5px;
     border-radius: 50%;
-    background-color: $color-checkbox-background-before;
+    background-color: #cccccc;
     transition: background-color 0.2s;
 
     @include mobile {
@@ -59,9 +59,14 @@
       width: 35%;
       height: 3px;
       border-radius: 2px;
-      transform: translate(-3px, 0px) rotateZ(-135deg);
+      transform: translate(-3px, 3px) rotateZ(-135deg);
       transform-origin: 2px 2px;
       background: $color-white;
+
+      @include mobile {
+        height: 2px;
+        transform: translate(-3px, 1px) rotateZ(-135deg);
+      }
     }
 
     &::after {
@@ -73,9 +78,14 @@
       width: 55%;
       height: 3px;
       border-radius: 2px;
-      transform: translate(-2px, 1px) rotateZ(-46deg);
+      transform: translate(-2px, 4px) rotateZ(-46deg);
       transform-origin: 2px 2px;
       background: $color-white;
+
+      @include mobile {
+        height: 2px;
+        transform: translate(-1px, 2px) rotateZ(-46deg);
+      }
     }
   }
 }

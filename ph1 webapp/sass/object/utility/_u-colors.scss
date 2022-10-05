@@ -1,0 +1,11 @@
+@use "../../foundation/variables" as *;
+
+.u-colors {
+  &-black {
+    color: $color-black;
+  }
+
+  &-gray {
+    color: #9b9b9b;
+  }
+} 
