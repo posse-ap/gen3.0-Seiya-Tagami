@@ -10,7 +10,28 @@ services:
       - ./src:/var/www/html
     depends_on:
       - php
+
   php:
     build: ./php
     volumes:
       - ./src:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    platform: linux/amd64
+    image: mysql:latest
+    ports:
+      - 3306:3306  
+    container_name: app_db
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/sql:/docker-entrypoint-initdb.d
+      - ./mysql/my.conf:/etc/mysql/conf.d
+    environment:
+      MYSQL_DATABASE: quiz
+      MYSQL_USER: seiya
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: 1123
+    
+
