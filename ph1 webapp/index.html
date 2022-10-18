@@ -13,6 +13,9 @@
     />
     <script src="./assets/scripts/modal.js" defer></script>
     <script src="./assets/scripts/calendar.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0" defer></script>
+    <script src="./assets/scripts/chart.js" defer></script>
     <title>web app</title>
   </head>
   <body>
@@ -54,20 +57,37 @@
               <span>1348</span>
               <span>hour</span>
             </div>
-            <div class="p-main__left__chart"></div>
+            <div class="p-main__left__chart">
+              <div class="p-main__left__chart__container">
+                <canvas id="js-bar-chart"></canvas>
+              </div>
+            </div>
           </div>
           <div class="p-main__right">
-            <div class="p-main__right__chart">
-              <span>学習言語</span>
+            <div class="p-main__right__doughnut">
+              <div class="p-main__right__doughnut__container">
+                <span class="p-main__right__doughnut__title">学習言語</span>
+                <div class="p-main__right__doughnut__content">
+                  <canvas id="js-doughnut1"></canvas>
+                </div>
+                <ul class="p-main__right__doughnut__legends"
+                id="js-languages-legends"></ul>
+              </div>
             </div>
-            <div class="p-main__right__chart">
-              <span>学習コンテンツ</span>
+            <div class="p-main__right__doughnut">
+              <div class="p-main__right__doughnut__container">
+                <span class="p-main__right__doughnut__title">学習コンテンツ</span>
+                <div class="p-main__right__doughnut__content">
+                  <canvas id="js-doughnut2"></canvas>
+                </div>
+                <ul class="p-main__right__doughnut__legends" id="js-contents-legends"></ul>
+              </div>
             </div>
           </div>
         </div>
         <div class="p-main__changemonth">
           <span></span>
-          <span>2020年10月</span>
+          <span>2022年10月</span>
           <span></span>
           <!-- memo この矢印マークあってるの？ -->
         </div>
