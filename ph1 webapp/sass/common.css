@@ -385,10 +385,6 @@ img {
   background-color: #ffffff;
   font-weight: 600;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  transition-duration: 0.7s;
-}
-.p-main__left__item:hover {
-  transform: scale(1.05);
 }
 @media (max-width: 600px) {
   .p-main__left__item {

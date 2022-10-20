@@ -46,11 +46,6 @@
       background-color: $color-white;
       font-weight: 600;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-      transition-duration: .7s;
-
-      &:hover {
-        transform: scale(1.05);
-      } //memo 無くてもよい
 
       @include mobile {
         width: calc((100% - 32px) / 3);

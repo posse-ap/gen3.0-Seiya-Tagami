@@ -115,7 +115,7 @@
     clearText(inputTexts);
     clearRegulationAlerts(regulationAlerts);
   }); //モーダルを閉じる
-
+  
   const studyingDate = document.getElementById("js-studying-date");
   const modalBack = document.querySelector(".js-modal-back");
   const calendar = document.querySelector(".js-calendar");
