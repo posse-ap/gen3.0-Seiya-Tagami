@@ -91,6 +91,7 @@
     nowLoading.classList.remove("u-display-block");
     modalClose.classList.remove("u-display-hidden");
     recordDone.classList.add("u-display-flex");
+    allowedClose = true;
   }; //記録・投稿完了画面を表示
 
   const modalOpen = document.querySelectorAll(".js-modal-open");
@@ -116,6 +117,14 @@
     clearRegulationAlerts(regulationAlerts);
   }); //モーダルを閉じる
   
+  let allowedClose = true;
+  const modalMask = document.querySelector(".js-mask");
+  modalMask.addEventListener('click', () => {
+    if(allowedClose === true) {
+      modalClose.click();
+    }
+  }); //mask部分に触れても、モーダルを閉じる
+
   const studyingDate = document.getElementById("js-studying-date");
   const modalBack = document.querySelector(".js-modal-back");
   const calendar = document.querySelector(".js-calendar");
@@ -134,6 +143,8 @@
     if (allowedRecord === false) {
       return;
     }
+    
+    allowedClose = false;
     tweet();
     window.scroll({ top: 0, behavior: "smooth" });
     modalInner.classList.add("u-display-hidden");
