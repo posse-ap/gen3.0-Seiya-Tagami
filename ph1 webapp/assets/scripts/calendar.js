@@ -30,7 +30,6 @@
         date: i,
         isToday: false,
         isDisabled: false,
-        isFutureDay: true,
       });
     }
 
@@ -71,10 +70,7 @@
         }
         if (today.getFullYear() < year) {
           td.classList.add("u-colors-black");
-        } else 
-        if (today.getFullYear() > year || today.getMonth() > month || (year === today.getFullYear() && month == today.getMonth() && 
-        today.getDate() > date.date))
-        {
+        } else if (today.getFullYear() > year || today.getMonth() > month || (year === today.getFullYear() && month == today.getMonth() && today.getDate() > date.date)) {
           td.classList.add("u-colors-gray");
         }
         tr.appendChild(td);
@@ -88,9 +84,8 @@
     renderTitle();
     renderWeeks();
     fixClickedDate();
-  }
-  // カレンダー生成
-
+  } // カレンダー生成
+  
   document.getElementById("js-prev").addEventListener("click", () => {
     month--;
     if (month < 0) {
@@ -111,20 +106,14 @@
 
   const studyingDate = document.getElementById("js-studying-date");
   const dates = document.getElementById("js-dates");
-  let dateData = `${year}年${String(month + 1).padStart(
-    2,
-    "0"
-  )}月${today.getDate()}日`;
+  let dateData = `${year}年${String(month + 1).padStart(2, "0")}月${today.getDate()}日`;
 
   const initializeDate = () => {
     studyingDate.value = dateData;
   }; // 初期値は今日の日付にする
 
   const fixClickedDate = () => {
-    if (
-      year == dateData.substring(0, 4) &&
-      month + 1 == dateData.substring(5, 7)
-    ) {
+    if (year == dateData.substring(0, 4) && month + 1 == dateData.substring(5, 7)) {
       const allDates = dates.querySelectorAll("td");
       allDates.forEach((date) => {
         if (`${date.textContent}日` === dateData.substring(8, 10)) {
@@ -135,7 +124,7 @@
         }
       });
     }
-  }; // dateDataに格納されている日付に対して"p-calendar-is-pushed"状態を付け続ける。
+  }; // dateDataに格納されている日付に対して".p-calendar-is-pushed"を付与し続ける
 
   dates.addEventListener("click", (e) => {
     if (e.target.nodeName === "TD") {
@@ -144,36 +133,25 @@
         date.classList.remove("p-calendar-is-pushed");
       });
 
-      dateData = `${year}年${String(month + 1).padStart(2, "0")}月${
-        e.target.textContent
-      }日`; //dateDataに日付を格納
+      dateData = `${year}年${String(month + 1).padStart(2, "0")}月${e.target.textContent}日`; //dateDataに日付を格納
       e.target.classList.add("p-calendar-is-pushed");
     }
   });
 
-  const backToModal = () => {
-    document
-      .querySelector(".js-modal-inner")
-      .classList.remove("u-display-hidden");
-    document
-      .querySelector(".js-modal-close")
-      .classList.remove("u-display-hidden");
-    document
-      .querySelector(".js-modal-back")
-      .classList.remove("u-display-block");
+  const modalBack = () => {
+    document.querySelector(".js-modal-inner").classList.remove("u-display-hidden");
+    document.querySelector(".js-modal-close-button").classList.remove("u-display-hidden");
+    document.querySelector(".js-modal-back").classList.remove("u-display-block");
     document.querySelector(".js-calendar").classList.remove("u-display-block");
   }; //もとの画面へ戻る
 
-  const modalBack = document.querySelector(".js-modal-back");
-  const calendarButton = document.querySelector(".js-calendar-button");
-
-  modalBack.addEventListener("click", () => {
-    backToModal();
+  document.querySelector(".js-modal-back").addEventListener("click", () => {
+    modalBack();
   }); //戻るボタン押下時
 
-  calendarButton.addEventListener("click", () => {
+  document.querySelector(".js-calendar-button").addEventListener("click", () => {
     studyingDate.value = dateData;
-    backToModal();
+    modalBack();
   }); //決定ボタン押下時
 
   initializeDate();

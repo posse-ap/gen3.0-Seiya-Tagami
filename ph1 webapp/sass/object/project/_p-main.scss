@@ -88,6 +88,25 @@
       background-color: $color-white;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 
+      @include mobile {
+        position: relative;
+      }
+
+      &::before {
+        @include mobile {
+          content: "";
+          position: absolute;
+          top: -16px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: block;
+          background-color: #77969A;
+          width: 95%;
+          height: 2px;
+          border-radius: 2px;
+        }
+      }
+
       @include tablet {
         height: 370px;
       }
@@ -166,16 +185,28 @@
         gap: 18px;
         font-size: 16px;
 
+        @include mobile {
+          font-size: 12px;
+          gap: 8px;
+        }
+
         & li {
           display: flex;
           align-items: center;
           gap: 4px;
+          color: #747474;
         }
 
         & div {
           width: 20px;
           height: 20px;
           border-radius: 50%;
+          flex-shrink: 0;
+
+          @include mobile {
+            width: 12px;
+            height: 12px;
+          }
         }
       }
 
@@ -191,51 +222,48 @@
   }
   //rightここまで
 
-  //changemonthここから
-  &__changemonth {
+  //change-monthここから
+  &__change-month {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
     height: 100px;
     font-weight: bold;
-    text-align: center;
-    line-height: 100px;
 
     @include mobile {
       height: 60px;
-      line-height: 60px;
     }
 
     & span {
-      display: inline-block;
-
-      &:nth-child(2) {
-        margin: 0 10px;
+      &:first-child,
+      &:last-child {
+        cursor: pointer;
+        width: 12px;
+        height: 12px;
+        transform: rotate(45deg);
       }
 
       &:first-child {
-        border-bottom: solid 2px #0f71bc;
-        border-left: solid 2px #0f71bc;
-        width: 12px;
-        height: 12px;
-        transform: rotate(45deg);
+        border-bottom: 3px solid #0f71bc;
+        border-left: 3px solid #0f71bc;
       }
 
       &:last-child {
-        border-top: solid 2px #0f71bc;
-        border-right: solid 2px #0f71bc;
-        width: 12px;
-        height: 12px;
-        transform: rotate(45deg);
+        border-top: 3px solid #8eb6d4;
+        border-right: 3px solid #8eb6d4;
       }
     }
   }
   //changemonthここまで
 
-  &__bottom-button-mobile {
+  //mobile用記録ボタンここから
+  &__button-mobile {
     display: none;
 
     @include mobile {
       display: block;
-      margin-top: 20px;
-      margin-bottom: 20px;
+      padding: 20px 0;
     }
 
     & button {
@@ -251,4 +279,5 @@
       text-align: center;
     }
   }
+  //mobile用記録ボタンここまで
 }

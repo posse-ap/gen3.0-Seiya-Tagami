@@ -4,9 +4,6 @@
 @use "./foundation/reset";
 @use "./foundation/variables";
 
-//layout
-@use "./layout/l-main";
-
 //project
 @use "./object/project/p-header";
 @use "./object/project/p-main";
