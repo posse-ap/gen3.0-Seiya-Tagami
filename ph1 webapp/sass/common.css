@@ -583,8 +583,8 @@ img {
   border-left: 3px solid #0f71bc;
 }
 .p-main__change-month span:last-child {
-  border-top: 3px solid #0f71bc;
-  border-right: 3px solid #0f71bc;
+  border-top: 3px solid #8eb6d4;
+  border-right: 3px solid #8eb6d4;
 }
 .p-main__button-mobile {
   display: none;
@@ -611,7 +611,7 @@ img {
 .p-modal {
   display: none;
 }
-.p-modal__mask {
+.p-modal__overlay {
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.3);

@@ -140,7 +140,7 @@
 
   const modalBack = () => {
     document.querySelector(".js-modal-inner").classList.remove("u-display-hidden");
-    document.querySelector(".js-modal-close").classList.remove("u-display-hidden");
+    document.querySelector(".js-modal-close-button").classList.remove("u-display-hidden");
     document.querySelector(".js-modal-back").classList.remove("u-display-block");
     document.querySelector(".js-calendar").classList.remove("u-display-block");
   }; //もとの画面へ戻る

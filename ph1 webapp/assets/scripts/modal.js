@@ -73,7 +73,7 @@
         regulationAlerts[3].classList.add("u-display-block");
         tweetCheckBox.checked = false;
         tweetCheckBox.disabled = true;
-      } else if (e.target.value.length <= 140) {
+      } else {
         regulationAlerts[3].classList.remove("u-display-block");
         tweetCheckBox.disabled = false;
       }
@@ -89,25 +89,25 @@
 
   const showRecordDone = () => {
     nowLoading.classList.remove("u-display-block");
-    modalClose.classList.remove("u-display-hidden");
+    modalCloseButton.classList.remove("u-display-hidden");
     recordDone.classList.add("u-display-flex");
     allowedClose = true;
   }; //記録・投稿完了画面を表示
 
-  const modalOpen = document.querySelectorAll(".js-modal-open");
-  const clickRecord = (modalOpens) => {
-    modalOpens.forEach((modalOpen) => {
-      modalOpen.addEventListener("click", () => {
+  const modalOpenButtons = document.querySelectorAll(".js-modal-open-button");
+  const clickRecord = (modalOpenButtons) => {
+    modalOpenButtons.forEach((modalOpenButton) => {
+      modalOpenButton.addEventListener("click", () => {
         countLetters();
         window.scroll({ top: 0, behavior: "smooth" });
         modal.classList.toggle("u-display-block");
       });
     });
   }; //モーダルを開く
-  clickRecord(modalOpen);
+  clickRecord(modalOpenButtons);
 
-  const modalClose = document.querySelector(".js-modal-close");
-  modalClose.addEventListener("click", () => {
+  const modalCloseButton = document.querySelector(".js-modal-close-button");
+  modalCloseButton.addEventListener("click", () => {
     modal.classList.toggle("u-display-block");
     modalInner.classList.remove("u-display-hidden");
     recordDone.classList.remove("u-display-flex");
@@ -118,19 +118,19 @@
   }); //モーダルを閉じる
   
   let allowedClose = true;
-  const modalMask = document.querySelector(".js-mask");
-  modalMask.addEventListener('click', () => {
+  const modalOverlay = document.querySelector(".js-overlay");
+  modalOverlay.addEventListener('click', () => {
     if(allowedClose === true) {
-      modalClose.click();
+      modalCloseButton.click();
     }
-  }); //mask部分に触れても、モーダルを閉じる
+  }); //overlay部分に触れても、モーダルを閉じる
 
   const studyingDate = document.getElementById("js-studying-date");
   const modalBack = document.querySelector(".js-modal-back");
   const calendar = document.querySelector(".js-calendar");
 
   studyingDate.addEventListener("click", () => {
-    modalClose.classList.add("u-display-hidden");
+    modalCloseButton.classList.add("u-display-hidden");
     modalInner.classList.add("u-display-hidden");
     modalBack.classList.add("u-display-block");
     calendar.classList.add("u-display-block");
@@ -148,11 +148,11 @@
     tweet();
     window.scroll({ top: 0, behavior: "smooth" });
     modalInner.classList.add("u-display-hidden");
-    modalClose.classList.add("u-display-hidden");
+    modalCloseButton.classList.add("u-display-hidden");
     nowLoading.classList.add("u-display-block");
     const cleartimeoutId = setTimeout(showRecordDone, 3000);
 
-    modalClose.addEventListener("click", () => {
+    modalCloseButton.addEventListener("click", () => {
       clearTimeout(cleartimeoutId);
     });
   }); //記録・投稿する
