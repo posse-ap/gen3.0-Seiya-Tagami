@@ -138,20 +138,20 @@
     }
   });
 
-  const modalBack = () => {
+  const closeCalendar = () => {
     document.querySelector(".js-modal-inner").classList.remove("u-display-hidden");
     document.querySelector(".js-modal-close-button").classList.remove("u-display-hidden");
-    document.querySelector(".js-modal-back").classList.remove("u-display-block");
+    document.querySelector(".js-modal-back-button").classList.remove("u-display-block");
     document.querySelector(".js-calendar").classList.remove("u-display-block");
-  }; //もとの画面へ戻る
+  }; //カレンダー画面を閉じる
 
-  document.querySelector(".js-modal-back").addEventListener("click", () => {
-    modalBack();
+  document.querySelector(".js-modal-back-button").addEventListener("click", () => {
+    closeCalendar();
   }); //戻るボタン押下時
 
   document.querySelector(".js-calendar-button").addEventListener("click", () => {
     studyingDate.value = dateData;
-    modalBack();
+    closeCalendar();
   }); //決定ボタン押下時
 
   initializeDate();

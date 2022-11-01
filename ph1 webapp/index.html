@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./sass/common.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
     <script src="./assets/scripts/modal.js" defer></script>
     <script src="./assets/scripts/calendar.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" defer></script>
@@ -36,52 +36,52 @@
     <main>
       <div class="p-main">
         <div class="p-main__contents">
-          <div class="p-main__left">
-            <div class="p-main__left__item">
+          <div class="p-main__time">
+            <div class="p-main__time__item">
               <span>Today</span>
               <span>3</span>
               <span>hour</span>
             </div>
-            <div class="p-main__left__item">
+            <div class="p-main__time__item">
               <span>Month</span>
               <span>120</span>
               <span>hour</span>
             </div>
-            <div class="p-main__left__item">
+            <div class="p-main__time__item">
               <span>Total</span>
               <span>1348</span>
               <span>hour</span>
             </div>
-            <div class="p-main__left__chart">
-              <div class="p-main__left__chart__container">
+            <div class="p-main__time__chart">
+              <div class="p-main__time__chart__container">
                 <canvas id="js-bar-chart"></canvas>
               </div>
             </div>
           </div>
-          <div class="p-main__right">
-            <div class="p-main__right__doughnut">
-              <div class="p-main__right__doughnut__container">
-                <span class="p-main__right__doughnut__title">学習言語</span>
-                <div class="p-main__right__doughnut__content">
+          <div class="p-main__studying-data">
+            <div class="p-main__studying-data__doughnut">
+              <div class="p-main__studying-data__doughnut__container">
+                <span class="p-main__studying-data__doughnut__title">学習言語</span>
+                <div class="p-main__studying-data__doughnut__content">
                   <canvas id="js-doughnut1"></canvas>
                 </div>
-                <ul class="p-main__right__doughnut__legends" id="js-languages-legends"></ul>
+                <ul class="p-main__studying-data__doughnut__legends" id="js-languages-legends"></ul>
               </div>
             </div>
-            <div class="p-main__right__doughnut">
-              <div class="p-main__right__doughnut__container">
-                <span class="p-main__right__doughnut__title">学習コンテンツ</span>
-                <div class="p-main__right__doughnut__content">
+            <div class="p-main__studying-data__doughnut">
+              <div class="p-main__studying-data__doughnut__container">
+                <span class="p-main__studying-data__doughnut__title">学習コンテンツ</span>
+                <div class="p-main__studying-data__doughnut__content">
                   <canvas id="js-doughnut2"></canvas>
                 </div>
-                <ul class="p-main__right__doughnut__legends" id="js-contents-legends"></ul>
+                <ul class="p-main__studying-data__doughnut__legends" id="js-contents-legends"></ul>
               </div>
             </div>
           </div>
         </div>
         <div class="p-main__change-month">
           <span></span>
-          <span>2022年11月</span>
+          <span>2020年10月</span>
           <span></span>
         </div>
         <div class="p-main__button-mobile">
@@ -95,7 +95,7 @@
         <div class="p-modal__container">
           <div class="p-modal__header">
             <button type="button" class="p-modal__close-button js-modal-close-button"></button>
-            <button class="p-modal__back-button js-modal-back">
+            <button class="p-modal__back-button js-modal-back-button">
               <span class="p-modal__back-button__arrow"></span>
             </button>
           </div>
@@ -225,7 +225,7 @@
                 </dd>
                 <div class="p-modal__right__twitter__share">
                   <label>
-                    <input type="checkbox" class="js-tweet-checkbox"/>
+                    <input type="checkbox" class="js-tweet-checkbox" />
                     <span class="p-modal__right__twitter__dummy-input"></span>
                     <span>Twitterにシェアする</span>
                   </label>
