@@ -122,19 +122,27 @@
   modalOverlay.addEventListener('click', () => {
     if(allowedClose === true) {
       modalCloseButton.click();
+      closeCalendar();
     }
   }); //overlay部分に触れても、モーダルを閉じる
 
   const studyingDate = document.getElementById("js-studying-date");
-  const modalBack = document.querySelector(".js-modal-back");
+  const modalBackButton = document.querySelector(".js-modal-back-button");
   const calendar = document.querySelector(".js-calendar");
 
   studyingDate.addEventListener("click", () => {
     modalCloseButton.classList.add("u-display-hidden");
     modalInner.classList.add("u-display-hidden");
-    modalBack.classList.add("u-display-block");
+    modalBackButton.classList.add("u-display-block");
     calendar.classList.add("u-display-block");
   }); //カレンダー画面へ移る
+
+  const closeCalendar = () => {
+    document.querySelector(".js-modal-inner").classList.remove("u-display-hidden");
+    document.querySelector(".js-modal-close-button").classList.remove("u-display-hidden");
+    document.querySelector(".js-modal-back-button").classList.remove("u-display-block");
+    document.querySelector(".js-calendar").classList.remove("u-display-block");
+  }; //カレンダー画面を閉じる
 
   const record = document.querySelector(".js-button-record-done");
 

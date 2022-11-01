@@ -23,8 +23,8 @@
     }
   }
 
-  //leftここから
-  &__left {
+  //timeここから
+  &__time {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
@@ -126,10 +126,10 @@
       }
     }
   }
-  //leftここまで
+  //timeここまで
 
-  //rightここから
-  &__right {
+  //studying-dataここから
+  &__studying-data {
     display: flex;
     gap: 20px;
     height: 560px;
@@ -220,7 +220,7 @@
       }
     }
   }
-  //rightここまで
+  //studying-dataここまで
 
   //change-monthここから
   &__change-month {
