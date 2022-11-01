@@ -23,14 +23,12 @@ Chart.register(ChartDataLabels);
     });
 
     const bar_ctx = document.getElementById("js-bar-chart").getContext("2d");
-    bar_ctx.canvas.height = 280;
     const gradient_desktop = bar_ctx.createLinearGradient(0, 0, 0, 300);
     const gradient_mobile = bar_ctx.createLinearGradient(0, 0, 0, 100);
     gradient_desktop.addColorStop(0, "#3ccfff");
     gradient_desktop.addColorStop(1, "#0f71bc");
     gradient_mobile.addColorStop(0, "#3ccfff");
     gradient_mobile.addColorStop(1, "#0f71bc");
-    //memo 一旦これで
 
     const barChart = new Chart(bar_ctx, {
       type: "bar",
@@ -113,13 +111,13 @@ Chart.register(ChartDataLabels);
     });
 
   function createLanguagesChart(jsonData) {
-    const convertedLangauagesData = Object.keys(jsonData[0]);
+    const convertedLanguagesData = Object.keys(jsonData[0]);
     const convertedRatioDataOfLanguages = Object.values(jsonData[0]);
     const doughnut1_ctx = document.getElementById("js-doughnut1").getContext("2d");
     const doughnutChart1 = new Chart(doughnut1_ctx, {
       type: "doughnut",
       data: {
-        labels: convertedLangauagesData,
+        labels: convertedLanguagesData,
         datasets: [
           {
             data: convertedRatioDataOfLanguages,
@@ -145,7 +143,7 @@ Chart.register(ChartDataLabels);
       },
     });
     const languagesLegendContainer = document.getElementById("js-languages-legends");
-    createLegend(convertedLangauagesData, languagesLegendContainer);
+    createLegend(convertedLanguagesData, languagesLegendContainer);
   }
   //学習言語ここまで
 
