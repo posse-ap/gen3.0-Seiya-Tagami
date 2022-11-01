@@ -63,7 +63,7 @@
         regulationAlerts[2].classList.add('u-display-block');
       }
     }
-  }; //validation
+  }; //フォーム送信時のvalidation
 
   const tweetArea = document.getElementById("js-tweet-area");
 
@@ -131,18 +131,22 @@
   const calendar = document.querySelector(".js-calendar");
 
   studyingDate.addEventListener("click", () => {
+    openCalendar();
+  }); //カレンダー画面へ移る
+
+  const openCalendar = () => {
     modalCloseButton.classList.add("u-display-hidden");
     modalInner.classList.add("u-display-hidden");
     modalBackButton.classList.add("u-display-block");
     calendar.classList.add("u-display-block");
-  }); //カレンダー画面へ移る
+  } //カレンダーを開く
 
   const closeCalendar = () => {
-    document.querySelector(".js-modal-inner").classList.remove("u-display-hidden");
-    document.querySelector(".js-modal-close-button").classList.remove("u-display-hidden");
-    document.querySelector(".js-modal-back-button").classList.remove("u-display-block");
-    document.querySelector(".js-calendar").classList.remove("u-display-block");
-  }; //カレンダー画面を閉じる
+    modalCloseButton.classList.remove("u-display-hidden");
+    modalInner.classList.remove("u-display-hidden");
+    modalBackButton.classList.remove("u-display-block");
+    calendar.classList.remove("u-display-block");
+  }; //カレンダーを閉じる
 
   const record = document.querySelector(".js-button-record-done");
 
