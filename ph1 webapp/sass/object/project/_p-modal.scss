@@ -148,7 +148,7 @@
     border-radius: 40px;
     background-color: $color-white;
     animation-name: fadeIn;
-    animation-duration: 1s;
+    animation-duration: .6s;
 
     @include tablet {
       width: 95%;

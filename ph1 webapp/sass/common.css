@@ -752,8 +752,8 @@ img {
   background-color: #ffffff;
   -webkit-animation-name: fadeIn;
           animation-name: fadeIn;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  -webkit-animation-duration: 0.6s;
+          animation-duration: 0.6s;
 }
 @media (max-width: 960px) {
   .p-modal__container {
