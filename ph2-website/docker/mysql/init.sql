@@ -6,9 +6,9 @@ use posse;
 -- questionsテーブル作成 
 DROP TABLE IF EXISTS questions;
 CREATE TABLE questions (
-  question_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   question VARCHAR(255) NOT NULL,
-  img VARCHAR(255) NOT NULL
+  image VARCHAR(255) NOT NULL
   );
 
 INSERT INTO questions(question, img) VALUES 
@@ -77,16 +77,3 @@ INSERT INTO choices(choice0, choice1, choice2) VALUES
   '約5倍',
   '約11倍'
   );
-
--- quotesテーブル作成
-DROP TABLE IF EXISTS quotes;
-CREATE TABLE quotes (
-  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  question_id INT NOT NULL,
-  quote VARCHAR(255) NOT NULL
-  );
-
-INSERT INTO quotes(question_id, quote) VALUES 
-  (1, '経済産業省 2019年3月 － IT 人材需給に関する調査'),
-  (4, 'Society5.0 - 科学技術政策 - 内閣府'),
-  (6, 'Accenture Technology Vision 2021');
