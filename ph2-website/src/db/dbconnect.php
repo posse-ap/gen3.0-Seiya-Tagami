@@ -11,5 +11,20 @@ try {
   ]);
 } catch (PDOException $e) {
   echo '接続失敗: ' . $e->getMessage();
-  exit();
+  exit;
 }
+
+$sql = "SELECT * FROM questions";
+$questions = array();
+foreach($pdo->query($sql) as $row) {
+  array_push($questions, $row);
+}
+
+$sql_2 = "SELECT * FROM choices";
+$choices = array();
+foreach($pdo->query($sql_2) as $row) {
+  array_push($questions, $row);
+}
+
+var_dump($questions);
+var_dump($choices);
