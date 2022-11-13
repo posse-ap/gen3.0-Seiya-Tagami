@@ -1,17 +1,15 @@
--- データベース作成
 DROP DATABASE IF EXISTS posse;
 CREATE DATABASE posse;
 use posse;
 
--- questionsテーブル作成 
 DROP TABLE IF EXISTS questions;
 CREATE TABLE questions (
-  question_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   question VARCHAR(255) NOT NULL,
-  img VARCHAR(255) NOT NULL
-  );
+  image VARCHAR(255) NOT NULL
+  ) CHARSET=utf8;
 
-INSERT INTO questions(question, img) VALUES 
+INSERT INTO questions(question, image) VALUES 
   (
   '日本のIT人材が2030年には最大どれくらい不足すると言われているでしょうか?',
   'img-quiz01.png'
@@ -37,56 +35,30 @@ INSERT INTO questions(question, img) VALUES
   'img-quiz06.png'
   );
 
--- choicesテーブル作成
 DROP TABLE IF EXISTS choices;
 CREATE TABLE choices (
-  question_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  choice0 VARCHAR(255) NOT NULL,
-  choice1 VARCHAR(255) NOT NULL,
-  choice2 VARCHAR(255) NOT NULL
-  );
-
-INSERT INTO choices(choice0, choice1, choice2) VALUES 
-  (
-  '約28万人',
-  '約79万人',
-  '約183万人'
-  ),
-  (
-  'INTECH',
-  'BIZZTECH',
-  'X-TECH'
-  ),
-  (
-  'Internet of Things',
-  'Integrate into Technology',
-  'Information  on Tool'
-  ),
-  (
-  'Society 5.0',
-  'CyPhy',
-  'SDGs'
-  ),
-  (
-  'Web3.0',
-  'NFT',
-  'メタバース'
-  ),
-  (
-  '約2倍',
-  '約5倍',
-  '約11倍'
-  );
-
--- quotesテーブル作成
-DROP TABLE IF EXISTS quotes;
-CREATE TABLE quotes (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   question_id INT NOT NULL,
-  quote VARCHAR(255) NOT NULL
-  );
+  name VARCHAR(255) NOT NULL,
+  valid boolean
+  ) CHARSET=utf8;
 
-INSERT INTO quotes(question_id, quote) VALUES 
-  (1, '経済産業省 2019年3月 － IT 人材需給に関する調査'),
-  (4, 'Society5.0 - 科学技術政策 - 内閣府'),
-  (6, 'Accenture Technology Vision 2021');
+INSERT INTO choices(question_id, name, valid) VALUES 
+  (1, '約28万人', false),
+  (1, '約79万人', true),
+  (1, '約183万人', false),
+  (2, 'INTECH', false),
+  (2, 'BIZZTECH', false),
+  (2, 'X-TECH', true),
+  (3, 'Internet of Things', true),
+  (3, 'Integrate into Technology', false),
+  (3, 'Information  on Tool', false),
+  (4, 'Society 5.0', true),
+  (4, 'CyPhy', false),
+  (4, 'SDGs', false),
+  (5, 'Web3.0', true),
+  (5, 'NFT', false),
+  (5, 'メタバース', false),
+  (6, '約2倍', false),
+  (6, '約5倍', true),
+  (6, '約11倍', false);
