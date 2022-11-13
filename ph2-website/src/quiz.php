@@ -6,25 +6,37 @@ require(dirname(__FILE__) . '/dbconnect.php');
 require_once(dirname(__FILE__) . '/functions.php');
 
 
-$sql = "SELECT * FROM questions";
+// 問題データを取得
 $questions = array();
+
+$sql = "SELECT * FROM questions";
 foreach ($pdo->query($sql) as $row) {
   array_push($questions, $row);
 }
 
+// question_idで結び付けて、全ての選択肢を取得
 const QUESTION_NUM = 6;
 $all_choices = array();
 
 for($i = 1; $i < QUESTION_NUM + 1; $i++) {
   $question_id = $i;
-  $sql = 'SELECT * FROM choices WHERE question_id = :question_id';
+  $sql = "SELECT * FROM choices WHERE question_id = :question_id";
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(':question_id', $question_id, PDO::PARAM_INT);
   $stmt->execute();
   $choices = $stmt->fetchAll();
-  // shuffle($choices);
+  shuffle($choices);
   array_push($all_choices, $choices);
 };
+
+// 正解の選択肢を取得
+$correct_answers = array();
+
+$sql = "SELECT * FROM choices WHERE valid = :valid";
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':valid', 1, PDO::PARAM_INT);
+$stmt->execute();
+$correct_answers = $stmt->fetchAll();
 // [
 //     {
 //       question_id: 1;
@@ -130,13 +142,13 @@ for($i = 1; $i < QUESTION_NUM + 1; $i++) {
               <div class="p-quiz__answer-box__answer-true js-true">
                 <div class="p-quiz__answer-box__answer-true__textbox">
                   <span>正解！</span>
-                  <div><span>A</span><span>あああ</span></div>
+                  <div><span>A</span><span><?= h($correct_answers[$key]['name']) ?></span></div>
                 </div>
               </div>
               <div class="p-quiz__answer-box__answer-false js-false">
                 <div class="p-quiz__answer-box__answer-false__textbox">
                   <span>不正解...</span>
-                  <div><span>A</span><span>いいい</span></div>
+                  <div><span>A</span><span><?= h($correct_answers[$key]['name']) ?></span></div>
                 </div>
               </div>
               <?php if (!empty($question['quote'])) : ?>
