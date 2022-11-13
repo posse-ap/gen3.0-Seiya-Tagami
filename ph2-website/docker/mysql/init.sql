@@ -1,7 +1,7 @@
 -- データベース作成
-DROP DATABASE IF EXISTS quiz;
-CREATE DATABASE quiz;
-use quiz;
+DROP DATABASE IF EXISTS posse;
+CREATE DATABASE posse;
+use posse;
 
 -- questionsテーブル作成 
 DROP TABLE IF EXISTS questions;
