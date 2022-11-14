@@ -10,15 +10,13 @@ require_once(dirname(__FILE__) . '/functions.php');
 $questions = array();
 
 $sql = "SELECT * FROM questions";
-foreach ($pdo->query($sql) as $row) {
-  array_push($questions, $row);
-}
+$questions = $pdo->query($sql)->fetchAll();
 
 // question_idで結び付けて、全ての選択肢を取得
-const QUESTION_NUM = 6;
+$questions_num = count($questions);
 $all_choices = array();
 
-for($i = 1; $i < QUESTION_NUM + 1; $i++) {
+for($i = 1; $i < $questions_num + 1; $i++) {
   $question_id = $i;
   $sql = "SELECT * FROM choices WHERE question_id = :question_id";
   $stmt = $pdo->prepare($sql);
@@ -32,11 +30,10 @@ for($i = 1; $i < QUESTION_NUM + 1; $i++) {
 // 正解の選択肢を取得
 $correct_answers = array();
 
-$sql = "SELECT * FROM choices WHERE valid = :valid";
-$stmt = $pdo->prepare($sql);
-$stmt->bindValue(':valid', 1, PDO::PARAM_INT);
-$stmt->execute();
-$correct_answers = $stmt->fetchAll();
+$sql = "SELECT * FROM choices WHERE valid = 1";
+$correct_answers = $pdo->query($sql)->fetchAll();
+
+// データ整形処理ってこういうこと？　byみゆきセンパイ
 // [
 //     {
 //       question_id: 1;
