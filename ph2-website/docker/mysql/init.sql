@@ -10,7 +10,7 @@ CREATE TABLE questions (
   quote VARCHAR(255),
   quote_url VARCHAR(255) 
   ) CHARSET=utf8;
--- やはり切り分けるべきか
+
 INSERT INTO questions(question, image, quote, quote_url) VALUES 
   (
   '日本のIT人材が2030年には最大どれくらい不足すると言われているでしょうか?',

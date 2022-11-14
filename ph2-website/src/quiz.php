@@ -16,7 +16,7 @@ $questions = $pdo->query($sql)->fetchAll();
 $questions_num = count($questions);
 $all_choices = array();
 
-for($i = 1; $i < $questions_num + 1; $i++) {
+for ($i = 1; $i < $questions_num + 1; $i++) {
   $question_id = $i;
   $sql = "SELECT * FROM choices WHERE question_id = :question_id";
   $stmt = $pdo->prepare($sql);
@@ -74,43 +74,8 @@ $correct_answers = $pdo->query($sql)->fetchAll();
 </head>
 
 <body>
-  <!--headerここから  -->
-  <header class="p-header">
-    <div class="p-header__container">
-      <a href="./index.html" class="p-header__logo"><img src="./img/logo.svg" alt="" /></a>
-      <nav>
-        <ul class="p-header__items-list js-navigation">
-          <li class="p-header__items-list__text01"><a href="./index.html">POSSEとは</a></li>
-          <li class="p-header__items-list__text02"><a href="./quiz.php">クイズ</a></li>
-          <li class="p-header__items-list__sns">
-            <a href="https://twitter.com/posse_program?s=20&t=cMS9Ly9_ZmsxjGV-K3i7sw"><img src="./img/icon/icon-twitter.svg" alt="" /></a>
-          </li>
-          <li class="p-header__items-list__sns">
-            <a href="https://www.instagram.com/posse_programming/channel/"><img src="./img/icon/icon-instagram.svg" alt="" /></a>
-          </li>
-          <ul class="p-header__items-list-mobile">
-            <li class="p-header__items-list-mobile__line-add">
-              <div class="p-header__items-list-mobile__line-add__container">
-                <div class="p-header__items-list-mobile__line-add__image01"><img src="./img/icon/icon-line.svg" alt="" /></div>
-                <span>POSSE公式LINE追加</span>
-                <div class="p-header__items-list-mobile__line-add__image02"><img src="./img/icon/icon-link-light.svg" alt="" /></div>
-              </div>
-            </li>
-            <li>POSSE公式サイト<img src="./img/icon/icon-link-gray-dark.svg" alt="" /></li>
-            <li>
-              <a href="https://twitter.com/posse_program?s=20&t=cMS9Ly9_ZmsxjGV-K3i7sw"><img src="./img/icon/icon-twitter.svg" alt="" /></a>
-              <a href="https://www.instagram.com/posse_programming/channel/"><img src="./img/icon/icon-instagram.svg" alt="" /></a>
-            </li>
-          </ul>
-        </ul>
-      </nav>
-      <div class="p-header__hamburger js-hamburger">
-        <span></span>
-      </div>
-    </div>
-  </header>
-  <!-- headerここまで -->
-
+  <?php include(dirname(__FILE__) . '/components/header.php'); ?>
+  
   <!-- mainここから -->
   <main class="l-main">
     <article>
@@ -133,7 +98,7 @@ $correct_answers = $pdo->query($sql)->fetchAll();
             <div class="p-quiz__answer-box">
               <ul class="p-quiz__answer-box__choices">
                 <?php foreach ($all_choices[$key] as $choice) : ?>
-                  <li><button class="p-quiz__answer-box__choices__button is-attached-arrow js-answer" data-answer="<?= h($choice['valid'])?>"><?= h($choice['name']) ?></button></li>
+                  <li><button class="p-quiz__answer-box__choices__button is-attached-arrow js-answer" data-answer="<?= h($choice['valid']) ?>"><?= h($choice['name']) ?></button></li>
                 <?php endforeach; ?>
               </ul>
               <div class="p-quiz__answer-box__answer-true js-true">
@@ -176,23 +141,7 @@ $correct_answers = $pdo->query($sql)->fetchAll();
   </main>
   <!-- mainここまで -->
 
-  <!-- footerここから -->
-  <footer class="p-footer">
-    <div class="p-footer__links">
-      <div class="p-footer__links__image"><img src="./img/logo.svg" alt="" /></div>
-      <a href="" class="p-footer__links__link">POSSE公式サイト<img src="./img/icon/icon-link-gray-dark.svg" alt="" /></a>
-      <ul class="p-footer__links__sns">
-        <li>
-          <a href="https://twitter.com/posse_program?s=20&t=cMS9Ly9_ZmsxjGV-K3i7sw"><img src="./img/icon/icon-twitter.svg" alt="" /></a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/posse_programming/channel/"><img src="./img/icon/icon-instagram.svg" alt="" /></a>
-        </li>
-      </ul>
-    </div>
-    <div class="p-footer__copyright"><small>©︎2022 POSSE</small></div>
-  </footer>
-  <!-- footerここまで -->
+  <?php include(dirname(__FILE__) . '/components/footer.php'); ?>
 </body>
 
 </html>
