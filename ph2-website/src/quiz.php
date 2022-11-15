@@ -72,26 +72,12 @@ shuffle($questions);
             <div class="p-quiz__answer-box">
               <ul class="p-quiz__answer-box__choices">
                 <?php foreach ($question['choices'] as $choice) : ?>
-                  <li><button class="p-quiz__answer-box__choices__button is-attached-arrow js-answer" data-answer="<?= h($choice['valid']) ?>"><?= h($choice['name']) ?></button></li>
+                  <li><button class="p-quiz__answer-box__choices__button is-attached-arrow js-choice" data-answer="<?= h($choice['valid']) ?>"><?= h($choice['name']) ?></button></li>
                 <?php endforeach; ?>
               </ul>
-              <div class="p-quiz__answer-box__answer-true js-true">
-                <div class="p-quiz__answer-box__answer-true__textbox">
-                  <span>正解！</span>
-                  <div><span>A</span>
-                    <span>
-                      <?php foreach ($question['choices'] as $choice) : ?>
-                        <?php if (in_array(1, $choice)) : ?>
-                          <?= h($choice['name']) ?>
-                        <?php endif; ?>
-                      <?php endforeach; ?>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="p-quiz__answer-box__answer-false js-false">
-                <div class="p-quiz__answer-box__answer-false__textbox">
-                  <span>不正解...</span>
+              <div class="p-quiz__answer-box__answer js-answer">
+                <div class="p-quiz__answer-box__answer__textbox">
+                  <span class="js-answer-title"></span>
                   <div><span>A</span>
                     <span>
                       <?php foreach ($question['choices'] as $choice) : ?>

@@ -1001,62 +1001,32 @@ img {
 .p-quiz__answer-box__choices__button:disabled {
   color: #000000;
 }
-.p-quiz__answer-box__answer-true {
+.p-quiz__answer-box__answer {
   display: none;
   height: 143px;
   background-color: #fff2f5;
   border-radius: 8px;
   font-weight: 700;
 }
-.p-quiz__answer-box__answer-true__textbox {
+.p-quiz__answer-box__answer__textbox {
   margin-left: 40px;
   padding-top: 24px;
 }
-.p-quiz__answer-box__answer-true__textbox span:first-child {
-  color: #E34E70;
+.p-quiz__answer-box__answer__textbox span:first-child {
   font-size: 24px;
   line-height: 1.5;
 }
-.p-quiz__answer-box__answer-true__textbox div {
+.p-quiz__answer-box__answer__textbox div {
   display: flex;
   align-items: center;
   gap: 16px;
   margin-top: 16px;
 }
-.p-quiz__answer-box__answer-true__textbox div span:first-child {
+.p-quiz__answer-box__answer__textbox div span:first-child {
   color: #000000;
   line-height: 1.8;
 }
-.p-quiz__answer-box__answer-true__textbox div span:last-child {
-  font-size: 18px;
-}
-.p-quiz__answer-box__answer-false {
-  display: none;
-  height: 143px;
-  background-color: #eff2f5;
-  border-radius: 8px;
-  font-weight: 700;
-}
-.p-quiz__answer-box__answer-false__textbox {
-  margin-left: 40px;
-  padding-top: 24px;
-}
-.p-quiz__answer-box__answer-false__textbox span:first-child {
-  color: #0071BC;
-  font-size: 24px;
-  line-height: 1.5;
-}
-.p-quiz__answer-box__answer-false__textbox div {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 16px;
-}
-.p-quiz__answer-box__answer-false__textbox div span:first-child {
-  color: #000000;
-  line-height: 1.8;
-}
-.p-quiz__answer-box__answer-false__textbox div span:last-child {
+.p-quiz__answer-box__answer__textbox div span:last-child {
   font-size: 18px;
 }
 .p-quiz cite a {
@@ -1148,4 +1118,18 @@ img {
 }
 .u-display-flex {
   display: flex;
+}
+
+.u-color-red {
+  color: #E34E70;
+}
+.u-color-blue {
+  color: #0071BC;
+}
+
+.u-bg-color-pink {
+  background-color: #fff2f5;
+}
+.u-bg-color-lightblue {
+  background-color: #eff2f5;
 }/*# sourceMappingURL=common.css.map */
