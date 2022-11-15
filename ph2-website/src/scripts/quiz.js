@@ -53,45 +53,6 @@
   }
 
   const shuffledQuiz = shuffleArray(ALL_QUIZ);
-  const quizArea = document.getElementById('js-quiz-area');
-  
-  function createQuiz(){
-    shuffledQuiz.forEach((quiz, index)=> {
-      const shuffleChoices = shuffleArray(quiz.choices);
-      const quoteHtml = quiz.quote ? `<cite>${quiz.quote}</cite>` : "";
-      const quizHtml = `<div class="p-quiz js-quiz">
-      <div class="p-quiz__header"> 
-        <div class="p-quiz__header__quizlabel">Q${index + 1}</div>
-        <span class="p-quiz__header__question">${quiz.question}</span>
-        <div class="p-quiz__header__image"><img src="${quiz.img}" alt="" /></div>
-      </div>
-      <div class="p-quiz__answerlabel">A</div>
-      <div class="p-quiz__answer-box">
-        <ul class="p-quiz__answer-box__choices">
-          <li><button class="p-quiz__answer-box__choices__button is-attached-arrow js-answer">${shuffleChoices[0]}</button></li>
-          <li><button class="p-quiz__answer-box__choices__button is-attached-arrow js-answer">${shuffleChoices[1]}</button></li>
-          <li><button class="p-quiz__answer-box__choices__button is-attached-arrow js-answer">${shuffleChoices[2]}</button></li>
-        </ul>
-        <div class="p-quiz__answer-box__answer-true js-true">
-          <div class="p-quiz__answer-box__answer-true__textbox">
-            <span>正解！</span>
-            <div><span>A</span><span>${quiz.choices[quiz.correctnum]}</span></div>
-          </div>
-        </div>
-        <div class="p-quiz__answer-box__answer-false js-false">
-          <div class="p-quiz__answer-box__answer-false__textbox">
-            <span>不正解...</span>
-            <div><span>A</span><span>${quiz.choices[quiz.correctnum]}</span></div>
-          </div>
-        </div>
-        ${quoteHtml}
-      </div>
-    </div>`;
-    quizArea.insertAdjacentHTML('beforeend', quizHtml);
-    });
-  }
-  createQuiz()
-
 
   const allQuiz = document.querySelectorAll('.js-quiz');
 
