@@ -6,54 +6,28 @@ require(dirname(__FILE__) . '/dbconnect.php');
 require_once(dirname(__FILE__) . '/functions.php');
 
 
-// 問題データを取得
+// questionsテーブルからデータを取得
 $questions = array();
-
 $sql = "SELECT * FROM questions";
 $questions = $pdo->query($sql)->fetchAll();
 
-// question_idで結び付けて、全ての選択肢を取得
+
 $questions_num = count($questions);
-$all_choices = array();
 
-for ($i = 1; $i < $questions_num + 1; $i++) {
-  $question_id = $i;
-  $sql = "SELECT * FROM choices WHERE question_id = :question_id";
-  $stmt = $pdo->prepare($sql);
-  $stmt->bindValue(':question_id', $question_id, PDO::PARAM_INT);
-  $stmt->execute();
-  $choices = $stmt->fetchAll();
+for ($i = 0; $i < $questions_num; $i++) {
+  $question_id = $i + 1;
+
+  // choicesテーブルからデータを取得
+  $choices = array();
+  $sql = "SELECT name,valid FROM choices WHERE question_id = $question_id";
+  $choices = $pdo->query($sql)->fetchAll();
   shuffle($choices);
-  array_push($all_choices, $choices);
+
+  // question変数のi番目に選択肢の配列を格納
+  $questions[$i]['choices'] = $choices;
 };
+shuffle($questions);
 
-// 正解の選択肢を取得
-$correct_answers = array();
-
-$sql = "SELECT * FROM choices WHERE valid = 1";
-$correct_answers = $pdo->query($sql)->fetchAll();
-
-// データ整形処理ってこういうこと？　byみゆきセンパイ
-// [
-//     {
-//       question_id: 1;
-//       text: "なんでしょう？";
-//       choices: [
-//       {choice_id: 1, text: "問1"}
-//       {choice_id: 2, text: "問2"}
-//       {choice_id: 3, text: "問3"}
-//       ]
-//     },
-//     {
-//       question_id: 2;
-//       text: "なんでしょう？";
-//       choices: [
-//       {choice_id: 1, text: "問1"}
-//       {choice_id: 2, text: "問2"}
-//       {choice_id: 3, text: "問3"}
-//       ]
-//     }
-// ]
 
 ?>
 
@@ -75,7 +49,7 @@ $correct_answers = $pdo->query($sql)->fetchAll();
 
 <body>
   <?php include(dirname(__FILE__) . '/components/header.php'); ?>
-  
+
   <!-- mainここから -->
   <main class="l-main">
     <article>
@@ -97,23 +71,39 @@ $correct_answers = $pdo->query($sql)->fetchAll();
             <div class="p-quiz__answerlabel">A</div>
             <div class="p-quiz__answer-box">
               <ul class="p-quiz__answer-box__choices">
-                <?php foreach ($all_choices[$key] as $choice) : ?>
+                <?php foreach ($question['choices'] as $choice) : ?>
                   <li><button class="p-quiz__answer-box__choices__button is-attached-arrow js-answer" data-answer="<?= h($choice['valid']) ?>"><?= h($choice['name']) ?></button></li>
                 <?php endforeach; ?>
               </ul>
               <div class="p-quiz__answer-box__answer-true js-true">
                 <div class="p-quiz__answer-box__answer-true__textbox">
                   <span>正解！</span>
-                  <div><span>A</span><span><?= h($correct_answers[$key]['name']) ?></span></div>
+                  <div><span>A</span>
+                    <span>
+                      <?php foreach ($question['choices'] as $choice) : ?>
+                        <?php if (in_array(1, $choice)) : ?>
+                          <?= h($choice['name']) ?>
+                        <?php endif; ?>
+                      <?php endforeach; ?>
+                    </span>
+                  </div>
                 </div>
               </div>
               <div class="p-quiz__answer-box__answer-false js-false">
                 <div class="p-quiz__answer-box__answer-false__textbox">
                   <span>不正解...</span>
-                  <div><span>A</span><span><?= h($correct_answers[$key]['name']) ?></span></div>
+                  <div><span>A</span>
+                    <span>
+                      <?php foreach ($question['choices'] as $choice) : ?>
+                        <?php if (in_array(1, $choice)) : ?>
+                          <?= h($choice['name']) ?>
+                        <?php endif; ?>
+                      <?php endforeach; ?>
+                    </span>
+                  </div>
                 </div>
               </div>
-              <?php if (!empty($question['quote'])) : ?>
+              <?php if ($question['quote']) : ?>
                 <cite><a href="<?= h($question['quote_url']) ?>"><?= h($question['quote']) ?></a></cite>
               <?php endif; ?>
             </div>
