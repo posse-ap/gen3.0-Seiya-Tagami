@@ -1059,7 +1059,7 @@ img {
 .p-quiz__answer-box__answer-false__textbox div span:last-child {
   font-size: 18px;
 }
-.p-quiz cite {
+.p-quiz cite a {
   display: block;
   height: 80px;
   padding-left: 64px;
@@ -1072,7 +1072,7 @@ img {
   font-weight: 700;
 }
 @media (max-width: 767px) {
-  .p-quiz cite {
+  .p-quiz cite a {
     height: 92px;
     line-height: 92px;
   }
