@@ -28,6 +28,15 @@ for ($i = 0; $i < $questions_num; $i++) {
 };
 shuffle($questions);
 
+// 以下サンプルコードのデータ整形処理
+// $questions = $pdo->query("SELECT * FROM questions")->fetchAll(PDO::FETCH_ASSOC);
+// $choices = $pdo->query("SELECT * FROM choices")->fetchAll(PDO::FETCH_ASSOC);
+
+// foreach ($choices as $key => $choice) {
+//   $index = array_search($choice["question_id"], array_column($questions, 'id'));
+//   $questions[$index]["choices"][] = $choice;
+// }
+
 
 ?>
 
