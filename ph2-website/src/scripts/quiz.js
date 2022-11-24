@@ -1,44 +1,48 @@
 "use strict";
 
 {
-  const allQuiz = document.querySelectorAll('.js-quiz');
+  const allQuiz = document.querySelectorAll(".js-quiz");
 
-  const setDisabled = (answers) => {
-    answers.forEach(answer => {
-      answer.disabled = true;
-    })
-  } //ボタン非活性化
+  const setDisabled = (choices) => {
+    choices.forEach((choice) => {
+      choice.disabled = true;
+    });
+  }; //ボタン非活性化
 
-  const removeArrows = (answers) => {
-    answers.forEach(answer => {
-      answer.classList.remove('is-attached-arrow')
-    })
-  } //ボタンの三角アイコンを外す
+  const removeArrows = (choices) => {
+    choices.forEach((choice) => {
+      choice.classList.remove("is-attached-arrow");
+    });
+  }; //ボタンの三角アイコンを外す
 
-  function checkAnswer(){
-    allQuiz.forEach( quiz => {
-      const answers = quiz.querySelectorAll('.js-answer');
-      const answerTrue = quiz.querySelector('.js-true');
-      const answerFalse = quiz.querySelector('.js-false');
+  function checkAnswer() {
+    allQuiz.forEach((quiz) => {
+      const choices = quiz.querySelectorAll(".js-choice");
+      const answerTrue = quiz.querySelector(".js-answer");
+      const answerTitle = quiz.querySelector(".js-answer-title");
       const correctNum = 1;
-  
-      answers.forEach(answer => {  
-        answer.addEventListener('click', () => {
-          answer.classList.add('is-selected');
-          setDisabled(answers);
-          removeArrows(answers);
 
-          const selectedAnswerNumber = Number(answer.getAttribute('data-answer'));
+      choices.forEach((choice) => {
+        choice.addEventListener("click", () => {
+          choice.classList.add("is-selected");
+          setDisabled(choices);
+          removeArrows(choices);
+
+          const selectedAnswerNumber = Number(choice.getAttribute("data-answer"));
           const iscorrect = selectedAnswerNumber === correctNum;
 
-          if(iscorrect == true){
-            answerTrue.classList.add('u-display-block');
+          if (iscorrect == true) {
+            answerTrue.classList.add("u-display-block", "u-bg-color-pink");
+            answerTitle.innerText = "正解";
+            answerTitle.classList.add("u-color-red");
           } else {
-            answerFalse.classList.add('u-display-block');
+            answerTrue.classList.add("u-display-block", "u-bg-color-lightblue");
+            answerTitle.innerText = "不正解...";
+            answerTitle.classList.add("u-color-blue");
           }
-        })
-      })
-    })
+        });
+      });
+    });
   }
   checkAnswer();
 }

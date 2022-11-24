@@ -117,7 +117,7 @@
       }
     }
 
-    &__answer-true {
+    &__answer {
       display: none;
       height: 143px;
       background-color: #fff2f5;
@@ -129,42 +129,6 @@
         padding-top: 24px;
 
         & span:first-child {
-          color: $color-red;
-          font-size: 24px;
-          line-height: 1.5;
-        }
-
-        & div {
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          margin-top: 16px;
-
-          & span:first-child {
-            color: $color-black;
-            line-height: 1.8;
-          }
-
-          & span:last-child {
-            font-size: 18px;
-          }
-        }
-      }
-    }
-
-    &__answer-false {
-      display: none;
-      height: 143px;
-      background-color: #eff2f5;
-      border-radius: 8px;
-      font-weight: 700;
-
-      &__textbox {
-        margin-left: 40px;
-        padding-top: 24px;
-
-        & span:first-child {
-          color: $color-blue;
           font-size: 24px;
           line-height: 1.5;
         }
