@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>POSSE 管理画面ダッシュボード</title>
-    <link rel="stylesheet" href="../sass/common.css" />
-    <link href="../dist/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../sass/common.css" />
+    <link href="../../dist/output.css" rel="stylesheet" />
 
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,7 +26,7 @@
     <!-- header -->
     <header class="h-20 px-[26px] py-[22px] bg-header">
       <div class="flex justify-between items-center">
-        <img src="../img/logo.svg" alt="" />
+        <img src="../../img/logo.svg" alt="" />
         <button class="px-6 py-[6px] bg-blue text-white font-bold rounded-lg">ログアウト</button>
       </div>
     </header>
@@ -36,10 +36,10 @@
         <aside class="w-48 h-[calc(100vh_-_80px)] bg-sidebar pt-10">
           <ul class="flex flex-col">
             <li class="">
-              <a href="#" class="flex items-center gap-3 text-lg text-white pl-4 hover:pl-5 py-3 border-t-2 border-sidebarBorder hover:bg-hoverSidebarBorder transition-all duration-300"><i class="fa-solid fa-user-plus"></i>ユーザー招待</a>
+              <a href="" class="flex items-center gap-3 text-lg text-white pl-4 hover:pl-5 py-3 border-t-2 border-sidebarBorder hover:bg-hoverSidebarBorder transition-all duration-300"><i class="fa-solid fa-user-plus"></i>ユーザー招待</a>
             </li>
             <li>
-              <a href="#" class="flex items-center gap-3 text-lg text-white pl-4 hover:pl-5 py-3 border-t-2 border-sidebarBorder hover:bg-hoverSidebarBorder transition-all duration-300"><i class="fa-sharp fa-solid fa-table-list"></i>問題一覧</a>
+              <a href="../index.php" class="flex items-center gap-3 text-lg text-white pl-4 hover:pl-5 py-3 border-t-2 border-sidebarBorder hover:bg-hoverSidebarBorder transition-all duration-300"><i class="fa-sharp fa-solid fa-table-list"></i>問題一覧</a>
             </li>
             <li>
               <a href="#" class="flex items-center gap-3 text-lg text-white pl-4 hover:pl-5 py-3 border-y-2 border-sidebarBorder hover:bg-hoverSidebarBorder transition-all duration-300"><i class="fa-solid fa-marker "></i>問題作成</a>
