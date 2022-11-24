@@ -37,52 +37,40 @@ $questions = $pdo->query($sql)->fetchAll();
 
 <body class="font-NotoSansJP">
   <!-- header -->
-  <header class="h-20 px-[26px] py-[22px] bg-header">
-    <div class="flex justify-between items-center">
-      <img src="../img/logo.svg" alt="" />
-      <button class="px-6 py-[6px] bg-blue text-white font-bold rounded-lg">ログアウト</button>
-    </div>
-  </header>
+  <?php include(dirname(__FILE__) . '/../components/admin/header.php') ?>
+
   <main>
     <div class="flex">
       <!-- sidebar -->
-      <aside class="w-48 h-[calc(100vh_-_80px)] bg-sidebar pt-10">
-        <ul class="flex flex-col">
-          <li>
-            <a href="../admin/users/invitation.php" class="flex items-center gap-3 text-lg text-white pl-4 hover:pl-5 py-3 border-t-2 border-sidebarBorder hover:bg-hoverSidebarBorder transition-all duration-300"><i class="fa-solid fa-user-plus"></i>ユーザー招待</a>
-          </li>
-          <li>
-            <a href="#" class="flex items-center gap-3 text-lg text-white pl-4 hover:pl-5 py-3 border-t-2 border-sidebarBorder hover:bg-hoverSidebarBorder transition-all duration-300"><i class="fa-sharp fa-solid fa-table-list"></i>問題一覧</a>
-          </li>
-          <li>
-            <a href="#" class="flex items-center gap-3 text-lg text-white pl-4 hover:pl-5 py-3 border-y-2 border-sidebarBorder hover:bg-hoverSidebarBorder transition-all duration-300"><i class="fa-solid fa-marker"></i>問題作成</a>
-          </li>
-        </ul>
-      </aside>
+      <?php include(dirname(__FILE__) . '/../components/admin/sidebar.php') ?>
 
       <!-- questions-table -->
       <div class="px-9 py-7">
         <div class="flex flex-col gap-9 w-auto">
           <label class="text-4xl font-bold">問題一覧</label>
           <table class="border-spacing-0 border-separate">
-            <tr>
-              <th class="text-center bg-slate-300 py-[10px] px-4 border-y border-l border-table w-5">ID</th>
-              <th class="text-left bg-slate-300 py-[10px] pl-4 border border-table">Questions</th>
-            </tr>
-            <?php foreach ($questions as $question) : ?>
+            <thead>
               <tr>
-                <td class="text-center py-[10px] border-y border-l border-t-0  border-table align-middle"><?= $question["id"] ?></td>
-                <td class="text-center py-[10px] border border-t-0 border-table">
-                  <div class="flex justify-between">
-                    <span class="text-left px-4"><?= $question["question"] ?></span>
-                    <ul class="flex gap-8 px-4">
-                      <li><a href="" title="edit" class="hover:text-green-600 transition-all duration-200"><i class="fa-regular fa-pen-to-square"></i></a></li>
-                      <li><a href="" title="delete" class="hover:text-red-500 transition-all duration-200"><i class="fa-sharp fa-solid fa-trash"></i></a></li>
-                    </ul>
-                  </div>
-                </td>
+                <th class="text-center bg-slate-300 py-[10px] px-4 border-y border-l border-table w-5">ID</th>
+                <th class="text-left bg-slate-300 py-[10px] pl-4 border border-table">Questions</th>
               </tr>
-            <?php endforeach; ?>
+            </thead>
+            <tbody>
+              <?php foreach ($questions as $question) : ?>
+                <tr>
+                  <td class="text-center py-[10px] border-y border-l border-t-0  border-table align-middle"><?= h($question["id"]) ?></td>
+                  <td class="text-center py-[10px] border border-t-0 border-table">
+                    <div class="flex justify-between">
+                      <span class="text-left px-4"><?= h($question["question"]) ?></span>
+                      <ul class="flex gap-8 px-4">
+                        <li><a href="" title="edit" class="hover:text-green-600 transition-all duration-200"><i class="fa-regular fa-pen-to-square"></i></a></li>
+                        <li><a href="http://localhost:8080/services/delete_question.php?id=<?= h($question["id"]) ?>" title="delete" class="hover:text-red-500 transition-all duration-200"><i class="fa-sharp fa-solid fa-trash"></i></a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
           </table>
         </div>
       </div>
