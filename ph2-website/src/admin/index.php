@@ -48,30 +48,34 @@ $questions = $pdo->query($sql)->fetchAll();
       <div class="px-9 py-7">
         <div class="flex flex-col gap-9 w-auto">
           <label class="text-4xl font-bold">問題一覧</label>
-          <table class="border-spacing-0 border-separate">
-            <thead>
-              <tr>
-                <th class="text-center bg-slate-300 py-[10px] px-4 border-y border-l border-table w-5">ID</th>
-                <th class="text-left bg-slate-300 py-[10px] pl-4 border border-table">Questions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php foreach ($questions as $question) : ?>
+          <?php if (count($questions) !== 0) : ?>
+            <table class="border-spacing-0 border-separate">
+              <thead>
                 <tr>
-                  <td class="text-center py-[10px] border-y border-l border-t-0  border-table align-middle"><?= h($question["id"]) ?></td>
-                  <td class="text-center py-[10px] border border-t-0 border-table">
-                    <div class="flex justify-between">
-                      <span class="text-left px-4"><?= h($question["question"]) ?></span>
-                      <ul class="flex gap-8 px-4">
-                        <li><a href="" title="edit" class="hover:text-green-600 transition-all duration-200"><i class="fa-regular fa-pen-to-square"></i></a></li>
-                        <li><a href="http://localhost:8080/services/delete_question.php?id=<?= h($question["id"]) ?>" title="delete" class="hover:text-red-500 transition-all duration-200"><i class="fa-sharp fa-solid fa-trash"></i></a></li>
-                      </ul>
-                    </div>
-                  </td>
+                  <th class="text-center bg-slate-300 py-[10px] px-4 border-y border-l border-table w-5">ID</th>
+                  <th class="text-left bg-slate-300 py-[10px] pl-4 border border-table">Questions</th>
                 </tr>
-              <?php endforeach; ?>
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                <?php foreach ($questions as $question) : ?>
+                  <tr>
+                    <td class="text-center py-[10px] border-y border-l border-t-0  border-table align-middle"><?= h($question["id"]) ?></td>
+                    <td class="text-center py-[10px] border border-t-0 border-table">
+                      <div class="flex justify-between">
+                        <span class="text-left px-4"><?= h($question["question"]) ?></span>
+                        <ul class="flex gap-8 px-4">
+                          <li><a href="" title="edit" class="hover:text-green-600 transition-all duration-200"><i class="fa-regular fa-pen-to-square"></i></a></li>
+                          <li><a href="http://localhost:8080/services/delete_question.php?id=<?= h($question["id"]) ?>" title="delete" class="hover:text-red-500 transition-all duration-200"><i class="fa-sharp fa-solid fa-trash"></i></a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          <?php else : ?>
+            <?="現在、問題は登録されていません。"?>
+          <?php endif; ?>
         </div>
       </div>
     </div>
