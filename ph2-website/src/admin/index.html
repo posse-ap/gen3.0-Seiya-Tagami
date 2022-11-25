@@ -27,7 +27,7 @@
     <header class="h-20 px-[26px] py-[22px] bg-header">
       <div class="flex justify-between items-center">
         <img src="../img/logo.svg" alt="" />
-        <button class="px-6 py-[6px] bg-blue text-white font-bold rounded-lg hover:shadow-md hover:shadow-slate-600 transition-all duration-200">ログアウト</button>
+        <button class="px-6 py-[6px] bg-blue text-white font-bold rounded-lg hover:shadow-md hover:shadow-slate-500 transition-all duration-200">ログアウト</button>
       </div>
     </header>
     <main>
@@ -60,8 +60,42 @@
           </ul>
         </aside>
 
-        <!-- questions-table -->
-        <!-- <div class="px-9 py-7">
+        <!-- create questions -->
+        <div class="px-14 py-9 max-w-5xl w-full">
+          <h2 class="text-4xl font-bold">問題作成</h2>
+          <form action="" method="post" class="mt-9">
+            <dl>
+              <dt><label class="is-required">問題文</label></dt>
+              <dd><input class="w-full p-2 bg-slate-200 text-sm mt-2" type="text" name="question" required /></dd>
+              <dt class="mt-6"><label class="">選択肢</label></dt>
+              <dd class="flex flex-col gap-2 mt-2">
+                <input class="w-full p-2 bg-slate-200 text-sm" type="text" name="choice" placeholder="選択肢１" required />
+                <input class="w-full p-2 bg-slate-200 text-sm" type="text" name="choice" placeholder="選択肢２" required />
+                <input class="w-full p-2 bg-slate-200 text-sm" type="text" name="choice" placeholder="選択肢３" required />
+              </dd>
+              <dt class="mt-6">正解の選択肢</dt>
+              <dd class="flex flex-col gap-1 mt-2">
+                <label class="radio-button"><input type="radio" name="user-type" value="" checked />選択肢１</label>
+                <label class="radio-button"><input type="radio" name="user-type" value="" />選択肢２</label>
+                <label class="radio-button"><input type="radio" name="user-type" value="" />選択肢３</label>
+              </dd>
+              <dt class="mt-6">問題の画像</dt>
+              <dd class="mt-2"><input type="file" name="" id="" required/></dd>
+              <dt class="mt-6">補足</dt>
+              <dd><input class="w-full p-2 bg-slate-200 text-sm" name="" /></dd>
+            </dl>
+            <button class="w-full mt-4 px-6 py-[6px] bg-blue text-white font-bold text-center rounded-lg hover:shadow-md hover:shadow-slate-500 transition-all duration-200" type="submit">作成</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+
+<!-- test -->
+
+<!-- questions-table -->
+<!-- <div class="px-9 py-7">
           <div class="px-9 py-7">
             <div class="flex flex-col gap-9 ">
               <label class="text-4xl font-bold">ユーザー招待</label>
@@ -71,7 +105,7 @@
               </div>
             </div>
           </div> -->
-          <!-- <div class="flex flex-col gap-9 w-[800px]">
+<!-- <div class="flex flex-col gap-9 w-[800px]">
             <label class="text-4xl font-bold">ユーザー招待</label>
             <table class="border-spacing-0 border-separate">
               <tr>
@@ -98,8 +132,4 @@
               </tr>
             </table>
           </div> -->
-        <!-- </div> -->
-      </div>
-    </main>
-  </body>
-</html>
+<!-- </div> -->

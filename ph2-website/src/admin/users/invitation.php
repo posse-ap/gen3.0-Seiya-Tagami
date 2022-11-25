@@ -28,12 +28,12 @@
 
 
       <!-- invitation -->
-      <div class="px-9 py-7">
+      <div class="px-14 py-9">
         <div class="flex flex-col gap-9 ">
           <label class="text-4xl font-bold">ユーザー招待</label>
           <div class="flex items-center gap-5">
-            <input type="text" class="w-96 p-2 bg-slate-300 text-sm" placeholder="メールアドレスを入力">
-            <button class="px-4 py-2 bg-blue rounded-lg font-bold text-white hover:shadow-md hover:shadow-slate-600 transition-all duration-200">送信</button>
+            <input type="text" class="w-96 p-2 bg-slate-200 text-sm" placeholder="メールアドレスを入力">
+            <button class="px-4 py-2 bg-blue rounded-lg font-bold text-white hover:shadow-md hover:shadow-slate-500 transition-all duration-200">送信</button>
           </div>
         </div>
       </div>

@@ -45,7 +45,7 @@ $questions = $pdo->query($sql)->fetchAll();
       <?php include(dirname(__FILE__) . '/../components/admin/sidebar.php') ?>
 
       <!-- questions-table -->
-      <div class="px-9 py-7">
+      <div class="px-14 py-9">
         <div class="flex flex-col gap-9 w-auto">
           <label class="text-4xl font-bold">問題一覧</label>
           <?php if (count($questions) !== 0) : ?>
