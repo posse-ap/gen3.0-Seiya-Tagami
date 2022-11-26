@@ -1,10 +1,7 @@
 <?php
 
-declare(strict_types=1);
-
 require(dirname(__FILE__) . '/db/dbconnect.php');
 require_once(dirname(__FILE__) . '/functions.php');
-
 
 // questionsテーブルからデータを取得
 $questions = array();
@@ -18,6 +15,11 @@ foreach ($choices as $key => $choice) {
   $index = array_search($choice["question_id"], array_column($questions, 'id'));
   $questions[$index]["choices"][] = $choice;
 }
+
+// シャッフル処理
+for($i = 0; $i< count($questions); $i++) {
+  shuffle($questions[$i]["choices"]);
+};
 shuffle($questions);
 
 
@@ -75,7 +77,7 @@ shuffle($questions);
             <div class="p-quiz__header">
               <div class="p-quiz__header__quizlabel">Q<?= h($key) + 1 ?></div>
               <span class="p-quiz__header__question"><?= h($question['question']) ?></span>
-              <div class="p-quiz__header__image"><img src="./img/quiz/<?= h($question['image']) ?>" alt="" /></div>
+              <figure class="p-quiz__header__image"><img src="./img/quiz/<?= h($question['image']) ?>" alt="" /></figure>
             </div>
             <div class="p-quiz__answerlabel">A</div>
             <div class="p-quiz__answer-box">
@@ -90,7 +92,7 @@ shuffle($questions);
                   <div><span>A</span>
                     <span>
                       <?php foreach ($question['choices'] as $choice) : ?>
-                        <?php if (in_array(1, $choice)) : ?>
+                        <?php if ($choice['valid'] === 1) : ?>
                           <?= h($choice['name']) ?>
                         <?php endif; ?>
                       <?php endforeach; ?>
@@ -98,8 +100,8 @@ shuffle($questions);
                   </div>
                 </div>
               </div>
-              <?php if ($question['quote']) : ?>
-                <cite><a href="<?= h($question['quote_url']) ?>"><?= h($question['quote']) ?></a></cite>
+              <?php if ($question['supplement']) : ?>
+                <cite><a href="<?= h($question['supplement_url']) ?>"><?= h($question['supplement']) ?></a></cite>
               <?php endif; ?>
             </div>
           </div>

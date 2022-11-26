@@ -929,13 +929,14 @@ img {
     font-size: 18px;
   }
 }
-.p-quiz__header__image {
+.p-quiz__header__image img {
+  display: block;
   width: 718px;
   height: 357px;
   margin: 64px auto 0;
 }
 @media (max-width: 767px) {
-  .p-quiz__header__image {
+  .p-quiz__header__image img {
     width: 100%;
     height: auto;
   }
