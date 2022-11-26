@@ -27,7 +27,7 @@
       <?php include(dirname(__FILE__) . '/../../components/admin/sidebar.php') ?>
 
       <!-- create questions -->
-      <div class="px-14 py-9 max-w-5xl w-full">
+      <div class="px-14 py-9 w-full">
         <h2 class="text-4xl font-bold">問題作成</h2>
         <form action="../../services/create_question.php" method="post" enctype="multipart/form-data" class="mt-8">
           <dl>
