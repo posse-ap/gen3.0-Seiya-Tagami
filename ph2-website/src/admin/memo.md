@@ -11,4 +11,4 @@
 ## 問題アップロードについて
 - lastInsertedIdの利用
 - postによる複数のname属性の取得(https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10150327680)
-
+- isset($_POST["image"])というのは不可能なようである。$_FILESを使うようにする。要調べ
