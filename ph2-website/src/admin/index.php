@@ -62,7 +62,7 @@ $questions = $pdo->query($sql)->fetchAll();
                     <td class="text-center py-[10px] border border-t-0 border-table">
                       <div class="flex justify-between">
                         <span class="text-left px-4"><?= h($question["question"]) ?></span>
-                        <ul class="flex gap-8 px-4">
+                        <ul class="flex gap-8 px-4 items-center">
                           <li><a href="http://localhost:8080/admin/questions/edit.php?id=<?= h($question["id"]) ?>" title="edit" class="hover:text-green-600 transition-all duration-200"><i class="fa-regular fa-pen-to-square"></i></a></li>
                           <li><a href="http://localhost:8080/services/delete_question.php?id=<?= h($question["id"]) ?>" title="delete" class="hover:text-red-500 transition-all duration-200"><i class="fa-sharp fa-solid fa-trash"></i></a></li>
                         </ul>

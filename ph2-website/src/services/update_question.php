@@ -20,7 +20,7 @@ try {
   $stmt->execute();
 
 
-  if (!empty($_FILES["image"])) {
+  if (!empty($_FILES["image"]["name"])) {
     $image_name = uniqid(mt_rand(), true) . '.' . substr(strrchr($_FILES["image"]["name"], '.'), 1);
     $image_path = dirname(__FILE__) . '/../img/quiz/' . $image_name;
     move_uploaded_file($_FILES['image']['tmp_name'], $image_path);
@@ -41,7 +41,7 @@ try {
 
 
   for ($i = 0; $i < 3; $i++) {
-    // 等差数列を用いて一意の$idを求めている。やや回りくどい印象。おそらくSELECT文でもできると思う。
+    // 等差数列を用いて一意の$idを求めている。おそらくSELECT文で普通にできるきがする。
     $id = $i + 3 * ($question_id - 1) + 1;
     $stmt->bindValue(":id", $id);
     $stmt->bindValue(":name", $choices[$i]);
@@ -53,6 +53,16 @@ try {
   $pdo->commit();
 } catch (Error $e) {
   $pdo->rollBack();
+
+  //500 null
+  //404
+  //422
+  //401
+  //フロントに分かるようにしたり、画面に出してあげる
+  //ユーザーが分かるようなメッセーじ
+  //response ステータス
+  //log
+  //何が起こったのか分かるような仕組みづくり
 };
 
 header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/index.php');

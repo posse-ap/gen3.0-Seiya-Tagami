@@ -4,7 +4,7 @@
 - https://developer.mozilla.org/ja/docs/Web/API/fetch#Parameters
 
 ## 画像アップロードに関しての学び
-- htmlのformでenctype="multipart/form-data"になっていない場合、ファイルのアップロードは出来ない。
+- htmlのformでenctype="multipart/form-data"になっていない場合、ファイルのアップロードは出来ない。(https://www.yoheim.net/blog.php?q=20171201)
 - $_FILESはHTTP POSTでアップロードされた値を取得するファイルアップロード変数。これは連想配列で取得する。(https://wepicks.net/phpref-files/)
 - move_uploaded_fileについて (https://uxmilk.jp/14317)
 

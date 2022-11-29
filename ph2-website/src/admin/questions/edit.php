@@ -14,8 +14,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->bindValue(":question_id", $_GET["id"]);
 $stmt->execute();
 $choices = $stmt->fetchAll();
-// var_dump($choices);
-// exit
+
 
 ?>
 
@@ -54,7 +53,7 @@ $choices = $stmt->fetchAll();
         <form action="../../services/update_question.php" method="post" enctype="multipart/form-data" class="mt-8">
           <dl>
             <dt><label>問題文</label></dt>
-            <dd><input class="w-full p-2 bg-slate-200 text-sm mt-2" type="text" name="question" value="<?= h($question["question"])?>" required /></dd>
+            <dd><input class="w-full p-2 bg-slate-200 text-sm mt-2" type="text" name="question" value="<?= h($question["question"])?>" placeholder="問題文テキスト" required /></dd>
             <dt class="mt-6"><label class="">選択肢</label></dt>
             <dd class="flex flex-col gap-2 mt-2">
               <input class="w-full p-2 bg-slate-200 text-sm" type="text" name="choice[]" value="<?= h($choices[0]["name"])?>" placeholder="選択肢１" required />
