@@ -54,21 +54,21 @@ $choices = $stmt->fetchAll();
           <dl>
             <dt><label>問題文</label></dt>
             <dd><input class="w-full p-2 bg-slate-200 text-sm mt-2" type="text" name="question" value="<?= h($question["question"])?>" placeholder="問題文テキスト" required /></dd>
-            <dt class="mt-6"><label class="">選択肢</label></dt>
+            <dt class="mt-6"><label>選択肢</label></dt>
             <dd class="flex flex-col gap-2 mt-2">
               <input class="w-full p-2 bg-slate-200 text-sm" type="text" name="choice[]" value="<?= h($choices[0]["name"])?>" placeholder="選択肢１" required />
               <input class="w-full p-2 bg-slate-200 text-sm" type="text" name="choice[]" value="<?= h($choices[1]["name"])?>" placeholder="選択肢２" required />
               <input class="w-full p-2 bg-slate-200 text-sm" type="text" name="choice[]" value="<?= h($choices[2]["name"])?>" placeholder="選択肢３" required />
             </dd>
-            <dt class="mt-6">正解の選択肢</dt>
+            <dt class="mt-6"><label>正解の選択肢</label></dt>
             <dd class="flex flex-col gap-1 mt-2">
               <label><input type="radio" name="correctChoice" value="1" <?= $choices[0]["valid"] === 1 ? "checked" : ""?> />選択肢１</label>
               <label><input type="radio" name="correctChoice" value="2" <?= $choices[1]["valid"] === 1 ? "checked" : ""?> />選択肢２</label>
               <label><input type="radio" name="correctChoice" value="3" <?= $choices[2]["valid"] === 1 ? "checked" : ""?> />選択肢３</label>
             </dd>
-            <dt class="mt-6">問題の画像</dt>
+            <dt class="mt-6"><label>問題の画像</label></dt>
             <dd class="mt-2"><input type="file" name="image"/></dd>
-            <dt class="mt-6">補足</dt>
+            <dt class="mt-6"><label>補足</label></dt>
             <dd class="mt-2"><input class="w-full p-2 bg-slate-200 text-sm" type="text" name="supplement" value="<?= h($question["supplement"])?>" placeholder="補足テキスト"/></dd>
             <dd class="mt-2"><input class="w-full p-2 bg-slate-200 text-sm" type="text" name="supplement_url" value="<?= h($question["supplement_url"])?>" placeholder="補足URL"/></dd>
           </dl>
