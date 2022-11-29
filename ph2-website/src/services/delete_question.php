@@ -9,12 +9,12 @@ if (isset($_GET["id"]) && preg_match('/^[1-9][0-9]*$/', $_GET['id'])) {
 //memo:トランザクション開始
 $pdo->beginTransaction();
 try {
-  $sql = "DELETE FROM questions WHERE id = :question_id";
+  $sql = "DELETE FROM choices WHERE question_id = :question_id";
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(":question_id", $question_id);
   $stmt->execute();
 
-  $sql = "DELETE FROM choices WHERE question_id = :question_id";
+  $sql = "DELETE FROM questions WHERE id = :question_id";
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(":question_id", $question_id);
   $stmt->execute();

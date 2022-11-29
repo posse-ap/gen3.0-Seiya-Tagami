@@ -51,7 +51,7 @@
             <dd class="mt-2"><input class="w-full p-2 bg-slate-200 text-sm" type="text" name="supplement" placeholder="補足テキスト" /></dd>
             <dd class="mt-2"><input class="w-full p-2 bg-slate-200 text-sm" type="text" name="supplement_url" placeholder="補足URL" /></dd>
           </dl>
-          <button class="w-full mt-4 px-6 py-[6px] bg-blue text-white font-bold text-center rounded-lg hover:shadow-md hover:shadow-slate-500 transition-all duration-200" name="upload" type="submit">作成</button>
+          <button class="w-full mt-8 px-6 py-[6px] bg-blue text-white font-bold text-center rounded-lg hover:shadow-md hover:shadow-slate-500 transition-all duration-200" name="upload" type="submit">作成</button>
         </form>
       </div>
     </div>

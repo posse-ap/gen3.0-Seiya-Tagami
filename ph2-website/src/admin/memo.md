@@ -12,3 +12,7 @@
 - lastInsertedIdの利用
 - postによる複数のname属性の取得(https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10150327680)
 - isset($_POST["image"])というのは不可能なようである。$_FILESを使うようにする。要調べ
+
+## SQLエラー関連
+- https://qiita.com/SuguruOoki/items/eb74d2c33ee9f023aaf1
+- https://inouelog.com/mysql-cannnot-delete/
