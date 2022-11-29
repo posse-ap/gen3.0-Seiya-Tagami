@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require(dirname(__FILE__) . '/dbconnect.php');
+require(dirname(__FILE__) . '/db/dbconnect.php');
 require_once(dirname(__FILE__) . '/functions.php');
 
 
@@ -11,22 +11,31 @@ $questions = array();
 $sql = "SELECT * FROM questions";
 $questions = $pdo->query($sql)->fetchAll();
 
+// choicesテーブルからデータを取得
+$choices = $pdo->query("SELECT * FROM choices")->fetchAll();
 
-$questions_num = count($questions);
-
-for ($i = 0; $i < $questions_num; $i++) {
-  $question_id = $i + 1;
-
-  // choicesテーブルからデータを取得
-  $choices = array();
-  $sql = "SELECT name,valid FROM choices WHERE question_id = $question_id";
-  $choices = $pdo->query($sql)->fetchAll();
-  shuffle($choices);
-
-  // question変数のi番目に選択肢の配列を格納
-  $questions[$i]['choices'] = $choices;
-};
+foreach ($choices as $key => $choice) {
+  $index = array_search($choice["question_id"], array_column($questions, 'id'));
+  $questions[$index]["choices"][] = $choice;
+}
 shuffle($questions);
+
+
+// 自分作失敗例
+//問題点はquestion_idが1から始まってしまっていること。
+// $questions_num = count($questions);
+
+// for ($i = 0; $i < $questions_num; $i++) {
+//   $question_id = $i + 1;
+
+//   $choices = array();
+//   $sql = "SELECT name,valid FROM choices WHERE question_id = $question_id";
+//   $choices = $pdo->query($sql)->fetchAll();
+//   shuffle($choices);
+
+//   // question変数のi番目に選択肢の配列を格納
+//   $questions[$i]['choices'] = $choices;
+// };
 
 
 ?>
