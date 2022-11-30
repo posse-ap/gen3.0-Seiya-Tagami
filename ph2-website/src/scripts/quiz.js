@@ -48,6 +48,11 @@
           removeArrows(choices);
 
           const selectedAnswerNumber = Number(choice.getAttribute("data-answer"));
+
+          /**
+           * @description 押下された選択肢に格納されていた数字と正解の数字が等しいか確かめます。
+           * @param iscorrect {boolean}
+           */
           const iscorrect = selectedAnswerNumber === correctNum;
 
           if (iscorrect == true) {
