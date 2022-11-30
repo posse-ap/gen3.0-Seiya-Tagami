@@ -1,20 +1,35 @@
 "use strict";
 
 {
+  /**
+   * @description クイズエリアの取得
+   * @type {NodeListOf<Element>}
+   */
   const allQuiz = document.querySelectorAll(".js-quiz");
 
+  /**
+   * @description buttonタグにdisabledを付与
+   * @param choices {NodeListOf<Element>}
+   */
   const setDisabled = (choices) => {
     choices.forEach((choice) => {
       choice.disabled = true;
     });
-  }; //ボタン非活性化
+  };
 
+  /**
+   * @description buttonタグからis-attached-arrowクラスを外す
+   * @param choices {NodeListOf<Element>}
+   */
   const removeArrows = (choices) => {
     choices.forEach((choice) => {
       choice.classList.remove("is-attached-arrow");
     });
-  }; //ボタンの三角アイコンを外す
+  };
 
+  /**
+   * @description 各問題の中での処理
+   */
   function checkAnswer() {
     allQuiz.forEach((quiz) => {
       const choices = quiz.querySelectorAll(".js-choice");
@@ -25,7 +40,11 @@
       choices.forEach((choice) => {
         choice.addEventListener("click", () => {
           choice.classList.add("is-selected");
+
+          //すべてのボタンを非活性化
           setDisabled(choices);
+
+          //ボタンの三角アイコンを外す
           removeArrows(choices);
 
           const selectedAnswerNumber = Number(choice.getAttribute("data-answer"));
@@ -44,5 +63,6 @@
       });
     });
   }
+  
   checkAnswer();
 }
