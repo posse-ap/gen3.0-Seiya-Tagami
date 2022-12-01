@@ -8,7 +8,7 @@ $pdo->beginTransaction();
 
 
 try {
-  $question_id = $_POST["id"];
+  $question_id = (int)$_POST["id"];
 
   // questionsテーブルを更新
   $sql = "UPDATE questions SET question = :question, supplement = :supplement, supplement_url = :supplement_url WHERE id = :id";
@@ -51,18 +51,10 @@ try {
   }
 
   $pdo->commit();
+  header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/index.php');
+
 } catch (Error $e) {
+
   $pdo->rollBack();
-
-  //500 null
-  //404
-  //422
-  //401
-  //フロントに分かるようにしたり、画面に出してあげる
-  //ユーザーが分かるようなメッセーじ
-  //response ステータス
-  //log
-  //何が起こったのか分かるような仕組みづくり
+  echo '更新失敗: ' . $e->getMessage();
 };
-
-header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/index.php');

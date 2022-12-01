@@ -16,3 +16,7 @@
 ## SQLエラー関連
 - https://qiita.com/SuguruOoki/items/eb74d2c33ee9f023aaf1
 - https://inouelog.com/mysql-cannnot-delete/
+
+## フロントににエラー情報が分かるような仕組みづくりを
+- response ステータスについて調べてみる。
+- 本来ならば、エラーページそのものにはエラー情報を含めてはいけない。情報漏洩の危険性がある。

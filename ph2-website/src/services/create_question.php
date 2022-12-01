@@ -41,8 +41,9 @@ try {
   };
 
   $pdo->commit();
+  header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/index.php');
+  
 } catch (Error $e) {
   $pdo->rollBack();
+  echo '作成失敗: ' . $e->getMessage();
 }
-
-header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/index.php');
