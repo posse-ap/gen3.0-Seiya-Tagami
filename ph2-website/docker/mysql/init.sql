@@ -78,3 +78,14 @@ INSERT INTO choices(question_id, name, valid) VALUES
   (6, '約2倍', false),
   (6, '約5倍', true),
   (6, '約11倍', false);
+
+
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL
+) CHARSET=utf8;
+
+Insert into users (name, email, password) values ("管理者1", "admin@example.com", "password");
