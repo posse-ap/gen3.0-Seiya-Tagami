@@ -43,7 +43,8 @@
       }
     }
 
-    &__image {
+    &__image img {
+      display: block;
       width: 718px;
       height: 357px;
       margin: 64px auto 0;

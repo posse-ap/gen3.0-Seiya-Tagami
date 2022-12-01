@@ -7,11 +7,11 @@ CREATE TABLE questions (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   question VARCHAR(255) NOT NULL,
   image VARCHAR(255) NOT NULL,
-  quote VARCHAR(255),
-  quote_url VARCHAR(255) 
+  supplement VARCHAR(255),
+  supplement_url VARCHAR(255)
   ) CHARSET=utf8;
 
-INSERT INTO questions(question, image, quote, quote_url) VALUES 
+INSERT INTO questions(question, image, supplement, supplement_url) VALUES 
   (
   '日本のIT人材が2030年には最大どれくらい不足すると言われているでしょうか?',
   'img-quiz01.png',
@@ -55,7 +55,8 @@ CREATE TABLE choices (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   question_id INT NOT NULL,
   name VARCHAR(255) NOT NULL,
-  valid boolean
+  valid boolean,
+  FOREIGN KEY (question_id) REFERENCES questions (id) 
   ) CHARSET=utf8;
 
 INSERT INTO choices(question_id, name, valid) VALUES 
