@@ -1,0 +1,148 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/mixin" as *;
+
+.p-calendar {
+  display: none;
+  width: 455px; 
+  margin: 20px auto 0;
+  user-select: none;
+
+  @include mobile {
+    width: 350px;
+  }
+
+  & table {
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  & th,
+  td {
+    text-align: center;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+
+    & span {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      transform: rotate(45deg);
+      cursor: pointer;
+
+      &:first-child {
+        border-bottom: 3px solid $color-blue;
+        border-left: 3px solid $color-blue;
+      }
+
+      &:last-child {
+        border-top: 3px solid $color-blue;
+        border-right: 3px solid $color-blue;
+      }
+    }
+
+    & h1 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+
+  &__inner {
+    margin-top: 26px;
+
+    @include mobile {
+      margin-top: 22px;
+    }
+
+    &__days {
+      & th {
+        color: $color-light-blue-b;
+        width: 65px;
+        padding-top: 15px;
+        padding-bottom: 4px;
+        font-weight: 500;
+
+        @include mobile {
+          width: 50px;
+          padding-top: 12px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  & td {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 15px;
+
+    @include mobile {
+      padding: 12px;
+      font-size: 16px;
+    }
+
+    &.disabled {
+      opacity: 0;
+      cursor: auto;
+    }
+  }
+
+  &__button {
+    margin-top: 25px;
+
+    &__inner {
+      display: block;
+      width: 170px;
+      height: 60px;
+      margin: 0 auto;
+      border-radius: 50px;
+      background: linear-gradient(to right, $color-blue, $color-light-blue-a);
+      color: $color-white;
+      box-shadow: 0 5px 10px $color-light-blue-a;
+      font-size: 22px;
+      text-align: center;
+      transition-property: opacity;
+      transition-duration: .4s;
+
+      @include mobile {
+        width: 160px;
+        height: 50px;
+        font-size: 18px;
+      }
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &-is-pushed {
+    position: relative;
+    color: $color-white !important;
+    z-index: 0;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 45px;
+      height: 45px;
+      background-color: $color-blue;
+      border-radius: 50%;
+      z-index: -1;
+
+      @include mobile {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+}
