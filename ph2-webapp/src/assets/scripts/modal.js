@@ -8,7 +8,7 @@
   const inputTexts = document.querySelectorAll(".js-input-text");
   const contentsCheckBoxes = document.querySelectorAll(".js-contents-checkbox");
   const languagesCheckBoxes = document.querySelectorAll(".js-languages-checkbox");
-  const tweetCheckBox = document.querySelector('.js-tweet-checkbox')
+  const tweetCheckBox = document.querySelector(".js-tweet-checkbox");
   const checkBoxes = [...contentsCheckBoxes, ...languagesCheckBoxes, tweetCheckBox];
 
   const unChecked = (checkBoxes) => {
@@ -17,22 +17,36 @@
     });
   }; //チェックを全て外す
 
+  const checkOnce = (checkBoxes) => {
+    checkBoxes.forEach((checkBox) => {
+      checkBox.addEventListener("click", () => {
+        if (checkBox.checked) {
+          checkBoxes.forEach((allChecks) => {
+            allChecks.checked = false;
+          });
+        }
+        checkBox.checked = true;
+      });
+    });
+  } //checkboxを一つしか押せないようにする
+  checkOnce(contentsCheckBoxes);
+  checkOnce(languagesCheckBoxes);
+
   const clearText = (inputTexts) => {
     inputTexts.forEach((inputText) => {
       inputText.value = "";
     });
   }; //テキストを入力前の状態にする
 
-
   let allowedRecord;
-  const regulationAlerts = document.querySelectorAll('.js-alert');
+  const regulationAlerts = document.querySelectorAll(".js-alert");
 
   const clearRegulationAlerts = (regulationAlerts) => {
-    regulationAlerts.forEach((regulationAlert) =>{
-      regulationAlert.classList.remove('u-display-block')
-    })
+    regulationAlerts.forEach((regulationAlert) => {
+      regulationAlert.classList.remove("u-display-block");
+    });
   }; //アラート表示をなくす
-  
+
   const checkInputThings = () => {
     clearRegulationAlerts(regulationAlerts);
     const studyingTime = document.querySelector(".js-studying-time");
@@ -53,14 +67,14 @@
       allowedRecord = true;
     } else {
       allowedRecord = false;
-      if(ContentsCount <= 0){
-        regulationAlerts[0].classList.add('u-display-block');
+      if (ContentsCount <= 0) {
+        regulationAlerts[0].classList.add("u-display-block");
       }
-      if(LanguagesCount <= 0){
-        regulationAlerts[1].classList.add('u-display-block');
+      if (LanguagesCount <= 0) {
+        regulationAlerts[1].classList.add("u-display-block");
       }
-      if(studyingTime.value.length === 0){
-        regulationAlerts[2].classList.add('u-display-block');
+      if (studyingTime.value.length === 0) {
+        regulationAlerts[2].classList.add("u-display-block");
       }
     }
   }; //フォーム送信時のvalidation
@@ -116,11 +130,11 @@
     clearText(inputTexts);
     clearRegulationAlerts(regulationAlerts);
   }); //モーダルを閉じる
-  
+
   let allowedClose = true;
   const modalOverlay = document.querySelector(".js-overlay");
-  modalOverlay.addEventListener('click', () => {
-    if(allowedClose === true) {
+  modalOverlay.addEventListener("click", () => {
+    if (allowedClose === true) {
       modalCloseButton.click();
       closeCalendar();
     }
@@ -139,7 +153,7 @@
     modalInner.classList.add("u-display-hidden");
     modalBackButton.classList.add("u-display-block");
     calendar.classList.add("u-display-block");
-  } //カレンダーを開く
+  }; //カレンダーを開く
 
   const closeCalendar = () => {
     modalCloseButton.classList.remove("u-display-hidden");
@@ -155,7 +169,7 @@
     if (allowedRecord === false) {
       return;
     }
-    
+
     allowedClose = false;
     tweet();
     window.scroll({ top: 0, behavior: "smooth" });
