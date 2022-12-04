@@ -1,3 +1,40 @@
+<?php
+
+require(dirname(__FILE__) . '/db/dbconnect.php');
+require_once(dirname(__FILE__) . '/functions.php');
+
+// today(unchanging)
+$sql = "SELECT sum(time) FROM records WHERE DATE_FORMAT(record_at, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d')";
+$stmt = $pdo->query($sql);
+$hours = $stmt->fetch();
+
+
+//month
+$num = 0;
+if (isset($_GET['location']) && preg_match('/^[1-9][0-9]*$/', $_GET['location'])) {
+  $num = (int)$_GET['location'];
+} else {
+  $num = 0;
+};
+
+$sql = "SELECT sum(time) FROM records WHERE DATE_FORMAT(record_at, '%Y%m') = DATE_FORMAT(CURDATE() - INTERVAL :num MONTH, '%Y%m')";
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(":num", $num);
+$stmt->execute();
+$month = $stmt->fetch();
+
+
+// total(unchanging)
+$sql = "SELECT sum(time) FROM records";
+$stmt = $pdo->query($sql);
+$total = $stmt->fetch();
+
+$prevNum = -1 * $num;
+$objDateTime = new DateTime("$prevNum month");
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -41,17 +78,17 @@
         <div class="p-main__time">
           <div class="p-main__time__item">
             <span>Today</span>
-            <span>3</span>
+            <span><?= !empty($hours["sum(time)"])  ? h($hours["sum(time)"]) : 0; ?></span>
             <span>hour</span>
           </div>
           <div class="p-main__time__item">
             <span>Month</span>
-            <span>120</span>
+            <span><?= !empty($month["sum(time)"]) ? h($month["sum(time)"]) : 0; ?></span>
             <span>hour</span>
           </div>
           <div class="p-main__time__item">
             <span>Total</span>
-            <span>1348</span>
+            <span><?= !empty($total["sum(time)"]) ? h($total["sum(time)"]) : 0; ?></span>
             <span>hour</span>
           </div>
           <div class="p-main__time__chart">
@@ -82,9 +119,13 @@
         </div>
       </div>
       <div class="p-main__change-month">
-        <span></span>
-        <span>2020年10月</span>
-        <span></span>
+        <a href="?location=<?= $num + 1 ?>"></a>
+        <h3><?= $objDateTime->format('Y年m月')?></h3>
+        <?php if (0 < $num) : ?>
+          <a href="?location=<?= $num - 1; ?>"></a>
+        <?php else : ?>
+          <span></span>
+        <?php endif ?>
       </div>
       <div class="p-main__button-mobile">
         <button class="js-modal-open-button">記録・投稿</button>

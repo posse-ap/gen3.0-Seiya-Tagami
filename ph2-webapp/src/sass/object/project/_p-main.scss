@@ -2,7 +2,11 @@
 @use "../../foundation/mixin" as *;
 
 .p-main {
-  margin-top: 20px;
+  margin-top: 32px;
+
+  @include mobile {
+    margin-top: 20px;
+  }
 
   &__contents {
     display: grid;
@@ -100,7 +104,7 @@
           left: 50%;
           transform: translateX(-50%);
           display: block;
-          background-color: #77969A;
+          background-color: #77969a;
           width: 95%;
           height: 2px;
           border-radius: 2px;
@@ -235,10 +239,9 @@
       height: 60px;
     }
 
-    & span {
+    & a {
       &:first-child,
       &:last-child {
-        cursor: pointer;
         width: 12px;
         height: 12px;
         transform: rotate(45deg);
@@ -250,9 +253,17 @@
       }
 
       &:last-child {
-        border-top: 3px solid #8eb6d4;
-        border-right: 3px solid #8eb6d4;
+        border-top: 3px solid #0f71bc;
+        border-right: 3px solid #0f71bc;
       }
+    }
+
+    & span {
+      width: 12px;
+      height: 12px;
+      transform: rotate(45deg);
+      border-top: 3px solid #8eb6d4;
+      border-right: 3px solid #8eb6d4;
     }
   }
   //changemonthここまで

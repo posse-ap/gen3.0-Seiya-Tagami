@@ -338,7 +338,12 @@ img {
 }
 
 .p-main {
-  margin-top: 20px;
+  margin-top: 32px;
+}
+@media (max-width: 600px) {
+  .p-main {
+    margin-top: 20px;
+  }
 }
 .p-main__contents {
   display: grid;
@@ -440,7 +445,7 @@ img {
     left: 50%;
     transform: translateX(-50%);
     display: block;
-    background-color: #77969A;
+    background-color: #77969a;
     width: 95%;
     height: 2px;
     border-radius: 2px;
@@ -572,17 +577,23 @@ img {
     height: 60px;
   }
 }
-.p-main__change-month span:first-child, .p-main__change-month span:last-child {
-  cursor: pointer;
+.p-main__change-month a:first-child, .p-main__change-month a:last-child {
   width: 12px;
   height: 12px;
   transform: rotate(45deg);
 }
-.p-main__change-month span:first-child {
+.p-main__change-month a:first-child {
   border-bottom: 3px solid #0f71bc;
   border-left: 3px solid #0f71bc;
 }
-.p-main__change-month span:last-child {
+.p-main__change-month a:last-child {
+  border-top: 3px solid #0f71bc;
+  border-right: 3px solid #0f71bc;
+}
+.p-main__change-month span {
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
   border-top: 3px solid #8eb6d4;
   border-right: 3px solid #8eb6d4;
 }
