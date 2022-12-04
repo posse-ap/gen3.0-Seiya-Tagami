@@ -1,0 +1,593 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/mixin" as *;
+
+.p-modal {
+  display: none;
+
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  &__header {
+    padding-top: 20px;
+  }
+
+  &__close-button {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: 25px;
+    border-radius: 50%;
+    background-color: $color-gray;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @include mobile {
+      width: 40px;
+      height: 40px;
+      margin-right: 20px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 3px;
+      height: 25px;
+      background: $color-close-button;
+      border-radius: 3px;
+      transform: translate(-50%, -50%) rotate(45deg);
+
+      @include mobile {
+        height: 22px;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 3px;
+      height: 25px;
+      background: $color-close-button;
+      border-radius: 3px;
+      transform: translate(-50%, -50%) rotate(-45deg);
+
+      @include mobile {
+        height: 22px;
+      }
+    }
+  }
+
+  &__back-button {
+    display: none;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-right: auto;
+    margin-left: 25px;
+    border-radius: 50%;
+    background-color: $color-gray;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @include mobile {
+      width: 40px;
+      height: 40px;
+      margin-left: 20px;
+    }
+
+    &__arrow {
+      position: relative;
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 0 auto;
+      border-radius: 5px;
+      background-color: $color-close-button;
+
+      @include mobile {
+        width: 22px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: -1px;
+        display: block;
+        width: 15px;
+        height: 3px;
+        border-radius: 5px;
+        background-color: $color-close-button;
+        transform: rotate(45deg);
+
+        @include mobile {
+          top: 4px;
+          width: 12px;
+        }
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -1px;
+        display: block;
+        width: 15px;
+        height: 3px;
+        border-radius: 5px;
+        background-color: $color-close-button;
+        transform: rotate(-45deg);
+
+        @include mobile {
+          top: -4px;
+          width: 12px;
+        }
+      }
+    }
+  }
+
+  &__container {
+    width: 900px;
+    height: 600px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 40px;
+    background-color: $color-white;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+
+    @include tablet {
+      width: 95%;
+      min-height: 800px;
+      height: auto;
+    }
+
+    @include mobile {
+      position: absolute; //ペアはbodyのrelative
+      top: auto;
+      left: auto;
+      bottom: 0;
+      width: 100%;
+      margin-top: 0;
+      border-radius: 30px 30px 0 0;
+      transform: none;
+      animation-name: popup;
+      animation-duration: 1.1s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes popup {
+      from {
+        transform: translateY(150%);
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+    width: calc(100% - 112px);
+    margin: 0 auto;
+
+    @include tablet {
+      display: block;
+      width: calc(100% - 80px);
+    }
+
+    @include mobile {
+      width: calc(100% - 40px);
+    }
+
+    & dt {
+      font-size: 14px;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include tablet {
+      gap: 24px;
+    }
+
+    &__date {
+      & input[type="text"] {
+        outline: none;
+        width: 100%;
+        height: 48px;
+        margin-top: 10px;
+        padding: 0 20px;
+        border-radius: 8px;
+        background-color: $color-gray;
+        cursor: pointer;
+
+        @include tablet {
+          height: 40px;
+        }
+
+        @include mobile {
+          padding: 0 12px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    &__contents {
+      &__title {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      &__alert {
+        display: none;
+        font-size: 14px;
+        color: $color-alert;
+      }
+
+      &__checkboxes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+    }
+
+    &__languages {
+      &__title {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      &__alert {
+        display: none;
+        font-size: 14px;
+        color: $color-alert;
+      }
+
+      &__checkboxes {
+        @extend .p-modal__left__contents__checkboxes;
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include tablet {
+      gap: 24px;
+      margin-top: 18px;
+    }
+
+    &__time {
+      &__title {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      &__alert {
+        display: none;
+        font-size: 14px;
+        color: $color-alert;
+      }
+
+      & input[type="text"] {
+        width: 100%;
+        height: 48px;
+        margin-top: 10px;
+        padding: 0 20px;
+        border-radius: 8px;
+        background-color: $color-gray;
+
+        &:focus {
+          outline: none;
+          border: 2px solid $color-blue;
+        }
+
+        @include tablet {
+          height: 40px;
+        }
+
+        @include mobile {
+          padding: 0 12px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    &__twitter {
+      &__title {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      &__alert {
+        display: none;
+        font-size: 14px;
+        color: $color-alert;
+      }
+
+      & textarea {
+        resize: none;
+        width: 100%;
+        height: 245px;
+        margin-top: 10px;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: $color-gray;
+
+        @include mobile {
+          font-size: 14px;
+        }
+
+        &:focus {
+          outline: none;
+          border: 2px solid $color-blue;
+        }
+
+        @include tablet {
+          height: 170px;
+        }
+
+        @include mobile {
+          height: 110px;
+          padding: 12px;
+        }
+      }
+
+      &__share {
+        margin-top: 10px;
+        font-size: 13px;
+
+        & label {
+          display: flex;
+          align-items: center;
+        }
+
+        & input {
+          width: 0;
+          height: 0;
+        }
+      }
+
+      &__dummy-input {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        border-radius: 50%;
+        background-color: #cccccc;
+        transition: background-color 0.2s;
+        cursor: pointer;
+
+        @include mobile {
+          width: 30px;
+          height: 30px;
+        }
+
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 35%;
+          height: 4px;
+          border-radius: 2px;
+          transform: translate(-4px, 5px) rotateZ(-135deg);
+          transform-origin: 2px 2px;
+          background: $color-white;
+
+          @include mobile {
+            transform: translate(-4px, 4px) rotateZ(-135deg);
+          }
+        }
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 55%;
+          height: 4px;
+          border-radius: 2px;
+          transform: translate(-4px, 5px) rotateZ(-46deg);
+          transform-origin: 2px 2px;
+          background: $color-white;
+
+          @include mobile {
+            transform: translate(-4px, 4px) rotateZ(-46deg);
+          }
+        }
+      }
+
+      & input:checked + .p-modal__right__twitter__dummy-input {
+        background-color: $color-blue;
+      }
+    }
+  }
+
+  &__record-button {
+    padding: 20px 0;
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    &__inner {
+      display: block;
+      width: 280px;
+      height: 50px;
+      margin: 0 auto;
+      border-radius: 50px;
+      background: linear-gradient(to right, $color-blue, $color-light-blue-a);
+      color: $color-white;
+      box-shadow: 0 5px 10px $color-light-blue-a;
+      line-height: 50px;
+      text-align: center;
+
+      @include mobile {
+        width: 100%;
+        height: 42px;
+        margin: 0;
+        line-height: 42px;
+      }
+
+      &:hover {
+        opacity: 0.8;
+        transition-duration: 0.4s;
+      }
+    }
+  }
+
+  &__nowloading {
+    display: none;
+    margin-top: 220px;
+
+    &__inner {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background-image: linear-gradient(to right, $color-blue, $color-light-blue-a);
+      animation: spin 0.9s infinite linear;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 8px;
+        border-radius: 50%;
+        background-color: $color-white;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-right: 22px solid $color-white;
+      }
+
+      @include mobile {
+        width: 66px;
+        height: 66px;
+      }
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: none;
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  &__record-done {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    text-align: center;
+
+    @include mobile {
+      margin-top: 120px;
+    }
+
+    & span:first-child {
+      color: #bde360;
+      font-size: 24px;
+
+      @include mobile {
+        font-size: 18px;
+      }
+    }
+
+    &__circle {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      margin-top: 15px;
+      background-color: #bde360;
+      border-radius: 50%;
+
+      @include mobile {
+        width: 70px;
+        height: 70px;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 35%;
+        height: 5px;
+        border-radius: 2px;
+        transform: translate(-6px, 17px) rotateZ(-135deg);
+        transform-origin: 2px 2px;
+        background: $color-white;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 55%;
+        height: 5px;
+        border-radius: 2px;
+        transform: translate(-6px, 16px) rotateZ(-49deg);
+        transform-origin: 2px 2px;
+        background: $color-white;
+      }
+    }
+
+    & span:last-child {
+      margin-top: 36px;
+      font-size: 25px;
+
+      @include mobile {
+        margin-top: 28px;
+        font-size: 18px;
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/mixin" as *;
+
+.p-header {
+  height: 64px;
+  background-color: $color-white;
+
+  @include mobile {
+    height: 60px;
+  }
+
+  &__container {
+    display: flex;
+    padding: 11px 40px;
+    font-size: 16px;
+
+    @include mobile {
+      padding: 20px;
+      font-size: 12px;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: $color-light-blue-b;
+
+    @include mobile {
+      gap: 12px;
+    }
+
+    & img {
+      width: 130px;
+
+      @include mobile {
+        width: 110px;
+      }
+    }
+  }
+
+  &__button {
+    margin-left: auto;
+
+    @include mobile {
+      display: none;
+    }
+
+    &__inner {
+      width: 200px;
+      height: 42px;
+      border-radius: 50px;
+      background: linear-gradient(to right, $color-blue, $color-light-blue-a);
+      color: $color-white;
+      box-shadow: 0 5px 10px $color-light-blue-a;
+      line-height: 42px;
+      text-align: center;
+      transition-property: opacity;
+      transition-duration: .4s;
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+  }
+}
