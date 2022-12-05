@@ -3,13 +3,15 @@
 require(dirname(__FILE__) . '/db/dbconnect.php');
 require_once(dirname(__FILE__) . '/functions.php');
 
+
+
 // today(unchanging)
 $sql = "SELECT sum(time) FROM records WHERE DATE_FORMAT(record_at, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d')";
 $stmt = $pdo->query($sql);
-$hours = $stmt->fetch();
+$today = $stmt->fetch();
 
 
-//month
+// month
 $num = 0;
 if (isset($_GET['location']) && preg_match('/^[1-9][0-9]*$/', $_GET['location'])) {
   $num = (int)$_GET['location'];
@@ -31,6 +33,10 @@ $total = $stmt->fetch();
 
 $prevNum = -1 * $num;
 $objDateTime = new DateTime("$prevNum month");
+
+
+// chart
+require(dirname(__FILE__) . '/charts.php');
 
 ?>
 
@@ -78,7 +84,7 @@ $objDateTime = new DateTime("$prevNum month");
         <div class="p-main__time">
           <div class="p-main__time__item">
             <span>Today</span>
-            <span><?= !empty($hours["sum(time)"])  ? h($hours["sum(time)"]) : 0; ?></span>
+            <span><?= !empty($today["sum(time)"])  ? h($today["sum(time)"]) : 0; ?></span>
             <span>hour</span>
           </div>
           <div class="p-main__time__item">
@@ -264,8 +270,6 @@ $objDateTime = new DateTime("$prevNum month");
                   <option value="6">6時間</option>
                   <option value="7">7時間</option>
                   <option value="8">8時間</option>
-                  <option value="9">9時間</option>
-                  <option value="10">10時間</option>
                 </select>
               </dd>
             </dl>
