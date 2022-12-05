@@ -5,7 +5,7 @@ Chart.register(ChartDataLabels);
 
 {
   //棒グラフここから
-  const STUDYING_TIME_DATA = "http://posse-task.anti-pattern.co.jp/1st-work/study_time.json";
+  const STUDYING_TIME_DATA = "http://localhost:8080/assets/json/study_time.json";
   fetch(STUDYING_TIME_DATA)
     .then((response) => {
       return response.json();
@@ -16,7 +16,7 @@ Chart.register(ChartDataLabels);
 
   function createBarChart(jsonData) {
     const convertedDayData = jsonData.map((d) => {
-      return d.day;
+      return d.day.slice(-2).replace(/^0+/, '');
     });
     const convertedTimeData = jsonData.map((d) => {
       return d.time;
@@ -101,7 +101,7 @@ Chart.register(ChartDataLabels);
   //学習言語ここから
   const bgColors = ["#0345ec", "#0f71bd", "#20bdde", "#3ccefe", "#b29ef3", "#6d46ec", "#4a17ef", "#3105c0"];
 
-  const STUDYING_LANGUAGES_DATA = "http://posse-task.anti-pattern.co.jp/1st-work/study_language.json";
+  const STUDYING_LANGUAGES_DATA = "http://localhost:8080/assets/json/study_languages.json";
   fetch(STUDYING_LANGUAGES_DATA)
     .then((response) => {
       return response.json();
@@ -111,8 +111,8 @@ Chart.register(ChartDataLabels);
     });
 
   function createLanguagesChart(jsonData) {
-    const convertedLanguagesData = Object.keys(jsonData[0]);
-    const convertedRatioDataOfLanguages = Object.values(jsonData[0]);
+    const convertedLanguagesData = Object.keys(jsonData);
+    const convertedRatioDataOfLanguages = Object.values(jsonData);
     const doughnut1_ctx = document.getElementById("js-doughnut1").getContext("2d");
     const doughnutChart1 = new Chart(doughnut1_ctx, {
       type: "doughnut",
@@ -148,7 +148,7 @@ Chart.register(ChartDataLabels);
   //学習言語ここまで
 
   //学習コンテンツここから
-  const STUDYING_CONTENTS_DATA = "http://posse-task.anti-pattern.co.jp/1st-work/study_contents.json";
+  const STUDYING_CONTENTS_DATA = "http://localhost:8080/assets/json/study_contents.json";
   fetch(STUDYING_CONTENTS_DATA)
     .then((response) => {
       return response.json();
@@ -158,8 +158,8 @@ Chart.register(ChartDataLabels);
     });
 
   function createContentsChart(jsonData) {
-    const convertedContentsData = Object.keys(jsonData[0]);
-    const convertedRatioDataOfContents = Object.values(jsonData[0]);
+    const convertedContentsData = Object.keys(jsonData);
+    const convertedRatioDataOfContents = Object.values(jsonData);
     const doughnut2_ctx = document.getElementById("js-doughnut2").getContext("2d");
     const doughnutChart2 = new Chart(doughnut2_ctx, {
       type: "doughnut",
