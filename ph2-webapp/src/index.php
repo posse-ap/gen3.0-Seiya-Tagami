@@ -11,7 +11,7 @@ $stmt = $pdo->query($sql);
 $today = $stmt->fetch();
 
 
-//month
+// month
 $num = 0;
 if (isset($_GET['location']) && preg_match('/^[1-9][0-9]*$/', $_GET['location'])) {
   $num = (int)$_GET['location'];
@@ -33,6 +33,7 @@ $total = $stmt->fetch();
 
 $prevNum = -1 * $num;
 $objDateTime = new DateTime("$prevNum month");
+
 
 // chart
 require(dirname(__FILE__) . '/charts.php');

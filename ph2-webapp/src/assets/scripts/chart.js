@@ -16,7 +16,7 @@ Chart.register(ChartDataLabels);
 
   function createBarChart(jsonData) {
     const convertedDayData = jsonData.map((d) => {
-      return d.day.slice(-2).replace(/^0+/, '');
+      return d.day.slice(-2).replace(/^0+/, "");
     });
     const convertedTimeData = jsonData.map((d) => {
       return d.time;
@@ -98,6 +98,28 @@ Chart.register(ChartDataLabels);
   }
   //棒グラフここまで
 
+  // 百分率にデータを転換
+  const calculateSum = (datasets) => {
+    let dataSum = 0;
+    datasets.forEach((data) => {
+      dataSum = dataSum + parseInt(data);
+    });
+    return dataSum;
+  };
+
+  const calculateRatio = (datasets, dataSum, convertedArray) => {
+    datasets.forEach(data => {
+      let ratioData = Math.round((data / dataSum) * 100 * 10) / 10;
+      convertedArray.push(ratioData);
+    });
+    return convertedArray;
+  };
+
+  function calculateData (datasets, convertedArray){
+    let dataSum = calculateSum(datasets);
+    return calculateRatio(datasets, dataSum, convertedArray);
+  }
+
   //学習言語ここから
   const bgColors = ["#0345ec", "#0f71bd", "#20bdde", "#3ccefe", "#b29ef3", "#6d46ec", "#4a17ef", "#3105c0"];
 
@@ -110,9 +132,11 @@ Chart.register(ChartDataLabels);
       createLanguagesChart(jsonData);
     });
 
+
   function createLanguagesChart(jsonData) {
+    const convertedArray_1 = [];
     const convertedLanguagesData = Object.keys(jsonData);
-    const convertedRatioDataOfLanguages = Object.values(jsonData);
+    const convertedRatioDataOfLanguages = calculateData(Object.values(jsonData), convertedArray_1);
     const doughnut1_ctx = document.getElementById("js-doughnut1").getContext("2d");
     const doughnutChart1 = new Chart(doughnut1_ctx, {
       type: "doughnut",
@@ -158,8 +182,9 @@ Chart.register(ChartDataLabels);
     });
 
   function createContentsChart(jsonData) {
+    const convertedArray_2 = [];
     const convertedContentsData = Object.keys(jsonData);
-    const convertedRatioDataOfContents = Object.values(jsonData);
+    const convertedRatioDataOfContents = calculateData(Object.values(jsonData), convertedArray_2);
     const doughnut2_ctx = document.getElementById("js-doughnut2").getContext("2d");
     const doughnutChart2 = new Chart(doughnut2_ctx, {
       type: "doughnut",
