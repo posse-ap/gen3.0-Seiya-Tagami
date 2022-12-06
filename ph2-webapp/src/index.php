@@ -36,7 +36,19 @@ $objDateTime = new DateTime("$prevNum month");
 
 
 // chart
-require(dirname(__FILE__) . '/charts.php');
+require(dirname(__FILE__) . '/services/charts.php');
+
+
+// languages
+$sql = "SELECT * FROM  studying_languages";
+$stmt = $pdo->query($sql);
+$languages = $stmt->fetchAll();
+
+
+// contents
+$sql = "SELECT * FROM  studying_contents";
+$stmt = $pdo->query($sql);
+$contents = $stmt->fetchAll();
 
 ?>
 
@@ -126,7 +138,7 @@ require(dirname(__FILE__) . '/charts.php');
       </div>
       <div class="p-main__change-month">
         <a href="?location=<?= $num + 1 ?>"></a>
-        <h3><?= $objDateTime->format('Y年m月')?></h3>
+        <h3><?= $objDateTime->format('Y年m月') ?></h3>
         <?php if (0 < $num) : ?>
           <a href="?location=<?= $num - 1; ?>"></a>
         <?php else : ?>
@@ -148,13 +160,13 @@ require(dirname(__FILE__) . '/charts.php');
             <span class="p-modal__back-button__arrow"></span>
           </button>
         </div>
-        <form class="p-modal__inner js-modal-inner" method="POST">
+        <form class="p-modal__inner js-modal-inner" action="./services/record.php" method="POST">
           <!-- modal左半分ここから -->
           <div class="p-modal__left">
             <dl class="p-modal__left__date">
               <dt>学習日</dt>
               <dd>
-                <input type="text" id="js-studying-date" readonly />
+                <input type="text" id="js-studying-date" name="record_at" readonly />
               </dd>
             </dl>
             <dl class="p-modal__left__contents">
@@ -163,27 +175,15 @@ require(dirname(__FILE__) . '/charts.php');
                 <span class="p-modal__left__contents__alert js-alert">1項目以上選択してください</span>
               </div>
               <div class="p-modal__left__contents__checkboxes">
-                <dd class="c-checkbutton">
-                  <input id="checkbox1" class="js-contents-checkbox" type="checkbox" />
-                  <label for="checkbox1" class="c-checkbutton__container">
-                    <span class="c-checkbutton__dummy-input"></span>
-                    N予備校
-                  </label>
-                </dd>
-                <dd class="c-checkbutton">
-                  <input id="checkbox2" class="js-contents-checkbox" type="checkbox" />
-                  <label for="checkbox2" class="c-checkbutton__container">
-                    <span class="c-checkbutton__dummy-input"></span>
-                    ドットインストール
-                  </label>
-                </dd>
-                <dd class="c-checkbutton">
-                  <input id="checkbox3" class="js-contents-checkbox" type="checkbox" />
-                  <label for="checkbox3" class="c-checkbutton__container">
-                    <span class="c-checkbutton__dummy-input"></span>
-                    POSSE課題
-                  </label>
-                </dd>
+                <?php foreach ($contents as $content) : ?>
+                  <dd class="c-checkbutton">
+                    <input id="content_<?= h($content['id']) ?>" class="js-contents-checkbox" type="checkbox" name="content_id" value="<?= h($content['id']) ?>" />
+                    <label for="content_<?= h($content['id']) ?>" class="c-checkbutton__container">
+                      <span class="c-checkbutton__dummy-input"></span>
+                      <?= h($content['content']) ?>
+                    </label>
+                  </dd>
+                <?php endforeach; ?>
               </div>
             </dl>
             <dl class="p-modal__left__languages">
@@ -192,62 +192,15 @@ require(dirname(__FILE__) . '/charts.php');
                 <span class="p-modal__left__languages__alert js-alert">1項目以上選択してください</span>
               </div>
               <div class="p-modal__left__languages__checkboxes">
-                <dd class="c-checkbutton">
-                  <input id="checkbox4" class="js-languages-checkbox" type="checkbox" />
-                  <label for="checkbox4" class="c-checkbutton__container">
-                    <span class="c-checkbutton__dummy-input"></span>
-                    HTML
-                  </label>
-                </dd>
-                <dd class="c-checkbutton">
-                  <input id="checkbox5" class="js-languages-checkbox" type="checkbox" />
-                  <label for="checkbox5" class="c-checkbutton__container">
-                    <span class="c-checkbutton__dummy-input"></span>
-                    CSS
-                  </label>
-                </dd>
-                <dd class="c-checkbutton">
-                  <input id="checkbox6" class="js-languages-checkbox" type="checkbox" />
-                  <label for="checkbox6" class="c-checkbutton__container">
-                    <span class="c-checkbutton__dummy-input"></span>
-                    JavaScript
-                  </label>
-                </dd>
-                <dd class="c-checkbutton">
-                  <input id="checkbox7" class="js-languages-checkbox" type="checkbox" />
-                  <label for="checkbox7" class="c-checkbutton__container">
-                    <span class="c-checkbutton__dummy-input"></span>
-                    PHP
-                  </label>
-                </dd>
-                <dd class="c-checkbutton">
-                  <input id="checkbox8" class="js-languages-checkbox" type="checkbox" />
-                  <label for="checkbox8" class="c-checkbutton__container">
-                    <span class="c-checkbutton__dummy-input"></span>
-                    Laravel
-                  </label>
-                </dd>
-                <dd class="c-checkbutton">
-                  <input id="checkbox10" class="js-languages-checkbox" type="checkbox" />
-                  <label for="checkbox10" class="c-checkbutton__container">
-                    <span class="c-checkbutton__dummy-input"></span>
-                    SQL
-                  </label>
-                </dd>
-                <dd class="c-checkbutton">
-                  <input id="checkbox11" class="js-languages-checkbox" type="checkbox" />
-                  <label for="checkbox11" class="c-checkbutton__container">
-                    <span class="c-checkbutton__dummy-input"></span>
-                    SHELL
-                  </label>
-                </dd>
-                <dd class="c-checkbutton">
-                  <input id="checkbox12" class="js-languages-checkbox" type="checkbox" />
-                  <label for="checkbox12" class="c-checkbutton__container">
-                    <span class="c-checkbutton__dummy-input"></span>
-                    情報システム基礎知識（その他)
-                  </label>
-                </dd>
+                <?php foreach ($languages as $language) : ?>
+                  <dd class="c-checkbutton">
+                    <input id="language_<?= h($language['id']) ?>" class="js-languages-checkbox" type="checkbox" name="language_id" value="<?= h($language['id']) ?>" />
+                    <label for="language_<?= h($language['id']) ?>" class="c-checkbutton__container">
+                      <span class="c-checkbutton__dummy-input"></span>
+                      <?= h($language['language']) ?>
+                    </label>
+                  </dd>
+                <?php endforeach; ?>
               </div>
             </dl>
           </div>
@@ -261,7 +214,8 @@ require(dirname(__FILE__) . '/charts.php');
                 <span class="p-modal__right__time__alert js-alert">学習時間を入力してください</span>
               </div>
               <dd>
-                <select class="js-studying-time" placeholder="時間を選択してください">
+                <select class="js-studying-time" name="time" required>
+                  <option hidden>時間を選択</option>
                   <option value="1">1時間</option>
                   <option value="2">2時間</option>
                   <option value="3">3時間</option>
@@ -294,7 +248,7 @@ require(dirname(__FILE__) . '/charts.php');
 
           <!-- modal記録・投稿ボタンここから -->
           <div class="p-modal__record-button">
-            <button type="button" class="p-modal__record-button__inner js-button-record-done">記録・投稿</button>
+            <button type="submit" name="record" class="p-modal__record-button__inner js-button-record-done">記録・投稿</button>
           </div>
           <!-- modal記録・投稿ボタンここまで -->
         </form>

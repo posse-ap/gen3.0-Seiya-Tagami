@@ -1,6 +1,6 @@
 <?php
 
-require(dirname(__FILE__) . '/db/dbconnect.php');
+require(dirname(__FILE__) . '/../db/dbconnect.php');
 
 try {
   // data of study_time
