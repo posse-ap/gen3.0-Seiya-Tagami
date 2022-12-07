@@ -8,30 +8,32 @@ use webapp;
 DROP TABLE IF EXISTS studying_languages;
 CREATE TABLE studying_languages (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  language VARCHAR(255) NOT NULL
-  ) CHARSET=utf8;
+  language VARCHAR(255) NOT NULL,
+  chart_bgcolor VARCHAR(255) NOT NULL
+  ) CHARSET=utf8mb4;
 
-INSERT INTO studying_languages(language) VALUES 
-("HTML"),
-("CSS"),
-("JavaScript"),
-("PHP"),
-("Laravel"),
-("SQL"),
-("SHELL"),
-("情報システム基礎知識（その他）")
+INSERT INTO studying_languages(language, chart_bgcolor) VALUES 
+("HTML","#0345ec"),
+("CSS","#0f71bd"),
+("JavaScript", "#20bdde"),
+("PHP", "#3ccefe"),
+("Laravel", "#b29ef3"),
+("SQL", "#6d46ec"),
+("SHELL", "#4a17ef"),
+("情報システム基礎知識（その他）", "#3105c0")
 
 -- 学習コンテンツデータ
 DROP TABLE IF EXISTS studying_contents;
 CREATE TABLE studying_contents (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  content VARCHAR(255) NOT NULL
-  ) CHARSET=utf8;
+  content VARCHAR(255) NOT NULL,
+  chart_bgcolor VARCHAR(255) NOT NULL
+  ) CHARSET=utf8mb4;
 
-INSERT INTO studying_contents(content) VALUES 
-("N予備校"),
-("ドットインストール"),
-("課題")
+INSERT INTO studying_contents(content, chart_bgcolor) VALUES 
+("N予備校","#0345ec"),
+("ドットインストール","#0f71bd"),
+("POSSE課題", "#20bdde")
 
 -- 日付・学習時間データ
 DROP TABLE IF EXISTS records;
@@ -43,7 +45,7 @@ CREATE TABLE records (
   content_id INT NOT NULL,
   FOREIGN KEY (language_id) REFERENCES studying_languages (id), 
   FOREIGN KEY (content_id) REFERENCES studying_contents (id)
-) CHARSET=utf8;
+) CHARSET=utf8mb4;
 
 INSERT INTO records(record_at, time, language_id, content_id) VALUES
 ('2022-11-01', 5, 1, 1),
