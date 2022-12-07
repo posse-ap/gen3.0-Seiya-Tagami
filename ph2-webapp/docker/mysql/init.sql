@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS studying_languages;
 CREATE TABLE studying_languages (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   language VARCHAR(255) NOT NULL
-  ) CHARSET=utf8;
+  ) CHARSET=utf8mb4;
 
 INSERT INTO studying_languages(language) VALUES 
 ("HTML"),
@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS studying_contents;
 CREATE TABLE studying_contents (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   content VARCHAR(255) NOT NULL
-  ) CHARSET=utf8;
+  ) CHARSET=utf8mb4;
 
 INSERT INTO studying_contents(content) VALUES 
 ("N予備校"),
@@ -43,7 +43,7 @@ CREATE TABLE records (
   content_id INT NOT NULL,
   FOREIGN KEY (language_id) REFERENCES studying_languages (id), 
   FOREIGN KEY (content_id) REFERENCES studying_contents (id)
-) CHARSET=utf8;
+) CHARSET=utf8mb4;
 
 INSERT INTO records(record_at, time, language_id, content_id) VALUES
 ('2022-11-01', 5, 1, 1),

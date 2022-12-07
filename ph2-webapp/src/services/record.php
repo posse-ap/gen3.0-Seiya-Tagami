@@ -25,7 +25,11 @@ try {
   $stmt->execute();
 
   $pdo->commit();
+  header("HTTP/1.1 200 OK");
+
 } catch (Error $e) {
   $pdo->rollBack();
   echo '投稿失敗: ' . $e->getMessage();
+
+  header("HTTP/1.1 500 OK");
 }

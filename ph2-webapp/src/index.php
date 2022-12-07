@@ -69,6 +69,7 @@ $contents = $stmt->fetchAll();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0" defer></script>
   <script src="./assets/scripts/chart.js" defer></script>
+  <!-- <script src="./assets/scripts/xmr.js" defer></script> -->
   <title>ph2-webapp</title>
 </head>
 
@@ -160,7 +161,7 @@ $contents = $stmt->fetchAll();
             <span class="p-modal__back-button__arrow"></span>
           </button>
         </div>
-        <form class="p-modal__inner js-modal-inner" action="./services/record.php" method="POST">
+        <form class="p-modal__inner js-modal-inner" id="js-form" action="" method="POST">
           <!-- modal左半分ここから -->
           <div class="p-modal__left">
             <dl class="p-modal__left__date">
@@ -248,7 +249,7 @@ $contents = $stmt->fetchAll();
 
           <!-- modal記録・投稿ボタンここから -->
           <div class="p-modal__record-button">
-            <button type="submit" name="record" class="p-modal__record-button__inner js-button-record-done">記録・投稿</button>
+            <button type="button" name="record" id="js-button-post-record" class="p-modal__record-button__inner js-button-record-done">記録・投稿</button>
           </div>
           <!-- modal記録・投稿ボタンここまで -->
         </form>
@@ -260,7 +261,7 @@ $contents = $stmt->fetchAll();
         <div class="p-modal__record-done js-record-done">
           <span>AWESOME!</span>
           <span class="p-modal__record-done__circle"></span>
-          <span>記録・投稿<br />完了しました</span>
+          <span>記録・投稿<br />完了しました<br />ページは自動で更新されます</span>
         </div>
         <!-- modal記録・投稿完了表示ここまで -->
 
@@ -295,6 +296,40 @@ $contents = $stmt->fetchAll();
     <!-- modalここまで -->
   </main>
   <!-- mainここまで -->
+
+  <script>
+    // 初心者なりにAjaxを用いて実装
+    const postRecordButton = document.getElementById('js-button-post-record');
+    const form = document.getElementById('js-form');
+
+    postRecordButton.addEventListener('click', () => {
+      const formData = new FormData(form);
+      const path = "./services/record.php";
+      const options = {
+        method: 'POST',
+        body: formData,
+      };
+      fetch(path, options).then(response => {
+        // リクエストが失敗したかどうかをチェック
+        if (!response.ok) {
+          console.error('サーバーエラー');
+          window.location.href = 'http://localhost:8080/error.html';
+        }
+
+        if (response.status === 200) {
+          // 成功時、リロード
+          window.setTimeout(function() {
+            window.location.reload();
+          }, 6000);
+        }
+      }).catch(error => {
+        // networkエラーを拾う
+        console.error('通信に失敗しました', error);
+        window.location.href = 'http://localhost:8080/error.html';
+      });;
+    });
+  </script>
+
 </body>
 
 </html>
