@@ -104,7 +104,6 @@
   const showRecordDone = () => {
     nowLoading.classList.remove("u-display-block");
     recordDone.classList.add("u-display-flex");
-    allowedClose = true;
   }; //記録・投稿完了画面を表示
 
   const modalOpenButtons = document.querySelectorAll(".js-modal-open-button");

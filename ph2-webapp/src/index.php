@@ -40,7 +40,7 @@ require(dirname(__FILE__) . '/services/charts.php');
 
 
 // languages
-$sql = "SELECT * FROM  studying_languages";
+$sql = "SELECT * FROM studying_languages";
 $stmt = $pdo->query($sql);
 $languages = $stmt->fetchAll();
 
@@ -123,7 +123,13 @@ $contents = $stmt->fetchAll();
               <div class="p-main__studying-data__doughnut__content">
                 <canvas id="js-doughnut1"></canvas>
               </div>
-              <ul class="p-main__studying-data__doughnut__legends" id="js-languages-legends"></ul>
+              <ul class="p-main__studying-data__doughnut__legends">
+                <?php foreach ($languages as $language) : ?>
+                  <li>
+                    <div style="background-color:<?= h($language['chart_bgcolor']) ?>"></div><span><?= h($language['language']) ?></span>
+                  </li>
+                <?php endforeach; ?>
+              </ul>
             </div>
           </div>
           <div class="p-main__studying-data__doughnut">
@@ -132,7 +138,13 @@ $contents = $stmt->fetchAll();
               <div class="p-main__studying-data__doughnut__content">
                 <canvas id="js-doughnut2"></canvas>
               </div>
-              <ul class="p-main__studying-data__doughnut__legends" id="js-contents-legends"></ul>
+              <ul class="p-main__studying-data__doughnut__legends" id="js-contents-legends">
+                <?php foreach ($contents as $content) : ?>
+                  <li>
+                    <div style="background-color:<?= h($content['chart_bgcolor']) ?>"></div><span><?= h($content['content']) ?></span>
+                  </li>
+                <?php endforeach; ?>
+              </ul>
             </div>
           </div>
         </div>

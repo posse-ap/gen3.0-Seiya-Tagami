@@ -107,21 +107,20 @@ Chart.register(ChartDataLabels);
     return dataSum;
   };
 
-  const calculateRatio = (datasets, dataSum, convertedArray) => {
-    datasets.forEach(data => {
+  const calculateRatio = (datasets, dataSum) => {
+    datasets.forEach((data, index) => {
       let ratioData = Math.round((data / dataSum) * 100 * 10) / 10;
-      convertedArray.push(ratioData);
+      datasets.splice(index, 1, ratioData);
     });
-    return convertedArray;
+    return datasets;
   };
 
-  function calculateData (datasets, convertedArray){
+  function calculateData(datasets) {
     let dataSum = calculateSum(datasets);
-    return calculateRatio(datasets, dataSum, convertedArray);
+    return calculateRatio(datasets, dataSum);
   }
 
   //学習言語ここから
-  const bgColors = ["#0345ec", "#0f71bd", "#20bdde", "#3ccefe", "#b29ef3", "#6d46ec", "#4a17ef", "#3105c0"];
 
   const STUDYING_LANGUAGES_DATA = "http://localhost:8080/assets/json/study_languages.json";
   fetch(STUDYING_LANGUAGES_DATA)
@@ -132,11 +131,19 @@ Chart.register(ChartDataLabels);
       createLanguagesChart(jsonData);
     });
 
-
   function createLanguagesChart(jsonData) {
-    const convertedArray_1 = [];
-    const convertedLanguagesData = Object.keys(jsonData);
-    const convertedRatioDataOfLanguages = calculateData(Object.values(jsonData), convertedArray_1);
+    const convertedLanguagesData = jsonData.map((d) => {
+      return d.language;
+    });
+
+    const convertedRatioDataOfLanguages = jsonData.map((d) => {
+      return d.time;
+    });
+
+    const languagesBgColors = jsonData.map((d) => {
+      return d.chart_bgcolor;
+    });
+
     const doughnut1_ctx = document.getElementById("js-doughnut1").getContext("2d");
     const doughnutChart1 = new Chart(doughnut1_ctx, {
       type: "doughnut",
@@ -144,8 +151,8 @@ Chart.register(ChartDataLabels);
         labels: convertedLanguagesData,
         datasets: [
           {
-            data: convertedRatioDataOfLanguages,
-            backgroundColor: bgColors,
+            data: calculateData(convertedRatioDataOfLanguages),
+            backgroundColor: languagesBgColors,
             datalabels: {
               color: "#ffffff",
               formatter: function (value, context) {
@@ -166,8 +173,6 @@ Chart.register(ChartDataLabels);
         },
       },
     });
-    const languagesLegendContainer = document.getElementById("js-languages-legends");
-    createLegend(convertedLanguagesData, languagesLegendContainer);
   }
   //学習言語ここまで
 
@@ -182,9 +187,18 @@ Chart.register(ChartDataLabels);
     });
 
   function createContentsChart(jsonData) {
-    const convertedArray_2 = [];
-    const convertedContentsData = Object.keys(jsonData);
-    const convertedRatioDataOfContents = calculateData(Object.values(jsonData), convertedArray_2);
+    const convertedContentsData = jsonData.map((d) => {
+      return d.content;
+    });
+
+    const convertedRatioDataOfContents = jsonData.map((d) => {
+      return d.time;
+    });
+
+    const contentsBgColors = jsonData.map((d) => {
+      return d.chart_bgcolor;
+    });
+
     const doughnut2_ctx = document.getElementById("js-doughnut2").getContext("2d");
     const doughnutChart2 = new Chart(doughnut2_ctx, {
       type: "doughnut",
@@ -192,8 +206,8 @@ Chart.register(ChartDataLabels);
         labels: convertedContentsData,
         datasets: [
           {
-            data: convertedRatioDataOfContents,
-            backgroundColor: bgColors,
+            data: calculateData(convertedRatioDataOfContents),
+            backgroundColor: contentsBgColors,
             datalabels: {
               color: "#ffffff",
               formatter: function (value, context) {
@@ -214,20 +228,6 @@ Chart.register(ChartDataLabels);
         },
       },
     });
-    const contentsLegendContainer = document.getElementById("js-contents-legends");
-    createLegend(convertedContentsData, contentsLegendContainer);
   }
   //学習コンテンツここまで
-
-  function createLegend(data, appendArea) {
-    for (let i = 0; i < data.length; i++) {
-      const li = document.createElement("li");
-      if (data[i] === "その他") {
-        li.innerHTML = `<div style="background-color:${bgColors[i]}"></div><span>情報システム基礎知識(${data[i]})</span>`;
-      } else {
-        li.innerHTML = `<div style="background-color:${bgColors[i]}"></div><span>${data[i]}</span>`;
-      }
-      appendArea.appendChild(li);
-    }
-  } //legend生成
 }
