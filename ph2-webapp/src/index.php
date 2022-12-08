@@ -69,7 +69,6 @@ $contents = $stmt->fetchAll();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0" defer></script>
   <script src="./assets/scripts/chart.js" defer></script>
-  <!-- <script src="./assets/scripts/xmr.js" defer></script> -->
   <title>ph2-webapp</title>
 </head>
 
