@@ -85,22 +85,33 @@
     renderWeeks();
     fixClickedDate();
   } // カレンダー生成
-  
-  document.getElementById("js-prev").addEventListener("click", () => {
+
+  const prev = document.getElementById("js-prev");
+  const next = document.getElementById("js-next");
+
+  const checkThisMonth = () => {
+    if (year == dateData.substring(0, 4) && month + 1 == dateData.substring(5, 7)) {
+      next.disabled = true;
+      next.classList.add("u-colors-border-lightblue");
+    } else {
+      next.disabled = false;
+      next.classList.remove("u-colors-border-lightblue");
+    }
+  };
+
+  prev.addEventListener("click", () => {
     month--;
     if (month < 0) {
       year--;
       month = 11;
     }
+    checkThisMonth();
     createCalendar();
   }); //前の月へ
 
-  document.getElementById("js-next").addEventListener("click", () => {
+  next.addEventListener("click", () => {
     month++;
-    if (month > 11) {
-      year++;
-      month = 0;
-    }
+    checkThisMonth();
     createCalendar();
   }); //次の月へ
 
@@ -110,6 +121,7 @@
 
   const initializeDate = () => {
     studyingDate.value = dateData;
+    checkThisMonth();
   }; // 初期値は今日の日付にする
 
   const fixClickedDate = () => {

@@ -280,9 +280,9 @@ $contents = $stmt->fetchAll();
         <!-- calenderここから -->
         <div class="p-calendar js-calendar">
           <div class="p-calendar__header">
-            <span id="js-prev"></span>
+            <button id="js-prev"></button>
             <h1 id="js-title">2022/05</h1>
-            <span id="js-next"></span>
+            <button id="js-next"></button>
           </div>
           <table class="p-calendar__inner">
             <thead>
