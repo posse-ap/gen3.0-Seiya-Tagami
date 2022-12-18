@@ -1,6 +1,5 @@
 <?php
-
-declare(strict_types=1);
+session_start();
 
 require(dirname(__FILE__) . '/../db/dbconnect.php');
 require_once(dirname(__FILE__) . '/../functions.php');
@@ -10,6 +9,10 @@ require_once(dirname(__FILE__) . '/../functions.php');
 $questions = array();
 $sql = "SELECT * FROM questions";
 $questions = $pdo->query($sql)->fetchAll();
+
+if (!isset($_SESSION["id"])) {
+  header('Location: /admin/auth/signin.php');
+}
 
 ?>
 
