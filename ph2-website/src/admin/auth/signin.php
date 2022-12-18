@@ -32,7 +32,7 @@
           <dt class="mt-6"><label>パスワード</label></dt>
           <dd class="mt-2"><input class="w-full p-2 bg-slate-200 text-sm" type="password" name="password" id="js-password" placeholder="パスワードを入力" required/></dd>
         </dl>
-        <button class="mt-8 px-6 py-[6px] bg-blue text-white font-bold text-center rounded-lg hover:shadow-md hover:shadow-slate-500 transition-all duration-200" type="submit" id="js-button">作成</button>
+        <button class="mt-8 px-6 py-[6px] bg-blue text-white font-bold text-center rounded-lg hover:shadow-md hover:shadow-slate-500 transition-all duration-200" type="submit" id="js-button">ログイン</button>
       </div>
     </form>
     </div>

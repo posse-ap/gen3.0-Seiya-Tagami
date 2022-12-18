@@ -1,29 +1,91 @@
 <?php
 
+require_once(dirname(__FILE__) . '/../db/dbconnect.php');
+require(dirname(__FILE__) . '/../functions.php');
 
-$username = $_POST["name"];
-$email = $_POST['email'];
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+session_start();
 
-require(dirname(__FILE__) . '/../db/dbconnect.php');
+// php://input は、POSTの生データの読み込みを許可する。そうして、jsonをデコードする。
+$raw = file_get_contents('php://input');
+$data = (array)json_decode($raw);
+
+if ($data["password"] !== $data["password_confirm"]) {
+  $message = [
+    "error" => [
+      "message" => "パスワードが一致しません"
+    ]
+  ];
+  create_response(422, $message);
+  exit;
+}
 
 $sql = "SELECT * FROM users WHERE email = :email";
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(':email', $email);
+$stmt->bindValue(":email", $data["email"]);
 $stmt->execute();
-$member = $stmt->fetch();
-if ($member['email'] === $email) {
+$user = $stmt->fetch();
 
-  // $msg = '同じメールアドレスが存在します。';
-  // $link = '<a href="signup.php">戻る</a>';
+$sql = "SELECT * FROM user_invitations WHERE token = :token AND user_id = :user_id";
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(":token", $data["token"]);
+$stmt->bindValue(":user_id", $user["id"]);
+$stmt->execute();
+$user_invitation = $stmt->fetch();
 
-} else {
+// DateTimeクラスのdiffメソッドは日にちの差分を求める。ここではdaysプロパティを使う。
+$diff = (new DateTime())->diff(new DateTime($user_invitation["invited_at"]));
+$is_expired = $diff->days >= 1;
+if ($is_expired) {
+  $message = [
+    "error" => [
+      "message" => "招待期限が切れています。管理者に連絡してください。"
+    ]
+  ];
+  create_response(401, $message);
+  exit;
+}
 
-  $sql = "INSERT INTO users(name, email, password) VALUES (:name, :email, :password)";
-  $stmt = $dbh->prepare($sql);
-  $stmt->bindValue(':name', $name);
-  $stmt->bindValue(':email', $email);
-  $stmt->bindValue(':password', $password);
-  $stmt->execute();
+$is_activated = !is_null($user_invitation["activated_at"]);
+if ($is_activated) {
+  $message = [
+    "error" => [
+      "message" => "既に認証済みです。"
+    ]
+  ];
+  create_response(401, $message);
+  exit;
+}
 
+try {
+  $pdo->beginTransaction();
+
+  // SQL文はUPDATEで
+  $sql = "UPDATE users SET name = :name, password = :password WHERE id = :id";
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindValue(":password", password_hash($data["password"], PASSWORD_DEFAULT));
+  $stmt->bindValue(":name", $data["name"]);
+  $stmt->bindValue(":id", $user["id"]);
+  $result = $stmt->execute();
+
+  $sql = "UPDATE user_invitations SET activated_at = :activated_at WHERE user_id = :user_id";
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindValue(":user_id", $user["id"]);
+  $stmt->bindValue(":activated_at", (new DateTime())->format('Y-m-d H:i:s'));
+  $result = $stmt->execute();
+  
+  $pdo->commit();
+  
+  $_SESSION['id'] = $user["id"];
+  $message = [
+    "message" => "ユーザー登録に成功しました"
+  ];
+  create_response(200, $message);
+} catch(PDOException $e) {
+  $pdo->rollBack();
+  $message = [
+    "error" => [
+      "message" => $e->getMessage()
+    ]
+  ];
+  create_response(500, $message);
 }

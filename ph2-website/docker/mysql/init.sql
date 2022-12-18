@@ -83,9 +83,9 @@ INSERT INTO choices(question_id, name, valid) VALUES
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  password VARCHAR(255) NOT NULL
+  name VARCHAR(255),
+  email VARCHAR(255),
+  password VARCHAR(255)
 ) CHARSET=utf8;
 
 Insert into users (name, email, password) values ("管理者1", "admin@example.com", "password");
@@ -94,7 +94,6 @@ DROP TABLE IF EXISTS user_invitations;
 CREATE TABLE user_invitations (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT,
-  -- expired_at DATETIME,
   invited_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   activated_at DATETIME,
   token VARCHAR(255),
