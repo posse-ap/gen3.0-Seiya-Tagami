@@ -25,13 +25,13 @@
       <form action="" method="post" class="mt-8">
         <dl>
           <dt><label>名前</label></dt>
-          <dd><input class="w-full p-2 bg-slate-200 text-sm mt-2" type="text" name="" placeholder="名前を入力" required /></dd>
+          <dd><input class="w-full p-2 bg-slate-200 text-sm mt-2" type="text" name=username"" placeholder="名前を入力" required /></dd>
           <dt class="mt-6"><label>Email</label></dt>
-          <dd class="mt-2"><input class="w-full p-2 bg-slate-200 text-sm" type="email" name="" value="1123@gmail.com" placeholder="" disabled /></dd>
+          <dd class="mt-2"><input class="w-full p-2 bg-slate-200 text-sm" type="email" name="email" value="1123@gmail.com" placeholder="" disabled /></dd>
           <dt class="mt-6"><label>パスワード</label></dt>
-          <dd class="mt-2"><input class="w-full p-2 bg-slate-200 text-sm" type="password" name="" placeholder="パスワードを入力" /></dd>
+          <dd class="mt-2"><input class="w-full p-2 bg-slate-200 text-sm" type="password" name="password" placeholder="パスワードを入力" required/></dd>
           <dt class="mt-6"><label>パスワード（確認）</label></dt>
-          <dd class="mt-2"><input class="w-full p-2 bg-slate-200 text-sm" type="password" name="" placeholder="パスワードを再入力" /></dd>
+          <dd class="mt-2"><input class="w-full p-2 bg-slate-200 text-sm" type="password" name="password_conf" placeholder="パスワードを確認" required/></dd>
         </dl>
         <button class="mt-8 px-6 py-[6px] bg-blue text-white font-bold text-center rounded-lg hover:shadow-md hover:shadow-slate-500 transition-all duration-200" name="upload" type="submit">作成</button>
       </form>

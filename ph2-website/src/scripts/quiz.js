@@ -9,7 +9,7 @@
 
   /**
    * @description buttonタグにdisabledを付与
-   * @param choices {NodeListOf<Element>}
+   * @param {NodeListOf<Element>} choices 
    */
   const setDisabled = (choices) => {
     choices.forEach((choice) => {
@@ -19,7 +19,7 @@
 
   /**
    * @description buttonタグからis-attached-arrowクラスを外す
-   * @param choices {NodeListOf<Element>}
+   * @param {NodeListOf<Element>} choices 
    */
   const removeArrows = (choices) => {
     choices.forEach((choice) => {
@@ -51,7 +51,7 @@
 
           /**
            * @description 押下された選択肢に格納されていた数字と正解の数字が等しいか確かめます。
-           * @param iscorrect {boolean}
+           * @param {boolean} iscorrect 
            */
           const iscorrect = selectedAnswerNumber === correctNum;
 
